@@ -12,7 +12,8 @@ import {
   Clock, 
   CheckCircle2,
   BatteryCharging,
-  Terminal
+  Terminal,
+  Zap
 } from 'lucide-react';
 import type { TroubleshootingMode } from '../types';
 
@@ -26,6 +27,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartProblem, onOpenCmdHel
   const [customInput, setCustomInput] = useState('');
 
   const categories = [
+    {
+      title: '⚡ Hackathon Survival & Dev Skills',
+      description: 'Emergency demo crash, port in use (3000/8000), CORS block, git merge panic',
+      icon: Zap,
+      color: 'bg-amber-50 text-amber-700 border-amber-200 hover:border-amber-400',
+      defaultProblem: 'Hackathon emergency: port already in use or demo crashed before pitch.',
+    },
     {
       title: 'My Laptop or Computer',
       description: 'Power, battery, sudden shutdowns, loud fans, or slow boot',
@@ -71,6 +79,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartProblem, onOpenCmdHel
   ];
 
   const popularProblems = [
+    {
+      title: 'Hackathon emergency: Port in use or app crashed before pitch.',
+      category: '⚡ Hackathon Survival & Dev Skills',
+      badge: 'Hackathon ⚡',
+    },
     {
       title: 'My laptop suddenly turns off.',
       category: 'My Laptop or Computer',

@@ -10,7 +10,8 @@ from app.ai.diagnostic_trees import (
     APP_WONT_OPEN_TREE,
     BSOD_CRASH_TREE,
     OVERHEATING_FAN_TREE,
-    PRINTER_OFFLINE_TREE
+    PRINTER_OFFLINE_TREE,
+    HACKATHON_SURVIVAL_TREE
 )
 from app.ai.gemini_service import gemini_service
 
@@ -21,7 +22,9 @@ class DiagnosticEngine:
         t = (text or "").lower()
         cat = (category or "").lower()
 
-        if "blue screen" in t or "bsod" in t or "stop code" in t or "crash" in t and "screen" in t:
+        if "hackathon" in t or "hackathon" in cat or "eaddrinuse" in t or "port" in t and "use" in t or "cors" in t or "merge conflict" in t or "pitch" in t or "demo crash" in t or "rate limit" in t:
+            return "⚡ Hackathon & Dev Skills", HACKATHON_SURVIVAL_TREE
+        elif "blue screen" in t or "bsod" in t or "stop code" in t or "crash" in t and "screen" in t:
             return "Windows Repair & BSOD", BSOD_CRASH_TREE
         elif "overheat" in t or "heat" in t or "hot" in t or "loud fan" in t or "fan noise" in t:
             return "Cooling & Thermal", OVERHEATING_FAN_TREE

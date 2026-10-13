@@ -851,3 +851,121 @@ PRINTER_OFFLINE_TREE: Dict[int, Dict[str, Any]] = {
         }
     }
 }
+
+HACKATHON_SURVIVAL_TREE: Dict[int, Dict[str, Any]] = {
+    1: {
+        "stage": "understanding",
+        "progress_title": "Emergency Hackathon Triage",
+        "assistant_message": "Don't panic! Hackathon emergencies happen to every team. Let's pinpoint the exact issue so we can fix it fast before judging.",
+        "structured_data": {
+            "what_we_are_checking": "What critical technical hurdle is blocking your project right now?",
+            "why_it_matters": "During a hackathon, time is your most valuable resource. Identifying whether the issue is a hung port, CORS block, git conflict, or demo crash allows us to apply the right 60-second fix instead of rewriting code.",
+            "what_to_do": [
+                "Review the error message on your screen or terminal.",
+                "Choose the emergency below that matches your current crisis."
+            ],
+            "what_should_happen": "We will provide an instant, targeted rescue plan with exact commands to restore your app.",
+            "tell_us_what_happened_options": [
+                {"key": "port_in_use", "label": "⚡ Port already in use (EADDRINUSE 3000 / 5173 / 8000)", "action_type": "normal"},
+                {"key": "cors_error", "label": "🌐 CORS Error blocking Frontend from calling Backend API", "action_type": "normal"},
+                {"key": "git_panic", "label": "🐙 Git Merge Conflict or detached HEAD panic before deadline", "action_type": "normal"},
+                {"key": "demo_crash", "label": "💥 Demo crashed or blank white screen 10 mins before presentation", "action_type": "normal"},
+                {"key": "rate_limit", "label": "🤖 AI / LLM API Rate Limit or 429 quota error during live testing", "action_type": "normal"}
+            ],
+            "what_happens_next": "Once selected, we will isolate the root cause and provide you with an exact, safe fix.",
+            "what_we_know_so_far": ["Hackathon project facing technical emergency."],
+            "what_we_need_to_check": ["Specific failure category."],
+            "next_action_title": "Select your hackathon emergency"
+        }
+    },
+    2: {
+        "stage": "understanding",
+        "progress_title": "Isolating Root Cause",
+        "assistant_message": "Understood. Let's isolate what is causing this so we can apply the cleanest surgical fix without losing any of your work.",
+        "structured_data": {
+            "what_we_are_checking": "Verifying the process, error stack trace, or configuration state.",
+            "why_it_matters": "A quick check prevents you from accidentally killing the wrong application or wiping uncommitted code.",
+            "what_to_do": [
+                "1. If Port Issue: Check which port is stuck (commonly 3000, 5173, or 8000).",
+                "2. If CORS: Note if you are calling http://localhost or a cloud URL.",
+                "3. If Git: Check whether you have uncommitted files before touching git branch.",
+                "4. If Demo Crash: Open your browser's Developer Tools (F12) Console tab to see the red error line."
+            ],
+            "what_should_happen": "You will identify the exact port, file, or line causing the blockage.",
+            "command_to_run": "netstat -ano | findstr :3000",
+            "command_explanation": "Finds the hidden background Process ID (PID) holding onto port 3000 so we can terminate it.",
+            "tell_us_what_happened_options": [
+                {"key": "found_stuck_port", "label": "I found the stuck port and PID (ready to kill)", "action_type": "normal"},
+                {"key": "found_cors_or_api", "label": "It's definitely a CORS / API endpoint issue", "action_type": "normal"},
+                {"key": "found_git_conflict", "label": "Git has merge conflict markers (<<<<<<< HEAD)", "action_type": "normal"},
+                {"key": "found_runtime_error", "label": "Found a red error in console / terminal", "action_type": "normal"}
+            ],
+            "what_happens_next": "We will now apply the immediate rescue command or code snippet.",
+            "what_we_know_so_far": [
+                "Emergency diagnosed.",
+                "Ready to execute targeted fix."
+            ],
+            "what_we_need_to_check": ["Apply surgical rescue solution."],
+            "next_action_title": "Proceed to solution"
+        }
+    },
+    3: {
+        "stage": "trying_solution",
+        "progress_title": "Applying Emergency Rescue Fix",
+        "assistant_message": "Here is the exact solution to unblock your project. Run or copy the appropriate rescue command below:",
+        "structured_data": {
+            "what_we_are_checking": "Freeing the port, unblocking CORS, or resetting Git to a clean working state.",
+            "why_it_matters": "This restores your development server or git repository to a clean state in under 30 seconds.",
+            "what_to_do": [
+                "• TO KILL HUNG PORT: Run the command below (replace 3000 with your port number).",
+                "• TO FIX CORS IN FASTAPI: Add CORSMiddleware with allow_origins=['*'].",
+                "• TO FIX CORS IN EXPRESS/NODE: Add app.use(cors()) at top of index.js.",
+                "• TO ABORT BROKEN GIT MERGE: Run git merge --abort to instantly restore your working tree."
+            ],
+            "what_should_happen": "Your server starts cleanly without errors, or your git repo returns to a clean state.",
+            "command_to_run": "taskkill /F /IM node.exe & taskkill /F /IM python.exe",
+            "command_explanation": "Emergency command that terminates any orphaned background Node or Python processes instantly freeing all ports.",
+            "tell_us_what_happened_options": [
+                {"key": "server_started_clean", "label": "Server started successfully! App is running", "action_type": "normal"},
+                {"key": "git_restored_clean", "label": "Git is clean! Merge conflict was resolved", "action_type": "normal"},
+                {"key": "cors_resolved", "label": "API requests are now going through without CORS errors", "action_type": "normal"},
+                {"key": "still_having_error", "label": "Still seeing an error message", "action_type": "error"}
+            ],
+            "what_happens_next": "We will do a final sanity check and provide a quick presentation checklist for your judges pitch.",
+            "what_we_know_so_far": [
+                "Emergency rescue solution applied.",
+                "Processes reset."
+            ],
+            "what_we_need_to_check": ["Verify live app in browser."],
+            "next_action_title": "Verify app behavior"
+        }
+    },
+    4: {
+        "stage": "confirming_fix",
+        "progress_title": "Pitch & Demo Survival Checklist",
+        "assistant_message": "Awesome! Before you step on stage or present to the judges, run through this 30-second Hackathon Demo Checklist:",
+        "structured_data": {
+            "what_we_are_checking": "Is your demo rock-solid and ready to showcase to judges?",
+            "why_it_matters": "Judges evaluate functioning demos. A small precaution (like disabling notifications or opening demo tabs in advance) guarantees a smooth presentation.",
+            "what_to_do": [
+                "1. Pre-open your demo tabs in Google Chrome Incognito mode.",
+                "2. Turn on 'Do Not Disturb' or 'Focus Assist' on Windows so personal messages don't pop up during pitch.",
+                "3. Record a 30-second screen capture video of your working app as an offline backup just in case venue Wi-Fi drops.",
+                "4. Keep 1 sample user account / test data already loaded."
+            ],
+            "what_should_happen": "Your live demo will run smoothly, look professional, and impress the hackathon judges!",
+            "tell_us_what_happened_options": [
+                {"key": "yes_fixed", "label": "Yes, everything is working and demo is ready! 🎉", "action_type": "solved"},
+                {"key": "need_more_help", "label": "I still need help with one more bug before judging", "action_type": "not_solved"}
+            ],
+            "what_happens_next": "You are ready to win the hackathon! Good luck with your presentation!",
+            "what_we_know_so_far": [
+                "App unblocked and running.",
+                "Hackathon demo checklist completed."
+            ],
+            "what_we_need_to_check": ["Final judge presentation."],
+            "next_action_title": "Ready for presentation"
+        }
+    }
+}
+

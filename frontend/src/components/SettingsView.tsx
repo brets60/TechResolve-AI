@@ -8,7 +8,9 @@ import {
   ShieldCheck, 
   Cpu, 
   Lock,
-  ExternalLink
+  ExternalLink,
+  Smartphone,
+  Download
 } from 'lucide-react';
 import { TroubleshootingMode, SystemSettings } from '../types';
 import { api } from '../api';
@@ -234,6 +236,78 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ mode, onToggleMode }
               </div>
             )}
           </form>
+        </div>
+
+        {/* Mobile Phone & Android APK Section */}
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+          <div className="flex items-start justify-between gap-4 mb-5">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Smartphone className="w-5 h-5 text-blue-600" />
+                <h2 className="text-lg sm:text-xl font-bold text-slate-900">
+                  Phone & Mobile App
+                </h2>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Install TechResolve AI as a native mobile app on your smartphone with one click.
+              </p>
+            </div>
+
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+              APK Ready
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            
+            {/* Native Android APK Card */}
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50/70 to-indigo-50/70 border border-blue-200/80 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-sm font-bold text-blue-900 mb-1">
+                  <span>🤖</span>
+                  <span>Android App (.APK)</span>
+                </div>
+                <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                  Download the standalone Android APK installer directly to your phone and install it for a fullscreen native app experience.
+                </p>
+              </div>
+
+              <a
+                href="/api/download/apk"
+                download="TechResolve-AI.apk"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm shadow-xs transition"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Android APK (4.2 MB)</span>
+              </a>
+            </div>
+
+            {/* Instant PWA Install Card */}
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-sm font-bold text-slate-900 mb-1">
+                  <span>📲</span>
+                  <span>Add to Home Screen (Instant)</span>
+                </div>
+                <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                  Works on both <strong>iPhone (Safari)</strong> and <strong>Android (Chrome)</strong> without downloading files:
+                </p>
+                <ul className="text-xs text-slate-500 space-y-1 mb-4">
+                  <li>• <strong>iPhone:</strong> Tap Share icon <span className="font-semibold text-slate-700">&rarr;</span> "Add to Home Screen"</li>
+                  <li>• <strong>Android:</strong> Tap Three dots <span className="font-semibold text-slate-700">&rarr;</span> "Install App"</li>
+                </ul>
+              </div>
+
+              <div className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 text-center">
+                ✓ Auto-syncs live updates with zero storage
+              </div>
+            </div>
+
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-500 leading-relaxed">
+            💡 <strong>Tip for installing APKs on Android:</strong> When opening the downloaded APK file for the first time, your phone may ask: <em>"Allow installation from this source"</em>. Tap <strong>Allow / Settings</strong>, then tap <strong>Install</strong>.
+          </div>
         </div>
 
         {/* Safety & Privacy Assurances */}

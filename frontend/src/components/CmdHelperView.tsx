@@ -140,6 +140,15 @@ const CATEGORIES_CONFIG: Record<string, CategoryMeta> = {
     badgeText: 'text-red-700',
     border: 'border-red-200',
     description: 'Graceful PC shutdown, restart straight into BIOS/UEFI firmware, abort shutdown timers, and winver.'
+  },
+  '⚡ Hackathon & Rapid Dev': {
+    name: '⚡ Hackathon & Rapid Dev',
+    icon: Zap,
+    color: 'text-amber-600',
+    badgeBg: 'bg-amber-50',
+    badgeText: 'text-amber-800',
+    border: 'border-amber-200',
+    description: 'Emergency hackathon toolkit: kill zombie Node/Python servers, abort broken git merges, stash code, and unblock ports.'
   }
 };
 

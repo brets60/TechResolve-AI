@@ -160,7 +160,7 @@ export function App() {
       />
 
       {/* Main Body */}
-      <main className="flex-1">
+      <main className="flex-1 pb-20 md:pb-6">
         {globalLoading ? (
           <div className="py-20 text-center">
             <div className="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
@@ -224,7 +224,7 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400">
+      <footer className="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400 mb-14 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="font-medium text-slate-500">
             TechResolve AI • Patient IT Support For Everyone

@@ -35,6 +35,10 @@ backend/uploads/*
 # Build Artifacts
 dist/
 frontend/dist/
+.gradle/
+**/android/**/build/
+**/android/.gradle/
+**/android/app/build/
 
 # Logs
 *.log

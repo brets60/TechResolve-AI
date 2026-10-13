@@ -9,7 +9,10 @@ import type {
   CmdOutputTranslation
 } from './types';
 
-const API_BASE = '/api';
+// Use Railway API when running inside native Android APK bundle
+const API_BASE = (typeof window !== 'undefined' && window.location.hostname === 'localhost' && !window.location.port)
+  ? 'https://techresolve-ai-production.up.railway.app/api'
+  : '/api';
 
 class ApiClient {
   private token: string | null = localStorage.getItem('techresolve_token');

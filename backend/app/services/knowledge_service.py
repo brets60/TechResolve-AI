@@ -343,6 +343,56 @@ INITIAL_ARTICLES = [
         "expected_results": "Your development server starts up smoothly with listening status.",
         "safety_warning": "Double check the PID before running taskkill to make sure you are not terminating an essential system service.",
         "technician_trigger": "Consult your lead developer or DevOps if system-reserved low ports (<1024) are blocked by corporate firewall policies."
+    },
+    {
+        "id": "hackathon-survival-guide",
+        "title": "Hackathon Survival Guide: Emergency Fixes 10 Mins Before Pitch",
+        "category": "⚡ Hackathon & Dev Skills",
+        "summary": "Step-by-step emergency troubleshooting guide to rescue your project from port conflicts, CORS blocks, broken git merges, and presentation crashes.",
+        "difficulty": "Beginner / Developer",
+        "estimated_time": "2-5 mins",
+        "tags": ["hackathon", "demo", "pitch", "port", "cors", "git", "emergency", "crash"],
+        "common_causes": [
+            "Zombie Node or Python processes holding dev ports (EADDRINUSE 3000 / 8000).",
+            "CORS policy blocking frontend from communicating with backend API.",
+            "Git merge conflict markers (<<<<<<< HEAD) left uncommitted right before deadline.",
+            "Venue Wi-Fi instability or AI rate limit quota exceeded during live judging."
+        ],
+        "signs_to_look_for": [
+            "Terminal throws 'Error: listen EADDRINUSE: address already in use'.",
+            "Browser console throws red 'Access to fetch has been blocked by CORS policy'.",
+            "Git says 'Automatic merge failed; fix conflicts and then commit the result'.",
+            "Demo website shows white blank screen when opened on presenter screen."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Kill Hung Background Servers Instantly",
+                "instruction": "Open Command Prompt and run: taskkill /F /IM node.exe & taskkill /F /IM python.exe. This frees all listening ports in 3 seconds without rebooting.",
+                "why": "Unblocks frozen dev servers and releases locked files."
+            },
+            {
+                "step": 2,
+                "title": "Unblock API Requests with Permissive CORS",
+                "instruction": "In FastAPI, ensure allow_origins=['*']. In Express.js, add app.use(cors()). In Flask, add CORS(app).",
+                "why": "Allows browser to fetch data from localhost or deployed cloud APIs without browser security blocks."
+            },
+            {
+                "step": 3,
+                "title": "Abort Broken Git Merges Safely",
+                "instruction": "If a panic merge broke your project, run: git merge --abort. Then create an emergency branch: git checkout -b demo-rescue.",
+                "why": "Instantly returns your codebase to the last known working state before the deadline."
+            },
+            {
+                "step": 4,
+                "title": "Run the 30-Second Pre-Pitch Checklist",
+                "instruction": "Open demo tabs in Chrome Incognito, enable Windows Focus Assist (Do Not Disturb), and keep a 30-second screen recording backup ready in case venue Wi-Fi fails.",
+                "why": "Guarantees a flawless, professional presentation for the hackathon judges."
+            }
+        ],
+        "expected_results": "Your dev servers start smoothly, APIs respond cleanly, and your demo runs flawlessly on stage.",
+        "safety_warning": "Never run destructive git reset without creating a safety backup branch first.",
+        "technician_trigger": "If venue Wi-Fi blocks ports entirely, switch to your phone's mobile hotspot or run completely on localhost."
     }
 ]
 

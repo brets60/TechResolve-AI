@@ -1,0 +1,12 @@
+{
+  "appId": "com.techresolve.ai",
+  "appName": "TechResolve AI",
+  "webDir": "dist",
+  "server": {
+    "url": "https://techresolve-ai-production.up.railway.app",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

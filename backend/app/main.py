@@ -75,6 +75,20 @@ def health_check():
         "version": settings.PROJECT_VERSION
     }
 
+@app.get("/api/download/apk")
+def download_apk():
+    import os
+    from fastapi.responses import FileResponse
+    from fastapi import HTTPException
+    apk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "TechResolve-AI.apk"))
+    if not os.path.exists(apk_path):
+        raise HTTPException(status_code=404, detail="APK build not found")
+    return FileResponse(
+        apk_path,
+        media_type="application/vnd.android.package-archive",
+        filename="TechResolve-AI.apk"
+    )
+
 # Mount Production Frontend Single Page Application if built
 import os
 from fastapi.responses import FileResponse

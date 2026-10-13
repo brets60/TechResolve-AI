@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-blue-600 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-700 hover:text-blue-600 px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-slate-50 transition"
               >
                 <UserIcon className="w-4 h-4" />
                 <span className="hidden sm:inline">Sign In</span>
@@ -177,6 +177,74 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         </div>
       </div>
+
+      {/* Mobile Bottom Navigation Bar (Shown on phones < md) */}
+      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden flex items-center justify-around py-1.5 px-2 safe-area-pb shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <button
+          type="button"
+          onClick={() => setCurrentView('home')}
+          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+            currentView === 'home'
+              ? 'text-blue-600 font-bold'
+              : 'text-slate-500 hover:text-slate-900'
+          }`}
+        >
+          <Home className={`w-5 h-5 mb-0.5 ${currentView === 'home' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
+          <span>Home</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setCurrentView('cmd')}
+          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+            currentView === 'cmd'
+              ? 'text-blue-600 font-bold'
+              : 'text-slate-500 hover:text-slate-900'
+          }`}
+        >
+          <Terminal className={`w-5 h-5 mb-0.5 ${currentView === 'cmd' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
+          <span>CMD Tools</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setCurrentView('knowledge')}
+          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+            currentView === 'knowledge'
+              ? 'text-blue-600 font-bold'
+              : 'text-slate-500 hover:text-slate-900'
+          }`}
+        >
+          <BookOpen className={`w-5 h-5 mb-0.5 ${currentView === 'knowledge' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
+          <span>Guides</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setCurrentView('dashboard')}
+          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+            currentView === 'dashboard'
+              ? 'text-blue-600 font-bold'
+              : 'text-slate-500 hover:text-slate-900'
+          }`}
+        >
+          <LayoutDashboard className={`w-5 h-5 mb-0.5 ${currentView === 'dashboard' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
+          <span>History</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setCurrentView('settings')}
+          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+            currentView === 'settings'
+              ? 'text-blue-600 font-bold'
+              : 'text-slate-500 hover:text-slate-900'
+          }`}
+        >
+          <SettingsIcon className={`w-5 h-5 mb-0.5 ${currentView === 'settings' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
+          <span>Settings</span>
+        </button>
+      </nav>
     </header>
   );
 };

@@ -2362,6 +2362,200 @@ CMD_LIBRARY: List[Dict[str, Any]] = [
             "1. Open Command Prompt as Administrator.",
             "2. Type bcdedit and press Enter."
         ]
+    },
+    {
+        "id": "hackathon-kill-node",
+        "command": "taskkill /F /IM node.exe",
+        "name": "Kill All Zombie Node.js Processes",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Immediately terminates any hung, frozen, or background Node.js server processes to instantly free occupied ports like 3000 or 5173.",
+        "safety_level": "Safe (Process Termination)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "/F", "meaning": "Forcefully terminates the process without waiting for it to respond"},
+            {"flag": "/IM node.exe", "meaning": "Specifies the image name of the target process (node.exe)"}
+        ],
+        "expected_output": "SUCCESS: The process \"node.exe\" with PID 14204 has been terminated.",
+        "what_to_look_for": "Confirms 'SUCCESS: The process has been terminated'. Your ports are now completely freed.",
+        "how_to_run_steps": [
+            "1. Open Command Prompt.",
+            "2. Type: taskkill /F /IM node.exe",
+            "3. Press Enter to free all Node ports."
+        ]
+    },
+    {
+        "id": "hackathon-kill-python",
+        "command": "taskkill /F /IM python.exe",
+        "name": "Kill All Zombie Python & Uvicorn Servers",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Forcibly terminates all running Python processes to resolve port 8000 conflicts and release locked SQLite database files.",
+        "safety_level": "Safe (Process Termination)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "/F", "meaning": "Forcefully terminates the process"},
+            {"flag": "/IM python.exe", "meaning": "Targets all python.exe background instances"}
+        ],
+        "expected_output": "SUCCESS: The process \"python.exe\" with PID 8892 has been terminated.",
+        "what_to_look_for": "Unlocks any hung FastAPI, Flask, or Django servers.",
+        "how_to_run_steps": [
+            "1. Open Command Prompt.",
+            "2. Type: taskkill /F /IM python.exe and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-port-find",
+        "command": "netstat -ano | findstr :3000",
+        "name": "Find Process ID (PID) Hogging Port 3000",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Locates the exact background Process ID (PID) holding onto port 3000 so you can kill it in seconds.",
+        "safety_level": "Safe (Read-Only)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "netstat -ano", "meaning": "Lists all active network sockets and Process IDs"},
+            {"flag": "findstr :3000", "meaning": "Filters output to only show connections on port 3000"}
+        ],
+        "expected_output": "TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       14204",
+        "what_to_look_for": "The number at the far right column (e.g. 14204) is the PID holding your port.",
+        "how_to_run_steps": [
+            "1. Open Command Prompt.",
+            "2. Type: netstat -ano | findstr :3000 and press Enter.",
+            "3. Note the PID number on the far right."
+        ]
+    },
+    {
+        "id": "hackathon-kill-pid",
+        "command": "taskkill /PID [PID] /F",
+        "name": "Emergency Terminate Specific Process by PID",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Forcibly kills an individual stubborn process using its Process ID (PID) found from netstat.",
+        "safety_level": "Safe (Process Termination)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "/PID [PID]", "meaning": "Specifies the Process ID of the process to terminate"},
+            {"flag": "/F", "meaning": "Forcefully closes the process"}
+        ],
+        "expected_output": "SUCCESS: The process with PID 14204 has been terminated.",
+        "what_to_look_for": "Replaces [PID] with the actual number (e.g. taskkill /PID 14204 /F).",
+        "how_to_run_steps": [
+            "1. Replace [PID] with your number from netstat.",
+            "2. Type: taskkill /PID 14204 /F and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-git-merge-abort",
+        "command": "git merge --abort",
+        "name": "Emergency Abort Broken Merge Conflict",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Instantly rolls back an active Git merge disaster and restores your project to its safe pre-merge state.",
+        "safety_level": "Safe (Rollback)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "git merge", "meaning": "Git branch merging tool"},
+            {"flag": "--abort", "meaning": "Aborts current conflict resolution and restores pre-merge state"}
+        ],
+        "expected_output": "Returns to normal branch prompt without conflict markers.",
+        "what_to_look_for": "Working directory returns to clean state without <<<<<<< HEAD markers.",
+        "how_to_run_steps": [
+            "1. Open terminal in your repo.",
+            "2. Type: git merge --abort and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-git-stash",
+        "command": "git stash",
+        "name": "Emergency Stash Working Changes",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Temporarily tucks away your uncommitted code modifications so you can pull team updates without conflicts.",
+        "safety_level": "Safe (Saves Work)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "git stash", "meaning": "Saves dirty working state to an internal stack for later retrieval"}
+        ],
+        "expected_output": "Saved working directory and index state WIP on main: ...",
+        "what_to_look_for": "Your working tree becomes clean, allowing git pull without errors.",
+        "how_to_run_steps": [
+            "1. Type: git stash and press Enter.",
+            "2. Run git pull to get latest code."
+        ]
+    },
+    {
+        "id": "hackathon-git-stash-pop",
+        "command": "git stash pop",
+        "name": "Restore Stashed Working Code",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Re-applies your previously saved stashed modifications back onto your current working branch.",
+        "safety_level": "Safe (Restores Work)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "pop", "meaning": "Applies the most recent stashed state and removes it from the stash list"}
+        ],
+        "expected_output": "Changes not staged for commit: ... Dropped refs/stash@{0}",
+        "what_to_look_for": "Your in-progress changes are safely restored.",
+        "how_to_run_steps": [
+            "1. Type: git stash pop and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-git-rescue-branch",
+        "command": "git checkout -b emergency-backup",
+        "name": "Create Instant Rescue Safety Branch",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Creates and switches to a safety backup branch so you can test risky last-minute code without breaking main.",
+        "safety_level": "Safe (Creates Branch)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "-b", "meaning": "Creates a new branch and switches HEAD to it immediately"}
+        ],
+        "expected_output": "Switched to a new branch 'emergency-backup'",
+        "what_to_look_for": "You are now on a safe branch where you can experiment freely.",
+        "how_to_run_steps": [
+            "1. Type: git checkout -b emergency-backup and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-npm-cache-clean",
+        "command": "npm cache clean --force",
+        "name": "Clear Corrupted NPM Module Cache",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Purges npm's internal package download cache to fix corrupted dependencies or failed package installations.",
+        "safety_level": "Safe (Cache Reset)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "cache clean", "meaning": "Deletes downloaded tarballs from npm cache"},
+            {"flag": "--force", "meaning": "Forces clean without confirmation prompts"}
+        ],
+        "expected_output": "npm warn using --force Recommended protections disabled.",
+        "what_to_look_for": "Follow this up with npm install to reinstall packages cleanly.",
+        "how_to_run_steps": [
+            "1. Type: npm cache clean --force and press Enter."
+        ]
+    },
+    {
+        "id": "hackathon-quick-health-check",
+        "command": "curl -I http://127.0.0.1:8000/api/health",
+        "name": "Instant API Live Response & Header Check",
+        "category": "⚡ Hackathon & Rapid Dev",
+        "description": "Tests if your backend server is responding with HTTP 200 without browser cache or CORS interference.",
+        "safety_level": "Safe (Read-Only)",
+        "safety_badge": "safe",
+        "requires_admin": false,
+        "flags_explanation": [
+            {"flag": "-I", "meaning": "Fetches HTTP response headers only (HEAD request)"}
+        ],
+        "expected_output": "HTTP/1.1 200 OK\ncontent-type: application/json",
+        "what_to_look_for": "Look for 'HTTP/1.1 200 OK'. If you see 500, your server code crashed.",
+        "how_to_run_steps": [
+            "1. Type: curl -I http://127.0.0.1:8000/api/health and press Enter."
+        ]
     }
 ]
 
