@@ -217,6 +217,9 @@ export function App() {
               <SettingsView
                 mode={mode}
                 onToggleMode={handleToggleMode}
+                user={user}
+                onOpenAuth={() => setIsAuthOpen(true)}
+                onLogout={handleLogout}
               />
             )}
           </>

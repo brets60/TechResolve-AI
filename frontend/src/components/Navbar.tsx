@@ -156,12 +156,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Auth / Profile */}
             {user ? (
               <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
-                <span className="text-sm font-medium text-slate-700 hidden lg:inline max-w-[120px] truncate">
+                {user.avatar_url ? (
+                  <img src={user.avatar_url} alt={user.name} className="w-7 h-7 rounded-full object-cover border border-slate-200" />
+                ) : (
+                  <div className="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold shrink-0">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <span className="text-xs sm:text-sm font-semibold text-slate-700 max-w-[100px] truncate hidden sm:inline">
                   {user.name}
                 </span>
                 <button
                   onClick={onLogout}
-                  className="p-2 rounded-lg text-slate-500 hover:text-red-600 hover:bg-red-50 transition"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition cursor-pointer"
                   title="Log out"
                 >
                   <LogOut className="w-4 h-4" />
@@ -170,10 +177,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-700 hover:text-blue-600 px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-slate-50 transition"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-xl border border-blue-200/80 transition cursor-pointer shadow-2xs"
               >
-                <UserIcon className="w-4 h-4" />
-                <span className="hidden sm:inline">Sign In</span>
+                <UserIcon className="w-3.5 h-3.5" />
+                <span>Log In / Register</span>
               </button>
             )}
 

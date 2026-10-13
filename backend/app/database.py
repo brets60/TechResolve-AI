@@ -18,6 +18,25 @@ engine = create_engine(
     pool_pre_ping=True
 )
 
+def ensure_db_schema():
+    from sqlalchemy import text
+    try:
+        with engine.connect() as conn:
+            for col_name, col_sql in [
+                ("avatar_url", "VARCHAR(500)"),
+                ("auth_provider", "VARCHAR(50) DEFAULT 'local'"),
+                ("google_id", "VARCHAR(255)")
+            ]:
+                try:
+                    conn.execute(text(f"ALTER TABLE users ADD COLUMN {col_name} {col_sql}"))
+                    conn.commit()
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+ensure_db_schema()
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

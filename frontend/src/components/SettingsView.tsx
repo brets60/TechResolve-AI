@@ -12,15 +12,24 @@ import {
   Smartphone,
   Download
 } from 'lucide-react';
-import { TroubleshootingMode, SystemSettings } from '../types';
+import { TroubleshootingMode, SystemSettings, User } from '../types';
 import { api } from '../api';
 
 interface SettingsViewProps {
   mode: TroubleshootingMode;
   onToggleMode: (mode: TroubleshootingMode) => void;
+  user?: User | null;
+  onOpenAuth?: () => void;
+  onLogout?: () => void;
 }
 
-export const SettingsView: React.FC<SettingsViewProps> = ({ mode, onToggleMode }) => {
+export const SettingsView: React.FC<SettingsViewProps> = ({ 
+  mode, 
+  onToggleMode,
+  user,
+  onOpenAuth,
+  onLogout
+}) => {
   const [settings, setSettings] = useState<SystemSettings | null>(null);
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [savingKey, setSavingKey] = useState(false);
@@ -72,6 +81,85 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ mode, onToggleMode }
 
       <div className="space-y-8">
         
+        {/* Account & Authentication */}
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+          <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-1">
+                Account & Authentication
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Sign in with Google, One-Time Code, or Email to save your diagnostic history across devices.
+              </p>
+            </div>
+            {user ? (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Signed In
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                Guest Mode
+              </span>
+            )}
+          </div>
+
+          {user ? (
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-3">
+                {user.avatar_url ? (
+                  <img src={user.avatar_url} alt={user.name} className="w-12 h-12 rounded-full object-cover border border-slate-200" />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-slate-900 text-sm sm:text-base">{user.name}</span>
+                    <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-md bg-blue-100 text-blue-800">
+                      {user.auth_provider === 'google' ? 'Google' : user.auth_provider === 'otp' ? 'One-Time Code' : 'Password'}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-500">{user.email}</p>
+                </div>
+              </div>
+
+              {onLogout && (
+                <button
+                  type="button"
+                  onClick={onLogout}
+                  className="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 transition cursor-pointer self-start sm:self-center"
+                >
+                  Sign Out
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-blue-50/70 to-indigo-50/70 border border-blue-200/80">
+              <div>
+                <h3 className="font-bold text-slate-900 text-sm mb-1">
+                  You are currently using TechResolve as a Guest
+                </h3>
+                <p className="text-xs text-slate-600">
+                  Register or log in to sync all 111 command tools, diagnostic trees, and battery history across your phone and computer.
+                </p>
+              </div>
+
+              {onOpenAuth && (
+                <button
+                  type="button"
+                  onClick={onOpenAuth}
+                  className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition cursor-pointer whitespace-nowrap self-start sm:self-center flex items-center gap-2"
+                >
+                  <span>Sign In / Register</span>
+                  <span>→</span>
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+
         {/* Mode Preference (Beginner vs IT Pro) */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
           <div className="mb-6">

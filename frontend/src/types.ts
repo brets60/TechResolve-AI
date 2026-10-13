@@ -7,7 +7,15 @@ export interface User {
   email: string;
   name: string;
   preferred_mode: TroubleshootingMode;
+  avatar_url?: string;
+  auth_provider?: 'local' | 'google' | 'otp';
   created_at: string;
+}
+
+export interface OtpResponse {
+  message: string;
+  email: string;
+  code_preview?: string;
 }
 
 export interface WizardOption {

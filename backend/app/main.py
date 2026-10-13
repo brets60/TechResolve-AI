@@ -26,6 +26,20 @@ async def lifespan(app: FastAPI):
     logger.info("Initializing database tables...")
     Base.metadata.create_all(bind=engine)
     
+    # Safe column auto-migration for User table
+    from sqlalchemy import text
+    with engine.connect() as conn:
+        for col_name, col_sql in [
+            ("avatar_url", "VARCHAR(500)"),
+            ("auth_provider", "VARCHAR(50) DEFAULT 'local'"),
+            ("google_id", "VARCHAR(255)")
+        ]:
+            try:
+                conn.execute(text(f"ALTER TABLE users ADD COLUMN {col_name} {col_sql}"))
+                conn.commit()
+            except Exception:
+                pass
+
     db = SessionLocal()
     try:
         logger.info("Seeding initial Knowledge Base articles...")

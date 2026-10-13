@@ -6,7 +6,8 @@ import type {
   SystemSettings,
   TroubleshootingMode,
   CmdItem,
-  CmdOutputTranslation
+  CmdOutputTranslation,
+  OtpResponse
 } from './types';
 
 // Use Railway API when running inside native Android APK bundle
@@ -74,6 +75,37 @@ class ApiClient {
 
   async login(data: { email: string; password: string }) {
     const res = await this.request<{ access_token: string; user: User }>('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    this.setToken(res.access_token);
+    return res;
+  }
+
+  async sendOtp(email: string, purpose: string = 'login_register'): Promise<OtpResponse> {
+    return this.request<OtpResponse>('/auth/otp/send', {
+      method: 'POST',
+      body: JSON.stringify({ email, purpose }),
+    });
+  }
+
+  async verifyOtp(data: { email: string; code: string; name?: string; preferred_mode?: string }) {
+    const res = await this.request<{ access_token: string; user: User }>('/auth/otp/verify', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    this.setToken(res.access_token);
+    return res;
+  }
+
+  async googleAuth(data: {
+    credential?: string;
+    email?: string;
+    name?: string;
+    avatar_url?: string;
+    google_id?: string;
+  }) {
+    const res = await this.request<{ access_token: string; user: User }>('/auth/google', {
       method: 'POST',
       body: JSON.stringify(data),
     });

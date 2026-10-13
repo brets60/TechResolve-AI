@@ -19,6 +19,8 @@ class UserResponse(BaseModel):
     email: EmailStr
     name: str
     preferred_mode: str
+    avatar_url: Optional[str] = None
+    auth_provider: Optional[str] = "local"
     created_at: datetime
 
 class UserUpdate(BaseModel):
@@ -29,6 +31,28 @@ class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user: UserResponse
+
+class OtpRequest(BaseModel):
+    email: EmailStr
+    purpose: Optional[str] = "login_register"
+
+class OtpResponse(BaseModel):
+    message: str
+    email: str
+    code_preview: Optional[str] = None
+
+class OtpVerify(BaseModel):
+    email: EmailStr
+    code: str
+    name: Optional[str] = None
+    preferred_mode: Optional[str] = "beginner"
+
+class GoogleAuthRequest(BaseModel):
+    credential: Optional[str] = None
+    email: Optional[EmailStr] = None
+    name: Optional[str] = None
+    avatar_url: Optional[str] = None
+    google_id: Optional[str] = None
 
 # Wizard / Troubleshooting Schemas
 class WizardOption(BaseModel):

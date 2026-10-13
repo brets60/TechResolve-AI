@@ -16,11 +16,25 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String(255), unique=True, index=True, nullable=False)
     name = Column(String(255), nullable=False)
-    hashed_password = Column(String(255), nullable=False)
+    hashed_password = Column(String(255), nullable=False, default="")
+    avatar_url = Column(String(500), nullable=True)
+    auth_provider = Column(String(50), default="local")  # "local", "google", "otp"
+    google_id = Column(String(255), nullable=True, index=True)
     preferred_mode = Column(String(50), default="beginner")  # "beginner" or "pro"
     created_at = Column(DateTime(timezone=True), default=get_utc_now)
 
     sessions = relationship("TroubleshootingSession", back_populates="user", cascade="all, delete-orphan")
+
+class OtpCode(Base):
+    __tablename__ = "otp_codes"
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String(255), index=True, nullable=False)
+    code = Column(String(10), nullable=False)
+    purpose = Column(String(50), default="login_register")
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    used = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), default=get_utc_now)
 
 class TroubleshootingSession(Base):
     __tablename__ = "troubleshooting_sessions"
