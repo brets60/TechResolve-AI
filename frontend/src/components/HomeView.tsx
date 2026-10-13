@@ -13,17 +13,26 @@ import {
   CheckCircle2,
   BatteryCharging,
   Terminal,
-  Zap
+  Zap,
+  User as UserIcon
 } from 'lucide-react';
-import type { TroubleshootingMode } from '../types';
+import type { TroubleshootingMode, User } from '../types';
 
 interface HomeViewProps {
   onStartProblem: (problem: string, category: string) => void;
   onOpenCmdHelper?: () => void;
   mode: TroubleshootingMode;
+  user?: User | null;
+  onOpenAuth?: () => void;
 }
 
-export const HomeView: React.FC<HomeViewProps> = ({ onStartProblem, onOpenCmdHelper, mode }) => {
+export const HomeView: React.FC<HomeViewProps> = ({ 
+  onStartProblem, 
+  onOpenCmdHelper, 
+  mode,
+  user,
+  onOpenAuth
+}) => {
   const [customInput, setCustomInput] = useState('');
 
   const categories = [
@@ -134,9 +143,50 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartProblem, onOpenCmdHel
         </h1>
 
         {/* Description */}
-        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-6 leading-relaxed">
           Tell us what's wrong with your device. We'll help you understand the problem and guide you through the solution one step at a time.
         </p>
+
+        {/* Prominent Sign In Banner for Guests */}
+        {!user && onOpenAuth && (
+          <div className="max-w-2xl mx-auto mb-8 p-3.5 sm:p-4 rounded-2xl bg-white border border-blue-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                <UserIcon className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-slate-900">
+                  Save Your Troubleshooting Progress
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Sign in or register with Google or a One-Time Code
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={onOpenAuth}
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-xs transition flex items-center justify-center gap-2 cursor-pointer shrink-0"
+            >
+              <UserIcon className="w-4 h-4" />
+              <span>Log In / Register</span>
+              <span>→</span>
+            </button>
+          </div>
+        )}
+
+        {/* Synced User Pill */}
+        {user && (
+          <div className="max-w-2xl mx-auto mb-6 p-2.5 px-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center justify-between gap-2 text-left">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Signed in as <strong>{user.name}</strong> ({user.email})</span>
+            </div>
+            <span className="font-bold text-[11px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md">
+              Sessions Synced ✓
+            </span>
+          </div>
+        )}
 
         {/* Direct Problem Input Form */}
         <form onSubmit={handleCustomSubmit} className="max-w-2xl mx-auto mb-10">

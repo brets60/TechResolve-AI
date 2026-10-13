@@ -173,6 +173,8 @@ export function App() {
                 onStartProblem={handleStartProblem}
                 onOpenCmdHelper={() => setCurrentView('cmd')}
                 mode={mode}
+                user={user}
+                onOpenAuth={() => setIsAuthOpen(true)}
               />
             )}
 

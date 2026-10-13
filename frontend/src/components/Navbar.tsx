@@ -125,8 +125,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mode Switcher & User Account */}
           <div className="flex items-center gap-3">
             
-            {/* Beginner vs Pro Mode Pill */}
-            <div className="bg-slate-100 p-1 rounded-xl flex items-center text-xs font-medium">
+            {/* Beginner vs Pro Mode Pill (Hidden on mobile to keep Sign In ultra prominent) */}
+            <div className="hidden sm:flex bg-slate-100 p-1 rounded-xl items-center text-xs font-medium">
               <button
                 onClick={() => onToggleMode('beginner')}
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition ${
@@ -157,9 +157,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             {user ? (
               <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
                 {user.avatar_url ? (
-                  <img src={user.avatar_url} alt={user.name} className="w-7 h-7 rounded-full object-cover border border-slate-200" />
+                  <img src={user.avatar_url} alt={user.name} className="w-8 h-8 rounded-full object-cover border border-slate-200" />
                 ) : (
-                  <div className="w-7 h-7 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                 )}
@@ -177,10 +177,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-xl border border-blue-200/80 transition cursor-pointer shadow-2xs"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 px-3.5 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow shrink-0"
               >
-                <UserIcon className="w-3.5 h-3.5" />
-                <span>Log In / Register</span>
+                <UserIcon className="w-4 h-4 text-white" />
+                <span>Sign In / Register</span>
               </button>
             )}
 
@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Bottom Navigation Bar (Shown on phones < md) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden flex items-center justify-around py-1.5 px-2 safe-area-pb shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden flex items-center justify-around py-1.5 px-1 safe-area-pb shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
         <button
           type="button"
           onClick={() => setCurrentView('home')}
@@ -214,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           }`}
         >
           <Terminal className={`w-5 h-5 mb-0.5 ${currentView === 'cmd' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
-          <span>CMD Tools</span>
+          <span>CMD</span>
         </button>
 
         <button
@@ -243,18 +243,37 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span>History</span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => setCurrentView('settings')}
-          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
-            currentView === 'settings'
-              ? 'text-blue-600 font-bold'
-              : 'text-slate-500 hover:text-slate-900'
-          }`}
-        >
-          <SettingsIcon className={`w-5 h-5 mb-0.5 ${currentView === 'settings' ? 'text-blue-600 stroke-[2.5]' : 'text-slate-500'}`} />
-          <span>Settings</span>
-        </button>
+        {/* Mobile Dedicated Sign In or Profile Button */}
+        {user ? (
+          <button
+            type="button"
+            onClick={() => setCurrentView('settings')}
+            className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+              currentView === 'settings' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-900'
+            }`}
+          >
+            {user.avatar_url ? (
+              <img src={user.avatar_url} alt={user.name} className="w-5 h-5 rounded-full object-cover mb-0.5 border border-slate-200" />
+            ) : (
+              <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold mb-0.5">
+                {user.name.charAt(0).toUpperCase()}
+              </div>
+            )}
+            <span className="truncate max-w-[45px]">{user.name.split(' ')[0]}</span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={onOpenAuth}
+            className="flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-bold text-blue-600 transition cursor-pointer"
+          >
+            <div className="relative mb-0.5">
+              <UserIcon className="w-5 h-5 text-blue-600 stroke-[2.5]" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 absolute -top-0.5 -right-0.5 animate-pulse"></span>
+            </div>
+            <span className="font-bold text-blue-600">Sign In</span>
+          </button>
+        )}
       </nav>
     </header>
   );
