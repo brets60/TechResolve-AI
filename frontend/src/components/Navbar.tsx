@@ -41,8 +41,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setCurrentView('home')}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition">
-              <Wrench className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-slate-200/90 group-hover:scale-105 group-hover:shadow-md transition-all bg-white flex items-center justify-center p-0.5">
+              <img 
+                src="/logo.png" 
+                alt="TechResolve AI" 
+                className="w-full h-full object-contain rounded-lg"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">
