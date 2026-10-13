@@ -76,6 +76,7 @@ def health_check():
     }
 
 @app.get("/api/download/apk")
+@app.head("/api/download/apk")
 def download_apk():
     import os
     from fastapi.responses import FileResponse
