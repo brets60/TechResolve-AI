@@ -388,12 +388,14 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3 border border-blue-200/80 shadow-2xs">
           <Terminal className="w-3.5 h-3.5" />
           <span>Windows Command Prompt Center</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-          Organized CMD Commands & Translator
+        <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3">
+          <span className="text-slate-900">Organized </span>
+          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 bg-clip-text text-transparent">CMD Helper</span>
+          <span className="text-slate-900"> & Sandbox</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
           Cleanly categorized safe Windows commands with everyday English explanations, safety ratings, and output translations.
@@ -401,13 +403,14 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       </div>
 
       {/* Main Top Navigation Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-slate-200 pb-4">
+      {/* Main Top Navigation Tabs */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-slate-200/80 pb-4">
         <button
           onClick={() => setActiveTab('library')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'library'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+              : 'glass-panel border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -416,10 +419,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
         <button
           onClick={() => setActiveTab('simulator')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'simulator'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+              : 'glass-panel border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           <Terminal className="w-4 h-4" />
@@ -428,10 +431,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
         <button
           onClick={() => setActiveTab('custom')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'custom'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+              : 'glass-panel border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           <Search className="w-4 h-4" />
@@ -440,10 +443,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
         <button
           onClick={() => setActiveTab('translator')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'translator'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+              : 'glass-panel border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -452,10 +455,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
         <button
           onClick={() => setActiveTab('guide')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'guide'
-              ? 'bg-blue-600 text-white shadow-xs'
-              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm'
+              : 'glass-panel border border-slate-200/80 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           <Info className="w-4 h-4" />

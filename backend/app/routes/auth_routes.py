@@ -153,10 +153,10 @@ async def google_auth(req: GoogleAuthRequest, db: Session = Depends(get_db)):
         avatar_url = req.avatar_url
         google_id = req.google_id
     
-    if not email:
-        raise HTTPException(status_code=400, detail="A valid email is required for Google Sign-In.")
+    if not email or "@" not in str(email) or "." not in str(email):
+        raise HTTPException(status_code=400, detail="A valid registered email address is required for Google Sign-In.")
     
-    email = email.strip().lower()
+    email = str(email).strip().lower()
     user = db.query(User).filter(User.email == email).first()
     
     if not user:

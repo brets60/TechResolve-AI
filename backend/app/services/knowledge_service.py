@@ -393,6 +393,512 @@ INITIAL_ARTICLES = [
         "expected_results": "Your dev servers start smoothly, APIs respond cleanly, and your demo runs flawlessly on stage.",
         "safety_warning": "Never run destructive git reset without creating a safety backup branch first.",
         "technician_trigger": "If venue Wi-Fi blocks ports entirely, switch to your phone's mobile hotspot or run completely on localhost."
+    },
+    {
+        "id": "audio-no-sound-speakers",
+        "title": "No Sound Coming Out of Speakers or Headphones",
+        "category": "Audio & Sound",
+        "summary": "Your computer produces zero audio sound from built-in laptop speakers, 3.5mm headphone jack, or external desktop speakers even when volume is turned up.",
+        "difficulty": "Beginner",
+        "estimated_time": "3-7 mins",
+        "tags": ["audio", "sound", "speakers", "headphones", "volume", "realtek", "mute"],
+        "common_causes": [
+            "Default playback device switched to a silent external monitor or virtual cable.",
+            "Hardware mute key or Fn audio mute shortcut pressed.",
+            "Windows Audio background service stopped or crashed.",
+            "Corrupt Realtek High Definition Audio or Intel Display Audio driver."
+        ],
+        "signs_to_look_for": [
+            "Speaker icon has a red 'X' or volume slider is at 100% with no audible output.",
+            "YouTube videos play normally with visual progress but complete silence.",
+            "Audio works on Bluetooth headphones but not through laptop speakers."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Verify Default Playback Device",
+                "instruction": "Click the sound icon on your taskbar, click the '>' arrow next to the volume slider, and ensure 'Speakers (Realtek)' or your headphones are selected (not an external HDMI monitor).",
+                "why": "Windows often directs audio to an external screen with no built-in speakers."
+            },
+            {
+                "step": 2,
+                "title": "Restart Windows Audio Service",
+                "instruction": "Press Windows + R, type 'services.msc', scroll to 'Windows Audio', right-click and click 'Restart'.",
+                "why": "Unfreezes jammed audio buffer streams instantly without needing a full system restart."
+            },
+            {
+                "step": 3,
+                "title": "Reinstall Realtek Audio Driver",
+                "instruction": "Open Device Manager > Sound, video and game controllers > Right-click 'Realtek(R) Audio' > 'Uninstall device' > Restart your PC.",
+                "why": "Forces Windows to reinstall clean audio drivers upon reboot."
+            }
+        ],
+        "expected_results": "Sound chime plays cleanly and volume control responds immediately.",
+        "safety_warning": "Keep volume at 30% when testing to avoid loud sudden bursts when audio recovers.",
+        "technician_trigger": "Seek hardware repair if headphones work fine but built-in speakers produce loud crackling or remain silent (blown speaker coil)."
+    },
+    {
+        "id": "mic-not-working-zoom-teams",
+        "title": "Microphone Not Working or Muted in Zoom, Teams & Discord",
+        "category": "Audio & Sound",
+        "summary": "Others cannot hear your voice in video meetings, calls, or games, or Windows displays 'No input device found'.",
+        "difficulty": "Beginner",
+        "estimated_time": "3-5 mins",
+        "tags": ["microphone", "mic", "zoom", "teams", "discord", "meet", "audio", "mute"],
+        "common_causes": [
+            "Physical microphone privacy switch or keyboard function key (F4/Fn) engaged.",
+            "Windows Privacy setting blocked apps from accessing the microphone.",
+            "Calling application has the wrong input device selected in its audio settings."
+        ],
+        "signs_to_look_for": [
+            "Microphone level meter in Windows Settings shows zero movement when you speak.",
+            "Zoom or Teams shows an orange banner: 'Your microphone is not working'.",
+            "Discord voice indicator ring does not light up green."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Check Laptop Physical Mute Button & Bezel",
+                "instruction": "Look at the F4 key or side of your laptop for a microphone icon with an orange or amber LED light. Press it to unmute. Some laptops also have a physical slider switch.",
+                "why": "Hardware mute switches cut power to the mic before Windows can touch it."
+            },
+            {
+                "step": 2,
+                "title": "Enable Windows Microphone Privacy Permissions",
+                "instruction": "Open Windows Settings > Privacy & security > Microphone > Ensure 'Microphone access' and 'Let apps access your microphone' are both switched ON.",
+                "why": "Windows blocks third-party apps from listening without explicit permission."
+            },
+            {
+                "step": 3,
+                "title": "Select Input Device Directly in App Settings",
+                "instruction": "In Zoom, Teams, or Discord, open Settings > Audio > Change 'Microphone' from Default to your actual hardware device (e.g., 'Microphone Array (Realtek)').",
+                "why": "Prevents apps from listening to disabled virtual input cables."
+            }
+        ],
+        "expected_results": "The microphone volume bar bounces cleanly as you speak.",
+        "safety_warning": "Be careful when cleaning microphone pinholes with pins; use a soft dry toothbrush instead.",
+        "technician_trigger": "Contact support if the microphone cable in the screen hinge has severed (microphone disappears completely from Device Manager)."
+    },
+    {
+        "id": "second-monitor-not-detected",
+        "title": "Second Monitor or External Screen Not Detected",
+        "category": "Display & Monitors",
+        "summary": "Your external monitor shows 'No Signal' or Windows displays 'Didn't detect another display' when connected via HDMI, DisplayPort, or USB-C.",
+        "difficulty": "Beginner",
+        "estimated_time": "3-5 mins",
+        "tags": ["monitor", "display", "screen", "hdmi", "usb-c", "projector", "second screen"],
+        "common_causes": [
+            "Display projection mode set to 'PC screen only'.",
+            "Monitor is on the wrong input channel (HDMI 1 vs HDMI 2 vs DisplayPort).",
+            "Corrupt graphics card driver state or cable pin disconnection."
+        ],
+        "signs_to_look_for": [
+            "Monitor power light is orange/amber instead of blue/white.",
+            "Monitor screen displays 'Check signal cable' or 'Entering power saving mode'.",
+            "Windows Display Settings shows only '1' with no second rectangle."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Press Win + P and Select Extend",
+                "instruction": "Press the Windows Key + P on your keyboard. Select 'Extend' or 'Duplicate'.",
+                "why": "If set to 'PC screen only', Windows turns off video signal to all external ports."
+            },
+            {
+                "step": 2,
+                "title": "Cycle Monitor Physical Input Button",
+                "instruction": "Press the physical button on the monitor bezel to switch input from HDMI 1 to HDMI 2 or DisplayPort to match your cable.",
+                "why": "Monitors frequently fail to auto-detect input ports when powered on after the PC."
+            },
+            {
+                "step": 3,
+                "title": "Reset Graphics Subsystem Instantly",
+                "instruction": "Press Windows + Ctrl + Shift + B all at the same time. The screen will flash once and beep.",
+                "why": "Instantly restarts the display adapter and forces HDMI handshake negotiation without rebooting."
+            }
+        ],
+        "expected_results": "The second monitor lights up and displays your desktop wallpaper.",
+        "safety_warning": "Never force display cables into ports at an angle to avoid snapping internal pins.",
+        "technician_trigger": "Check cable and adapter if the monitor works with another laptop or gaming console."
+    },
+    {
+        "id": "usb-drive-not-recognized",
+        "title": "USB Flash Drive or External Hard Drive Not Showing Up",
+        "category": "Storage & Files",
+        "summary": "You insert a USB thumb drive or external hard drive, hear the connection chime, but nothing opens in File Explorer.",
+        "difficulty": "Beginner",
+        "estimated_time": "5 mins",
+        "tags": ["usb", "drive", "flash drive", "storage", "hard drive", "explorer", "not showing"],
+        "common_causes": [
+            "Drive partition lacks an assigned drive letter (e.g. E: or F:).",
+            "Drive formatted in Mac-only APFS or Linux ext4 filesystem.",
+            "USB port power suspension or loose port connection."
+        ],
+        "signs_to_look_for": [
+            "Windows plays the device connection sound, but 'This PC' does not show the drive.",
+            "Drive appears in Device Manager under Disk Drives but not in Explorer."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Assign a Drive Letter in Disk Management",
+                "instruction": "Press Windows + X > click 'Disk Management'. Locate your USB in the bottom list > Right-click the blue bar > 'Change Drive Letter and Paths...' > Click 'Add' > Assign 'E:' or 'F:' > OK.",
+                "why": "Windows cannot show a drive in Explorer if it does not have a designated drive letter."
+            },
+            {
+                "step": 2,
+                "title": "Try a Direct Port on Back of PC",
+                "instruction": "Plug the drive directly into a rear USB port or different side port, bypassing unpowered USB splitters.",
+                "why": "Mechanical external drives require 500mA+ of direct electrical current."
+            },
+            {
+                "step": 3,
+                "title": "Reinstall USB Controllers",
+                "instruction": "Open Device Manager > Universal Serial Bus controllers > Right click 'USB Root Hub' > Uninstall > Restart PC.",
+                "why": "Refreshes corrupted USB controller communication tables."
+            }
+        ],
+        "expected_results": "Your drive appears in File Explorer ready for file transfers.",
+        "safety_warning": "Never unplug external hard drives while files are transferring to avoid data corruption.",
+        "technician_trigger": "Professional data recovery is recommended if an external hard drive makes continuous clicking or beeping noises."
+    },
+    {
+        "id": "bluetooth-pairing-fail",
+        "title": "Bluetooth Device Won't Connect or Keeps Disconnecting",
+        "category": "Printers & Devices",
+        "summary": "Wireless headphones, mice, keyboards, or controllers fail to pair, say 'Driver error', or repeatedly disconnect.",
+        "difficulty": "Beginner",
+        "estimated_time": "4-6 mins",
+        "tags": ["bluetooth", "headphones", "airpods", "mouse", "controller", "wireless", "disconnect"],
+        "common_causes": [
+            "Device is still actively paired to your phone or tablet nearby.",
+            "Windows Bluetooth Support Service stopped or set to manual.",
+            "Outdated Intel/Realtek Bluetooth radio driver."
+        ],
+        "signs_to_look_for": [
+            "Status in Settings says 'Paired' but audio never comes through.",
+            "Device shows 'Connection failed' after a few seconds of spinning."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Turn Off Bluetooth on Nearby Phones/Tablets",
+                "instruction": "Turn off Bluetooth on your smartphone so headphones don't automatically connect to it. Put headphones into pairing mode by holding their button for 5-7 seconds until the LED flashes rapidly.",
+                "why": "Most Bluetooth accessories can only hold one active audio channel at a time."
+            },
+            {
+                "step": 2,
+                "title": "Remove Device and Re-Pair",
+                "instruction": "Settings > Bluetooth & devices > Click the 3 dots on the accessory > 'Remove device'. Then click 'Add device' > Bluetooth > Select accessory.",
+                "why": "Clears corrupted Bluetooth pairing keys from the Windows registry."
+            },
+            {
+                "step": 3,
+                "title": "Restart Bluetooth Support Service",
+                "instruction": "Press Win + R > type 'services.msc' > find 'Bluetooth Support Service' > Right-click > Restart > Double click it and set Startup type to 'Automatic'.",
+                "why": "Ensures background discovery broadcasts remain active."
+            }
+        ],
+        "expected_results": "Accessory connects instantly with 'Connected mic, audio' status.",
+        "safety_warning": "Ensure accessory battery is charged above 30% during pairing.",
+        "technician_trigger": "Replace Bluetooth USB dongle if Device Manager shows a yellow exclamation triangle on the Bluetooth radio chip."
+    },
+    {
+        "id": "drive-c-storage-full",
+        "title": "Drive C: Completely Full — Safe Ways to Free 20+ GB in Windows",
+        "category": "Storage & Files",
+        "summary": "Your main Windows drive (C:) is red with critically low disk space, causing sluggish performance, update failures, and crashing apps.",
+        "difficulty": "Beginner",
+        "estimated_time": "8-12 mins",
+        "tags": ["storage", "disk full", "clean", "free space", "c drive", "clean up", "temp files"],
+        "common_causes": [
+            "Previous Windows update installation backups (Windows.old folder).",
+            "Gigabytes of hidden temporary browser and app download caches.",
+            "Unemptied Recycle Bin and large downloaded installer files in Downloads folder."
+        ],
+        "signs_to_look_for": [
+            "Windows displays notification: 'Low Disk Space: You are running out of disk space on Local Disk (C:)'",
+            "File Explorer shows the C: drive bar in bright red.",
+            "Windows updates refuse to download or install."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Use Windows Storage Cleanup Recommendations",
+                "instruction": "Open Windows Settings > System > Storage > Click 'Cleanup recommendations' > Select 'Temporary files', check 'Previous Windows installations' and 'Recycle Bin' > Click 'Clean up'.",
+                "why": "Safely removes up to 25 GB of old Windows update archives without touching your personal photos or documents."
+            },
+            {
+                "step": 2,
+                "title": "Clear Windows SoftwareDistribution Download Cache",
+                "instruction": "Open CMD as Administrator and run: net stop wuauserv & del /q /f /s %windir%\\SoftwareDistribution\\Download\\*.* & net start wuauserv.",
+                "why": "Safely purges downloaded Windows update installation packages that failed or already installed."
+            },
+            {
+                "step": 3,
+                "title": "Move Downloads Folder to Another Drive (If Available)",
+                "instruction": "If you have a D: drive, right click 'Downloads' in File Explorer > Properties > Location > Move to D:\\Downloads.",
+                "why": "Prevents large installer files and videos from cluttering your OS drive."
+            }
+        ],
+        "expected_results": "10 to 30 GB of free space reclaimed immediately, turning the C: drive bar blue again.",
+        "safety_warning": "Never delete files directly from C:\\Windows or C:\\Program Files by hand.",
+        "technician_trigger": "Consider upgrading to a 500GB or 1TB M.2 NVMe SSD if your main drive is only 64GB or 128GB."
+    },
+    {
+        "id": "windows-update-stuck",
+        "title": "Windows Update Stuck at 100% or Failing with Error Code",
+        "category": "System Performance",
+        "summary": "Windows Update gets frozen during download/install, or rolls back changes with error codes like 0x80070002, 0x800f0922, or 0x80240034.",
+        "difficulty": "Intermediate",
+        "estimated_time": "10-15 mins",
+        "tags": ["update", "windows update", "stuck", "error", "0x80070002", "freeze"],
+        "common_causes": [
+            "Corrupted temporary update package database.",
+            "Damaged Windows Component Store system files.",
+            "Third-party antivirus or VPN blocking Microsoft update CDNs."
+        ],
+        "signs_to_look_for": [
+            "Update progress percentage stays frozen at the same number for over 2 hours.",
+            "Message: 'We couldn't complete the updates. Undoing changes. Don't turn off your computer.'",
+            "Error code in red text in Windows Update settings."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Run Built-in Windows Update Troubleshooter",
+                "instruction": "Open Settings > System > Troubleshoot > Other troubleshooters > Windows Update > Click 'Run'.",
+                "why": "Automatically repairs common file permissions and restarts update services."
+            },
+            {
+                "step": 2,
+                "title": "Repair System Component Store with DISM & SFC",
+                "instruction": "Open Command Prompt as Administrator and enter: DISM.exe /Online /Cleanup-image /Restorehealth. After completion, enter: sfc /scannow.",
+                "why": "Downloads fresh replacement system files directly from Microsoft servers to repair local corruption."
+            },
+            {
+                "step": 3,
+                "title": "Reset Windows Update Components",
+                "instruction": "In Admin CMD run: net stop wuauserv & net stop bits & ren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old & net start wuauserv & net start bits.",
+                "why": "Forces Windows to build a brand new update download catalog from scratch."
+            }
+        ],
+        "expected_results": "Windows Update downloads and applies patches smoothly without hanging.",
+        "safety_warning": "Do not hard-power off the computer if the screen says 'Working on updates' unless frozen for 4+ hours.",
+        "technician_trigger": "Perform an In-Place Windows Upgrade if DISM reports component store corruption that cannot be repaired."
+    },
+    {
+        "id": "browser-popups-malware",
+        "title": "Suspicious Browser Popups, Scam Warnings & Fake Virus Alerts",
+        "category": "Security & Accounts",
+        "summary": "Loud browser alerts, robotic voices, or full-screen warnings claim 'Your computer is infected with Trojan Spyware! Call 1-800 Microsoft Helpline'.",
+        "difficulty": "Beginner",
+        "estimated_time": "5-8 mins",
+        "tags": ["virus", "malware", "popups", "scam", "browser", "fake alert", "security"],
+        "common_causes": [
+            "Deceptive website notification permission clicked accidentally ('Allow notifications').",
+            "Malicious browser extension redirecting search queries.",
+            "Adware package bundled with a free software download."
+        ],
+        "signs_to_look_for": [
+            "Repeated notifications in bottom-right corner pretending to be McAfee or Windows Defender.",
+            "Browser locked in fullscreen mode (F11) with simulated Windows BSOD screens.",
+            "Search engine defaults changing to Yahoo or unfamiliar search portals."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Do NOT Call the Phone Number or Grant Remote Access",
+                "instruction": "Never call phone numbers in web alerts. Real tech companies (Microsoft, Google, Apple) NEVER put phone numbers in popups or ask for gift card payments.",
+                "why": "These are 100% fake web pages created by scammers to extract money."
+            },
+            {
+                "step": 2,
+                "title": "Force Close Browser Safely",
+                "instruction": "Press Ctrl + Shift + Esc to open Task Manager > Right-click Chrome/Edge > 'End task'. When reopening the browser, do NOT click 'Restore pages'.",
+                "why": "Closes the trapped JavaScript loops without allowing malicious scripts to download files."
+            },
+            {
+                "step": 3,
+                "title": "Remove Rogue Notification Permissions",
+                "instruction": "In Chrome/Edge: Settings > Privacy and security > Site settings > Notifications > Under 'Allowed to send notifications', click the 3 dots next to all unfamiliar sites > 'Remove'.",
+                "why": "Stops 99% of desktop virus popup spam immediately."
+            },
+            {
+                "step": 4,
+                "title": "Run Windows Defender Offline Scan",
+                "instruction": "Open Windows Security > Virus & threat protection > Scan options > 'Microsoft Defender Offline scan' > Scan now.",
+                "why": "Scans your computer before Windows boots to eliminate deeply embedded rootkits."
+            }
+        ],
+        "expected_results": "All popup spam vanishes, and browser returns to fast, clean operation.",
+        "safety_warning": "Never give remote access (AnyDesk, TeamViewer) to anyone calling or messaging you out of the blue.",
+        "technician_trigger": "Contact your bank immediately if you already shared credit card numbers or passwords with a scam phone representative."
+    },
+    {
+        "id": "phone-hotspot-no-internet",
+        "title": "Mobile Phone Hotspot Connected But Laptop Has No Internet",
+        "category": "Internet & Network",
+        "summary": "Your laptop connects to your iPhone or Android personal hotspot, but web pages refuse to load, showing 'No internet access, secured'.",
+        "difficulty": "Beginner",
+        "estimated_time": "3-5 mins",
+        "tags": ["hotspot", "phone", "tethering", "mobile data", "iphone", "android", "wifi"],
+        "common_causes": [
+            "Hotspot Wi-Fi frequency incompatibility (5 GHz vs 2.4 GHz).",
+            "Cellular carrier tethering cap reached on your phone plan.",
+            "Windows Metered Connection setting halting background data."
+        ],
+        "signs_to_look_for": [
+            "Phone hotspot icon is active and shows '1 device connected'.",
+            "Phone can browse the web fine, but laptop browsers report 'DNS_PROBE_FINISHED_NO_INTERNET'."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Enable Maximize Compatibility / 2.4 GHz Band",
+                "instruction": "On iPhone: Settings > Personal Hotspot > Turn ON 'Maximize Compatibility'. On Android: Hotspot settings > Change AP Band to '2.4 GHz'.",
+                "why": "Many laptop Wi-Fi cards cannot lock onto 5 GHz mobile hotspot signals."
+            },
+            {
+                "step": 2,
+                "title": "Toggle Airplane Mode on Phone",
+                "instruction": "Turn ON Airplane mode on your phone for 10 seconds, then turn it OFF. Turn the hotspot back ON.",
+                "why": "Forces your phone's cellular modem to reconnect to a fresh mobile data tower."
+            },
+            {
+                "step": 3,
+                "title": "Forget and Reconnect Network on Laptop",
+                "instruction": "Settings > Network & internet > Wi-Fi > Manage known networks > Find your phone's hotspot name > Click 'Forget' > Reconnect and enter password.",
+                "why": "Clears outdated IP routing leases."
+            }
+        ],
+        "expected_results": "Laptop immediately loads web pages at full 4G/5G mobile data speeds.",
+        "safety_warning": "Keep laptop Windows Updates paused while on mobile data to avoid burning your monthly data quota.",
+        "technician_trigger": "Check with your mobile provider to verify that your cellular plan includes tethering/hotspot provisioning."
+    },
+    {
+        "id": "keyboard-typing-wrong-keys",
+        "title": "Laptop Keyboard Typing Wrong Letters, Numbers, or Swapped Symbols",
+        "category": "Printers & Devices",
+        "summary": "Pressing keys types numbers instead of letters (e.g. typing U, I, O results in 4, 5, 6), or typing @ produces \" and vice-versa.",
+        "difficulty": "Beginner",
+        "estimated_time": "2-4 mins",
+        "tags": ["keyboard", "typing", "wrong keys", "numlock", "language", "symbols", "layout"],
+        "common_causes": [
+            "NumLock enabled on compact laptops without a dedicated number pad.",
+            "Keyboard input language accidentally toggled from US to UK/International.",
+            "Windows Filter Keys feature turned on, causing skipped or delayed keystrokes."
+        ],
+        "signs_to_look_for": [
+            "Pressing 'J', 'K', 'L' types '1', '2', '3'.",
+            "Pressing Shift + 2 types '\"' instead of '@'.",
+            "Typing requires holding keys down for a full second before letters appear."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Toggle Off Laptop NumLock",
+                "instruction": "Look for the 'NumLk' or 'NumLock' key on your keyboard. Press Fn + NumLock (or Shift + NumLock).",
+                "why": "Compact laptops use letters as a numeric keypad when NumLock is activated."
+            },
+            {
+                "step": 2,
+                "title": "Switch Keyboard Layout to English (US)",
+                "instruction": "Press Windows + Spacebar together to switch your active input method back to 'English (United States)'.",
+                "why": "Accidental Alt+Shift shortcuts frequently swap keyboard layouts to UK English."
+            },
+            {
+                "step": 3,
+                "title": "Turn Off Filter Keys",
+                "instruction": "Open Windows Settings > Accessibility > Keyboard > Ensure 'Filter Keys' is set to OFF.",
+                "why": "Filter Keys ignores brief repetitive keystrokes, making typing feel unresponsive."
+            }
+        ],
+        "expected_results": "Every key types its exact printed letter and symbol accurately.",
+        "safety_warning": "Never soak keyboards in rubbing alcohol or liquid cleaners; clean only with a slightly damp microfiber cloth.",
+        "technician_trigger": "Replace the keyboard assembly if multiple keys in the same diagonal row fail to register (liquid spill trace damage)."
+    },
+    {
+        "id": "webcam-black-screen",
+        "title": "Webcam Shows Black Screen or 'No Camera Found' in Video Calls",
+        "category": "Printers & Devices",
+        "summary": "Your laptop webcam displays a solid black rectangle, loading spinner, or error code 0xA00F4244 in Zoom, Teams, Meet, or Windows Camera app.",
+        "difficulty": "Beginner",
+        "estimated_time": "3-5 mins",
+        "tags": ["webcam", "camera", "black screen", "zoom", "teams", "video", "privacy"],
+        "common_causes": [
+            "Physical camera privacy shutter is closed over the lens.",
+            "Hardware camera toggle function key (F8 / F10 / Fn) disabled.",
+            "Windows Privacy settings blocked desktop apps from camera access."
+        ],
+        "signs_to_look_for": [
+            "The camera LED light turns on, but video feed remains pure pitch black.",
+            "App says 'Cannot find camera' or 'Camera is being used by another application'."
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Check Physical Privacy Shutter Slide",
+                "instruction": "Look directly at the top screen bezel. Slide the tiny plastic latch until you see the glass lens sensor (no red or white dot covering the lens).",
+                "why": "Physical shutters completely block light regardless of software settings."
+            },
+            {
+                "step": 2,
+                "title": "Press Camera Hardware Function Key",
+                "instruction": "Press the keyboard function key featuring a camera icon with a diagonal slash (often F8, F10, or Fn + F8 on Lenovo, MSI, Asus, and HP).",
+                "why": "Hardware keys toggle the USB power line to the camera module."
+            },
+            {
+                "step": 3,
+                "title": "Enable Windows Camera Privacy Permissions",
+                "instruction": "Settings > Privacy & security > Camera > Turn ON 'Camera access' and 'Let desktop apps access your camera'.",
+                "why": "Windows privacy shield stops unauthorized apps from recording video."
+            }
+        ],
+        "expected_results": "Video preview illuminates immediately with clear video.",
+        "safety_warning": "Do not scratch camera lens glass with abrasive cloth.",
+        "technician_trigger": "Contact laptop support if Camera app reports 0xA00F4244 (camera cable disconnected from motherboard)."
+    },
+    {
+        "id": "forgot-windows-pin-password",
+        "title": "Forgot Windows Password or PIN / Account Recovery",
+        "category": "Security & Accounts",
+        "summary": "You are locked out of your Windows computer because you cannot remember your password, PIN code, or Microsoft account login.",
+        "difficulty": "Intermediate",
+        "estimated_time": "5-15 mins",
+        "tags": ["password", "pin", "login", "locked out", "recovery", "account", "microsoft"],
+        "common_causes": [
+            "Caps Lock or NumLock active while entering password.",
+            "Microsoft account password recently changed on another phone or device.",
+            "PIN database (NGC folder) corrupted after Windows update."
+        ],
+        "signs_to_look_for": [
+            "Message: 'The password is incorrect. Make sure that you're using the password for your Microsoft account.'",
+            "Message: 'Your PIN is no longer available due to a change to the security settings on this device.'"
+        ],
+        "steps": [
+            {
+                "step": 1,
+                "title": "Verify Caps Lock and Alternative Sign-in Options",
+                "instruction": "Click the eye icon inside the password field to view typed characters. Click 'Sign-in options' (key icon) to try an alternative Password or PIN.",
+                "why": "Caps Lock causes 80% of login failures."
+            },
+            {
+                "step": 2,
+                "title": "Reset Microsoft Password from Smartphone",
+                "instruction": "Open account.live.com/password/reset on your phone. Reset your password, then ensure your laptop is connected to Wi-Fi at the lock screen before entering the new password.",
+                "why": "Windows syncs the new cloud password over Wi-Fi within seconds."
+            },
+            {
+                "step": 3,
+                "title": "Use 'I Forgot My PIN' On-Screen Wizard",
+                "instruction": "Click 'I forgot my PIN' below the PIN box. Enter your Microsoft account email and verify via security code sent to your phone or backup email.",
+                "why": "Rebuilds local cryptographic authentication tokens on your PC."
+            }
+        ],
+        "expected_results": "Access to your Windows desktop and files is fully restored.",
+        "safety_warning": "Never download untrusted 'password remover.iso' tools that could infect your computer with ransomware.",
+        "technician_trigger": "If using a local offline account with no reset disk, boot into Windows Recovery to access System Restore or recovery prompt."
     }
 ]
 
@@ -416,6 +922,19 @@ def seed_knowledge_base(db: Session):
                 technician_trigger=item["technician_trigger"]
             )
             db.add(article)
+        else:
+            existing.title = item["title"]
+            existing.category = item["category"]
+            existing.summary = item["summary"]
+            existing.difficulty = item["difficulty"]
+            existing.estimated_time = item["estimated_time"]
+            existing.tags = item["tags"]
+            existing.common_causes = item["common_causes"]
+            existing.signs_to_look_for = item["signs_to_look_for"]
+            existing.steps = item["steps"]
+            existing.expected_results = item["expected_results"]
+            existing.safety_warning = item.get("safety_warning")
+            existing.technician_trigger = item["technician_trigger"]
     db.commit()
 
 def search_articles(db: Session, query: Optional[str] = None, category: Optional[str] = None) -> List[KnowledgeArticle]:

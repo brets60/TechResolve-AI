@@ -85,14 +85,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       
       {/* Welcome Banner */}
-      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm mb-8 border border-white/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
-              Personal IT Dashboard
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              Personal IT Hub
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+          <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">
             Welcome back{user ? `, ${user.name}` : ''}!
           </h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl leading-relaxed">
@@ -103,10 +103,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={onStartNewProblem}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-xs hover:shadow transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition cursor-pointer active:scale-95"
           >
             <Play className="w-4 h-4 fill-current" />
-            <span>Start Troubleshooting</span>
+            <span>Start New Diagnosis</span>
           </button>
         </div>
       </div>

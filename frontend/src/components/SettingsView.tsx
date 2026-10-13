@@ -71,8 +71,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       
       {/* Header */}
       <div className="mb-10">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-          Application Settings
+        <h1 className="text-2xl sm:text-4xl font-black tracking-tight mb-2">
+          <span className="text-slate-900">Application </span>
+          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 bg-clip-text text-transparent">Settings</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base">
           Customize your troubleshooting experience, AI diagnostics engine, and preferences.
@@ -82,7 +83,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       <div className="space-y-8">
         
         {/* Account & Authentication */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+        <div className="glass-panel rounded-3xl border border-white/90 p-6 sm:p-8 shadow-sm">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-1">

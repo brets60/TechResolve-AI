@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="sticky top-0 z-40 glass-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
@@ -41,36 +41,40 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setCurrentView('home')}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-slate-200/90 group-hover:scale-105 group-hover:shadow-md transition-all bg-white flex items-center justify-center p-0.5">
-              <img 
-                src="/logo.png" 
-                alt="TechResolve AI" 
-                className="w-full h-full object-contain rounded-lg"
-              />
+            <div className="relative">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-slate-200/90 group-hover:scale-105 group-hover:shadow-md transition-all bg-white flex items-center justify-center p-0.5 relative z-10">
+                <img 
+                  src="/logo.png" 
+                  alt="TechResolve AI" 
+                  className="w-full h-full object-contain rounded-lg"
+                />
+              </div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur-xs opacity-25 group-hover:opacity-50 transition" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-slate-900 tracking-tight">
+                <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-600 bg-clip-text text-transparent">
                   TechResolve <span className="text-blue-600">AI</span>
                 </span>
-                <span className="hidden sm:inline-block text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                  IT Assistant
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                  <Sparkles className="w-3 h-3 text-blue-500" />
+                  <span>IT Assistant</span>
                 </span>
               </div>
-              <p className="text-xs text-slate-500 hidden sm:block">
-                Clear solutions, one step at a time
+              <p className="text-[11px] text-slate-500 hidden sm:block font-medium">
+                Friendly solutions, step-by-step
               </p>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1.5">
             <button
               onClick={() => setCurrentView('home')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
                 currentView === 'home'
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-blue-50 text-blue-700 shadow-2xs border border-blue-100'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
               }`}
             >
               <Home className="w-4 h-4" />
@@ -78,10 +82,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => setCurrentView('dashboard')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
                 currentView === 'dashboard'
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-blue-50 text-blue-700 shadow-2xs border border-blue-100'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
               }`}
             >
               <LayoutDashboard className="w-4 h-4" />
@@ -89,10 +93,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => setCurrentView('knowledge')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
                 currentView === 'knowledge'
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-blue-50 text-blue-700 shadow-2xs border border-blue-100'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -100,10 +104,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => setCurrentView('cmd')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
                 currentView === 'cmd'
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-blue-50 text-blue-700 shadow-2xs border border-blue-100'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
               }`}
             >
               <Terminal className="w-4 h-4" />
@@ -111,10 +115,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => setCurrentView('settings')}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
                 currentView === 'settings'
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-blue-50 text-blue-700 shadow-2xs border border-blue-100'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/60'
               }`}
             >
               <SettingsIcon className="w-4 h-4" />
@@ -122,8 +126,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </nav>
 
-          {/* Mode Switcher & User Account */}
+          {/* Mode Switcher, AI Status & User Account */}
           <div className="flex items-center gap-3">
+            
+            {/* Live AI Status Pill on larger screens */}
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50/90 border border-emerald-200/70 text-[11px] font-semibold text-emerald-700">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>AI Engine Active</span>
+            </div>
             
             {/* Beginner vs Pro Mode Pill (Hidden on mobile to keep Sign In ultra prominent) */}
             <div className="hidden sm:flex bg-slate-100 p-1 rounded-xl items-center text-xs font-medium">
@@ -177,7 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 px-3.5 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow shrink-0"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 hover:from-blue-700 hover:to-indigo-700 active:scale-95 px-4 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow-md hover:shadow-blue-500/20 shrink-0"
               >
                 <UserIcon className="w-4 h-4 text-white" />
                 <span>Sign In / Register</span>
@@ -190,13 +200,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Bottom Navigation Bar (Shown on phones < md) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 md:hidden flex items-center justify-around py-1.5 px-1 safe-area-pb shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 glass-nav-bottom md:hidden flex items-center justify-around py-1.5 px-1.5 safe-area-pb shadow-[0_-8px_20px_rgba(0,0,0,0.04)]">
         <button
           type="button"
           onClick={() => setCurrentView('home')}
-          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+          className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'home'
-              ? 'text-blue-600 font-bold'
+              ? 'text-blue-700 font-bold bg-blue-50/90 shadow-2xs'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -207,9 +217,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           type="button"
           onClick={() => setCurrentView('cmd')}
-          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+          className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'cmd'
-              ? 'text-blue-600 font-bold'
+              ? 'text-blue-700 font-bold bg-blue-50/90 shadow-2xs'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -220,9 +230,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           type="button"
           onClick={() => setCurrentView('knowledge')}
-          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+          className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'knowledge'
-              ? 'text-blue-600 font-bold'
+              ? 'text-blue-700 font-bold bg-blue-50/90 shadow-2xs'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -233,9 +243,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           type="button"
           onClick={() => setCurrentView('dashboard')}
-          className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
+          className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'dashboard'
-              ? 'text-blue-600 font-bold'
+              ? 'text-blue-700 font-bold bg-blue-50/90 shadow-2xs'
               : 'text-slate-500 hover:text-slate-900'
           }`}
         >
@@ -248,8 +258,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={() => setCurrentView('settings')}
-            className={`flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-medium transition cursor-pointer ${
-              currentView === 'settings' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-900'
+            className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
+              currentView === 'settings' ? 'text-blue-700 font-bold bg-blue-50/90 shadow-2xs' : 'text-slate-500 hover:text-slate-900'
             }`}
           >
             {user.avatar_url ? (
@@ -265,7 +275,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={onOpenAuth}
-            className="flex flex-col items-center justify-center flex-1 py-1 text-[11px] font-bold text-blue-600 transition cursor-pointer"
+            className="flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-bold text-blue-600 transition cursor-pointer hover:bg-blue-50/60"
           >
             <div className="relative mb-0.5">
               <UserIcon className="w-5 h-5 text-blue-600 stroke-[2.5]" />

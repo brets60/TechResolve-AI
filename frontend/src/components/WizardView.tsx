@@ -222,20 +222,20 @@ export const WizardView: React.FC<WizardViewProps> = ({
       </div>
 
       {/* Problem Title Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-xs mb-8">
+      <div className="glass-panel rounded-3xl p-5 sm:p-7 shadow-sm mb-8 border border-white/90">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-          <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">
+          <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80">
             {session.category}
           </span>
-          <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
+          <span className={`text-xs font-bold px-3 py-1 rounded-full ${
             session.status === 'solved' 
-              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
-              : 'bg-amber-50 text-amber-700 border border-amber-200'
+              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs' 
+              : 'bg-amber-50 text-amber-700 border border-amber-200 shadow-2xs'
           }`}>
-            {session.status === 'solved' ? '✓ Problem Solved' : 'In Progress'}
+            {session.status === 'solved' ? '✓ Problem Solved' : '● Live Diagnostic In Progress'}
           </span>
         </div>
-        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
           {session.problem_description}
         </h1>
       </div>
@@ -250,12 +250,12 @@ export const WizardView: React.FC<WizardViewProps> = ({
             return (
               <div 
                 key={stg.key}
-                className={`p-3 rounded-xl border transition-all ${
+                className={`p-3.5 rounded-2xl border transition-all ${
                   isCurrent
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-600 shadow-md shadow-blue-500/20'
                     : isCompleted
-                    ? 'bg-white text-emerald-700 border-emerald-200 shadow-2xs'
-                    : 'bg-white/60 text-slate-400 border-slate-200'
+                    ? 'glass-panel text-emerald-700 border-emerald-200 shadow-2xs'
+                    : 'glass-panel text-slate-400 border-slate-200/80'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">

@@ -9,7 +9,8 @@ import {
   ShieldCheck, 
   CheckCircle2,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  Globe
 } from 'lucide-react';
 import { User } from '../types';
 import { api } from '../api';
@@ -18,8 +19,12 @@ interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: (user: User) => void;
-  initialMode?: 'otp' | 'password' | 'register';
+  initialMode?: 'otp' | 'google' | 'password' | 'register';
 }
+
+const isValidEmail = (val: string): boolean => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+};
 
 export const AuthModal: React.FC<AuthModalProps> = ({ 
   isOpen, 
@@ -27,16 +32,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   onSuccess,
   initialMode = 'otp'
 }) => {
-  const [authMethod, setAuthMethod] = useState<'otp' | 'password'>(initialMode === 'password' ? 'password' : 'otp');
+  const [authMethod, setAuthMethod] = useState<'otp' | 'google' | 'password'>(
+    initialMode === 'google' ? 'google' : initialMode === 'password' || initialMode === 'register' ? 'password' : 'otp'
+  );
   const [isRegister, setIsRegister] = useState(initialMode === 'register');
   
-  // Form fields
+  // Real user inputs
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [otpCode, setOtpCode] = useState('');
   
-  // OTP step state
+  // OTP step
   const [otpStep, setOtpStep] = useState<'input_email' | 'enter_code'>('input_email');
   const [otpPreview, setOtpPreview] = useState<string | null>(null);
   
@@ -46,35 +53,50 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   if (!isOpen) return null;
 
-  // 1. Google Sign-In Handler
-  const handleGoogleSignIn = async () => {
+  // 1. Google Sign-In with Real Registered Email
+  const handleGoogleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanEmail = email.trim();
+    if (!cleanEmail) {
+      setError('Please enter your registered Google email address.');
+      return;
+    }
+
+    if (!isValidEmail(cleanEmail)) {
+      setError('Please enter a valid email address (e.g. name@gmail.com).');
+      return;
+    }
+
     setLoading(true);
     setError(null);
     try {
-      // If user typed an email, use it; otherwise provide quick Google Auth prompt
-      const targetEmail = email.trim() || 'user.techresolve@gmail.com';
-      const targetName = name.trim() || targetEmail.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase());
-      
+      const cleanName = name.trim() || cleanEmail.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase());
       const res = await api.googleAuth({
-        email: targetEmail,
-        name: targetName,
-        avatar_url: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(targetName)}&backgroundColor=2563eb,3b82f6`,
-        google_id: `google_${Date.now()}`
+        email: cleanEmail,
+        name: cleanName,
+        avatar_url: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(cleanName)}&backgroundColor=2563eb,3b82f6`,
+        google_id: `google_${encodeURIComponent(cleanEmail)}`
       });
       onSuccess(res.user);
       onClose();
     } catch (err: any) {
-      setError(err.message || 'Google authentication failed');
+      setError(err.message || 'Google authentication failed. Please verify your email.');
     } finally {
       setLoading(false);
     }
   };
 
-  // 2. Send One-Time Code
+  // 2. Send One-Time Code to Real Registered Email
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) {
-      setError('Please enter your email address.');
+    const cleanEmail = email.trim();
+    if (!cleanEmail) {
+      setError('Please enter your registered email address.');
+      return;
+    }
+
+    if (!isValidEmail(cleanEmail)) {
+      setError('Please enter a valid registered email address (e.g. yourname@example.com).');
       return;
     }
 
@@ -83,12 +105,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setInfoMessage(null);
 
     try {
-      const res = await api.sendOtp(email.trim());
+      const res = await api.sendOtp(cleanEmail);
       setOtpStep('enter_code');
       setOtpPreview(res.code_preview || null);
-      setInfoMessage(`A 6-digit verification code was sent to ${email.trim()}`);
+      setInfoMessage(`A 6-digit verification code has been sent to ${cleanEmail}`);
     } catch (err: any) {
-      setError(err.message || 'Failed to send one-time code');
+      setError(err.message || 'Failed to send one-time code.');
     } finally {
       setLoading(false);
     }
@@ -97,8 +119,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   // 3. Verify One-Time Code
   const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!otpCode.trim() || otpCode.trim().length !== 6) {
-      setError('Please enter the 6-digit verification code.');
+    const cleanCode = otpCode.trim();
+    if (!cleanCode || cleanCode.length !== 6) {
+      setError('Please enter the complete 6-digit verification code.');
       return;
     }
 
@@ -108,35 +131,63 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     try {
       const res = await api.verifyOtp({
         email: email.trim(),
-        code: otpCode.trim(),
+        code: cleanCode,
         name: name.trim() || undefined,
       });
       onSuccess(res.user);
       onClose();
     } catch (err: any) {
-      setError(err.message || 'Verification failed. Please check the code.');
+      setError(err.message || 'Invalid or expired verification code.');
     } finally {
       setLoading(false);
     }
   };
 
-  // 4. Standard Password Login / Register
+  // 4. Standard Password Login or Register
   const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanEmail = email.trim();
+    if (!cleanEmail) {
+      setError('Please enter your registered email address.');
+      return;
+    }
+
+    if (!isValidEmail(cleanEmail)) {
+      setError('Please enter a valid email format.');
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
+
+    if (isRegister && !name.trim()) {
+      setError('Please enter your full name for registration.');
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
     try {
       if (isRegister) {
-        const res = await api.register({ email: email.trim(), name: name.trim(), password });
+        const res = await api.register({ 
+          email: cleanEmail, 
+          name: name.trim(), 
+          password 
+        });
         onSuccess(res.user);
       } else {
-        const res = await api.login({ email: email.trim(), password });
+        const res = await api.login({ 
+          email: cleanEmail, 
+          password 
+        });
         onSuccess(res.user);
       }
       onClose();
     } catch (err: any) {
-      setError(err.message || 'Authentication failed');
+      setError(err.message || 'Authentication failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
@@ -161,18 +212,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             <img src="/logo.png" alt="TechResolve AI" className="w-full h-full object-contain" />
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            {authMethod === 'otp'
-              ? (otpStep === 'enter_code' ? 'Enter Verification Code' : 'Sign In or Register')
-              : (isRegister ? 'Create Your Account' : 'Welcome Back')}
+            {authMethod === 'otp' && (otpStep === 'enter_code' ? 'Enter 6-Digit Code' : 'Sign In with Registered Email')}
+            {authMethod === 'google' && 'Google Account Sign In'}
+            {authMethod === 'password' && (isRegister ? 'Register New Account' : 'Sign In to Account')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            {authMethod === 'otp'
-              ? (otpStep === 'enter_code' 
-                  ? 'We generated a fast 6-digit one-time code for you'
-                  : 'Instant access with Google or a One-Time verification code')
-              : (isRegister 
-                  ? 'Save your troubleshooting progress & history' 
-                  : 'Access your sessions and custom IT tools')}
+            {authMethod === 'otp' && 'Enter your registered email to receive a fast 6-digit one-time passcode'}
+            {authMethod === 'google' && 'Register or sign in with your official Google email address'}
+            {authMethod === 'password' && (isRegister ? 'Create your personal account with your registered email' : 'Enter your registered email and password')}
           </p>
         </div>
 
@@ -192,76 +239,57 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
         )}
 
-        {/* --- GOOGLE SIGN-IN BUTTON --- */}
-        <div className="mb-5">
-          <button
-            type="button"
-            onClick={handleGoogleSignIn}
-            disabled={loading}
-            className="w-full py-2.5 px-4 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm shadow-2xs transition flex items-center justify-center gap-3 cursor-pointer group"
-          >
-            {/* Google Colorful SVG Logo */}
-            <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
-              <path
-                fill="#4285F4"
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-              />
-              <path
-                fill="#34A853"
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-              />
-              <path
-                fill="#FBBC05"
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-              />
-              <path
-                fill="#EA4335"
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-              />
-            </svg>
-            <span className="group-hover:text-slate-900">Continue with Google</span>
-          </button>
-        </div>
-
-        {/* Divider */}
-        <div className="relative flex items-center justify-center mb-5">
-          <div className="border-t border-slate-200 w-full"></div>
-          <span className="bg-white px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider shrink-0">
-            Or continue with
-          </span>
-          <div className="border-t border-slate-200 w-full"></div>
-        </div>
-
-        {/* Method Switcher Tabs */}
-        <div className="grid grid-cols-2 gap-1.5 p-1 bg-slate-100 rounded-xl mb-5 text-xs font-semibold">
+        {/* Method Switcher Tabs: 3 Real Options */}
+        <div className="grid grid-cols-3 gap-1 p-1 bg-slate-100 rounded-2xl mb-5 text-xs font-semibold">
           <button
             type="button"
             onClick={() => { setAuthMethod('otp'); setError(null); }}
-            className={`py-2 rounded-lg transition flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`py-2 px-1 rounded-xl transition flex flex-col items-center justify-center gap-1 cursor-pointer ${
               authMethod === 'otp'
                 ? 'bg-white text-blue-700 shadow-2xs font-bold'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-            <span>One-Time Code</span>
+            <span className="truncate">One-Time Code</span>
           </button>
           
           <button
             type="button"
+            onClick={() => { setAuthMethod('google'); setError(null); }}
+            className={`py-2 px-1 rounded-xl transition flex flex-col items-center justify-center gap-1 cursor-pointer ${
+              authMethod === 'google'
+                ? 'bg-white text-blue-700 shadow-2xs font-bold'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            {/* Google Colorful mini-logo */}
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+            </svg>
+            <span className="truncate">Google</span>
+          </button>
+
+          <button
+            type="button"
             onClick={() => { setAuthMethod('password'); setError(null); }}
-            className={`py-2 rounded-lg transition flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`py-2 px-1 rounded-xl transition flex flex-col items-center justify-center gap-1 cursor-pointer ${
               authMethod === 'password'
                 ? 'bg-white text-blue-700 shadow-2xs font-bold'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <KeyRound className="w-3.5 h-3.5 text-slate-500" />
-            <span>Password</span>
+            <span className="truncate">Password</span>
           </button>
         </div>
 
-        {/* --- METHOD 1: ONE-TIME CODE (OTP) --- */}
+        {/* ======================================================== */}
+        {/* OPTION 1: ONE-TIME CODE (OTP)                            */}
+        {/* ======================================================== */}
         {authMethod === 'otp' && (
           <div>
             {otpStep === 'input_email' ? (
@@ -277,14 +305,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Alex Smith"
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600 bg-slate-50/50"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Email Address
+                    Your Registered Email Address <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -293,18 +321,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@example.com"
+                      placeholder="e.g. yourname@gmail.com"
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
                     />
                   </div>
                   <p className="text-[11px] text-slate-500 mt-1">
-                    We will generate a quick 6-digit login code. No password required!
+                    Enter your real registered email. A 6-digit code will be generated for it.
                   </p>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || !email.trim()}
                   className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>{loading ? 'Sending Code...' : 'Send One-Time Code'}</span>
@@ -313,9 +341,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </form>
             ) : (
               <form onSubmit={handleVerifyOtp} className="space-y-4">
-                <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200/80">
+                <div className="p-3 rounded-xl bg-blue-50/80 border border-blue-200">
                   <div className="text-xs text-blue-900 font-medium">
-                    Code sent to <span className="font-bold">{email}</span>
+                    Verification code for: <strong className="font-bold">{email}</strong>
                   </div>
                   {otpPreview && (
                     <div className="mt-2 pt-2 border-t border-blue-200/60 flex items-center justify-between">
@@ -356,7 +384,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   disabled={loading || otpCode.length !== 6}
                   className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>{loading ? 'Verifying...' : 'Verify Code & Continue'}</span>
+                  <span>{loading ? 'Verifying...' : 'Verify Code & Sign In'}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
@@ -366,7 +394,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     onClick={() => { setOtpStep('input_email'); setOtpCode(''); }}
                     className="text-slate-500 hover:text-slate-800 underline cursor-pointer"
                   >
-                    Change email
+                    Use different email
                   </button>
 
                   <button
@@ -384,13 +412,97 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
         )}
 
-        {/* --- METHOD 2: EMAIL & PASSWORD --- */}
+        {/* ======================================================== */}
+        {/* OPTION 2: GOOGLE SIGN-IN WITH REAL REGISTERED EMAIL      */}
+        {/* ======================================================== */}
+        {authMethod === 'google' && (
+          <form onSubmit={handleGoogleSignIn} className="space-y-4">
+            <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-center gap-2.5 mb-2">
+              <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+              </svg>
+              <span>Please enter your registered Google account email below to authenticate.</span>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                Your Registered Google Email <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="e.g. yourname@gmail.com"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                Your Name (Optional)
+              </label>
+              <div className="relative">
+                <UserIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Saidimar Rey"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading || !email.trim()}
+              className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2"
+            >
+              <span>{loading ? 'Authenticating...' : 'Sign In with This Google Email'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </form>
+        )}
+
+        {/* ======================================================== */}
+        {/* OPTION 3: EMAIL & PASSWORD (REGISTER OR SIGN IN)         */}
+        {/* ======================================================== */}
         {authMethod === 'password' && (
           <form onSubmit={handlePasswordSubmit} className="space-y-4">
+            
+            {/* Toggle between Register and Sign In */}
+            <div className="flex items-center justify-center gap-2 p-1 bg-slate-50 border border-slate-200 rounded-xl mb-3">
+              <button
+                type="button"
+                onClick={() => { setIsRegister(false); setError(null); }}
+                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer ${
+                  !isRegister ? 'bg-white text-blue-600 shadow-2xs' : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                Sign In
+              </button>
+              <button
+                type="button"
+                onClick={() => { setIsRegister(true); setError(null); }}
+                className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition cursor-pointer ${
+                  isRegister ? 'bg-white text-blue-600 shadow-2xs' : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                Register New
+              </button>
+            </div>
+
             {isRegister && (
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                  Your Name
+                  Your Full Name <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <UserIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -400,7 +512,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Alex Smith"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
                   />
                 </div>
               </div>
@@ -408,7 +520,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                Email Address
+                Your Registered Email Address <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -418,14 +530,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
                 />
               </div>
             </div>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                Password
+                Password <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -435,46 +547,20 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   minLength={6}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600"
+                  placeholder="At least 6 characters"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-blue-600 focus:border-blue-600"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !email.trim() || !password}
               className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2 mt-2"
             >
-              <span>{loading ? 'Processing...' : isRegister ? 'Sign Up' : 'Sign In'}</span>
+              <span>{loading ? 'Processing...' : isRegister ? 'Register Account' : 'Sign In'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-
-            <div className="mt-4 pt-3 border-t border-slate-100 text-center text-xs text-slate-500">
-              {isRegister ? (
-                <>
-                  Already have an account?{' '}
-                  <button
-                    type="button"
-                    onClick={() => { setIsRegister(false); setError(null); }}
-                    className="font-bold text-blue-600 hover:underline cursor-pointer"
-                  >
-                    Sign In
-                  </button>
-                </>
-              ) : (
-                <>
-                  Don't have an account yet?{' '}
-                  <button
-                    type="button"
-                    onClick={() => { setIsRegister(true); setError(null); }}
-                    className="font-bold text-blue-600 hover:underline cursor-pointer"
-                  >
-                    Create one now
-                  </button>
-                </>
-              )}
-            </div>
           </form>
         )}
 

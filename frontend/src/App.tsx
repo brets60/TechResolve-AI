@@ -146,21 +146,30 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      
+    <div className="min-h-screen flex flex-col font-sans text-slate-900 relative overflow-x-hidden">
+      {/* Lively Ambient Background Orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl animate-pulse-soft" />
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-indigo-400/12 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-2/3 -left-32 w-96 h-96 bg-sky-300/12 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }} />
+        <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '3s' }} />
+      </div>
+
       {/* Top Navigation */}
-      <Navbar
-        currentView={currentView}
-        setCurrentView={setCurrentView}
-        user={user}
-        mode={mode}
-        onToggleMode={handleToggleMode}
-        onOpenAuth={() => setIsAuthOpen(true)}
-        onLogout={handleLogout}
-      />
+      <div className="relative z-40">
+        <Navbar
+          currentView={currentView}
+          setCurrentView={setCurrentView}
+          user={user}
+          mode={mode}
+          onToggleMode={handleToggleMode}
+          onOpenAuth={() => setIsAuthOpen(true)}
+          onLogout={handleLogout}
+        />
+      </div>
 
       {/* Main Body */}
-      <main className="flex-1 pb-20 md:pb-6">
+      <main className="flex-1 pb-20 md:pb-6 relative z-10">
         {globalLoading ? (
           <div className="py-20 text-center">
             <div className="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
@@ -205,6 +214,7 @@ export function App() {
             {currentView === 'knowledge' && (
               <KnowledgeView
                 onLaunchInteractive={handleLaunchInteractive}
+                onStartCustomProblem={handleStartProblem}
               />
             )}
 
