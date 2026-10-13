@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Dependencies
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+**/.env
+**/.env.*
+
+# Frontend build artifacts
+frontend/dist
+
+# Database and uploaded media (created inside container or via volume)
+backend/*.db
+backend/*.db-journal
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# IDE and OS
+.vscode
+.idea
+.DS_Store
+Thumbs.db

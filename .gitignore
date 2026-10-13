@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+*/node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Testing & Coverage
+.pytest_cache/
+*/.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Local SQLite Database (auto-created on startup)
+*.db
+*.db-journal
+backend/*.db
+backend/*.db-journal
+
+# User Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Build Artifacts
+dist/
+frontend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System & IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
