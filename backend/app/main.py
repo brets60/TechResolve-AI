@@ -91,11 +91,17 @@ def health_check():
 
 @app.get("/api/download/apk")
 @app.head("/api/download/apk")
+@app.get("/download-apk")
+@app.get("/TechResolve-AI.apk")
+@app.get("/apk")
 def download_apk():
     import os
     from fastapi.responses import FileResponse
     from fastapi import HTTPException
     apk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "TechResolve-AI.apk"))
+    if not os.path.exists(apk_path):
+        # Fallback to root directory
+        apk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "TechResolve-AI.apk"))
     if not os.path.exists(apk_path):
         raise HTTPException(status_code=404, detail="APK build not found")
     return FileResponse(
