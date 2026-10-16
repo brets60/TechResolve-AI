@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-40 glass-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between min-h-[4.25rem] py-2">
           
           {/* Logo & Tagline */}
           <div 
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span>IT Assistant</span>
                 </span>
               </div>
-              <p className="text-[11px] text-[#94A3B8] hidden sm:block font-medium">
+              <p className="text-[11px] leading-tight text-[#94A3B8] hidden sm:block font-medium mt-0.5">
                 Friendly solutions, step-by-step
               </p>
             </div>
