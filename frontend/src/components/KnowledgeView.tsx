@@ -36,6 +36,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
     '⚡ Hackathon & Dev Skills',
     'Audio & Sound',
     'Battery & Power',
+    'Cooling & Thermal',
     'Display & Monitors',
     'Internet & Network',
     'Printers & Devices',
@@ -44,6 +45,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
     'Software & Apps',
     'Storage & Files',
     'System Performance',
+    'Windows Repair & BSOD',
   ];
 
   // Fetch all articles once on mount
@@ -104,7 +106,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
           <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 bg-clip-text text-transparent">IT Guides</span>
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          Search 21 master solutions for hardware, networking, audio, and code. Read simple fixes, or let TechResolve AI guide you step-by-step.
+          Search 39 master solutions covering all 35 common PC & laptop problems, computer overheating, networking, audio, and code. Read simple fixes, or let TechResolve AI guide you step-by-step.
         </p>
       </div>
 

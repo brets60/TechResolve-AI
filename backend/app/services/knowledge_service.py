@@ -1,16 +1,17 @@
 from typing import List, Optional, Dict, Any
 from sqlalchemy.orm import Session
 from app.models import KnowledgeArticle
+from app.services.additional_articles import ADDITIONAL_ARTICLES
 
-INITIAL_ARTICLES = [
+BASE_ARTICLES = [
     {
         "id": "battery-unplugged-shutdown",
-        "title": "Laptop Turns Off Immediately When Unplugged",
+        "title": "2 & 4. Laptop Suddenly Shuts Down / Works Only When Plugged In",
         "category": "Battery & Power",
-        "summary": "Your laptop works fine when plugged into the wall charger, but dies or shuts down instantly when the cable is removed.",
+        "summary": "Your laptop works fine when plugged into the wall charger, but dies or shuts down instantly when the cable is removed or while working.",
         "difficulty": "Beginner",
         "estimated_time": "5-10 mins",
-        "tags": ["battery", "power", "shutdown", "laptop", "charger"],
+        "tags": ["battery", "power", "shutdown", "laptop", "charger", "2", "4"],
         "common_causes": [
             "Battery chemical wear (battery cannot hold enough electrical voltage).",
             "Loose or oxidized battery connection pins.",
@@ -48,12 +49,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "wifi-connected-no-internet",
-        "title": "Wi-Fi Connected But No Internet Access",
+        "title": "11 & 28. No Internet Connection / Wi-Fi Not Connecting ('Connected But No Internet')",
         "category": "Internet & Network",
-        "summary": "Your computer shows full Wi-Fi bars with a yellow warning triangle or says 'Connected, no internet'.",
+        "summary": "Your computer shows full Wi-Fi bars with a yellow warning triangle or says 'Connected, no internet', or fails to connect to the network.",
         "difficulty": "Beginner",
         "estimated_time": "3-7 mins",
-        "tags": ["wifi", "internet", "network", "dns", "router"],
+        "tags": ["wifi", "internet", "network", "dns", "router", "11", "28", "no internet", "wifi not connecting"],
         "common_causes": [
             "Your home router lost internet connection with your Internet Service Provider (ISP).",
             "Outdated or corrupt DNS cache on your computer.",
@@ -91,12 +92,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "slow-computer-speedup",
-        "title": "Computer Running Extremely Slow or Freezing",
+        "title": "6. Computer Running Slowly (Extreme Lag, Freezes & Stuttering)",
         "category": "System Performance",
         "summary": "Your computer takes minutes to respond, programs take forever to open, or the mouse cursor constantly freezes.",
         "difficulty": "Beginner",
         "estimated_time": "10-15 mins",
-        "tags": ["slow", "performance", "cpu", "disk", "memory", "speed"],
+        "tags": ["slow", "performance", "cpu", "disk", "memory", "speed", "6", "running slowly"],
         "common_causes": [
             "Too many background programs launching at startup.",
             "Storage drive is almost completely full (less than 10% free space).",
@@ -134,12 +135,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "app-wont-open-crashes",
-        "title": "Application Won't Open or Freezes on Launch",
+        "title": "21. Applications Crashing or Freezing on Launch",
         "category": "Software & Apps",
-        "summary": "You double-click an application, but nothing happens, or it flashes on screen for a second and disappears.",
+        "summary": "You double-click an application, but nothing happens, or it flashes on screen for a second and disappears or crashes.",
         "difficulty": "Beginner",
         "estimated_time": "5 mins",
-        "tags": ["app", "crash", "wont open", "software", "freeze"],
+        "tags": ["app", "crash", "wont open", "software", "freeze", "21", "applications crashing"],
         "common_causes": [
             "A frozen background instance of the application is already stuck in memory.",
             "Missing administrator permissions to write to local configuration files.",
@@ -177,12 +178,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "overheating-loud-fan",
-        "title": "Computer Getting Dangerously Hot with Loud Fan Noise",
+        "title": "7. Computer Overheating & Fan Noise (Extreme Heat & Thermal Throttling)",
         "category": "System Performance",
-        "summary": "Laptop feels burning hot on your lap, and fans spin at maximum speed sounding like an airplane taking off.",
+        "summary": "Laptop or PC feels burning hot to the touch, and fans spin at maximum speed sounding like an airplane taking off.",
         "difficulty": "Beginner",
         "estimated_time": "5-10 mins",
-        "tags": ["overheating", "fan", "heat", "thermal", "loud"],
+        "tags": ["overheating", "fan", "heat", "thermal", "loud", "7", "computer overheating"],
         "common_causes": [
             "Dust accumulation blocking internal heatsink vents.",
             "Using the laptop on a bed, blanket, or pillow blocking intake airflow.",
@@ -220,12 +221,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "printer-offline-error",
-        "title": "Printer Shows Offline and Won't Print",
+        "title": "29. Printer Not Detected or Shows Offline",
         "category": "Printers & Devices",
         "summary": "You send documents to print, but nothing prints, and Windows says the printer is 'Offline' or 'Paused'.",
         "difficulty": "Beginner",
         "estimated_time": "5-10 mins",
-        "tags": ["printer", "offline", "spooler", "paper", "usb"],
+        "tags": ["printer", "offline", "spooler", "paper", "usb", "29", "printer not detected"],
         "common_causes": [
             "Windows Print Spooler service got stuck with a corrupt print job.",
             "Printer Wi-Fi connection dropped or IP address changed.",
@@ -263,12 +264,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "blue-screen-bsod",
-        "title": "Windows Blue Screen of Death (BSOD) Error",
+        "title": "8. Blue Screen of Death (BSOD Crash & Stop Code Errors)",
         "category": "System Performance",
         "summary": "Your computer suddenly crashes to a blue screen with a sad face :( and restarts automatically.",
         "difficulty": "Intermediate",
         "estimated_time": "10-20 mins",
-        "tags": ["bsod", "blue screen", "crash", "windows", "kernel"],
+        "tags": ["bsod", "blue screen", "crash", "windows", "kernel", "8", "blue screen of death"],
         "common_causes": [
             "Faulty or outdated device driver (especially GPU graphics or Wi-Fi).",
             "Failing RAM memory stick.",
@@ -396,12 +397,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "audio-no-sound-speakers",
-        "title": "No Sound Coming Out of Speakers or Headphones",
+        "title": "16. No Sound or Audio Coming Out of Speakers or Headphones",
         "category": "Audio & Sound",
         "summary": "Your computer produces zero audio sound from built-in laptop speakers, 3.5mm headphone jack, or external desktop speakers even when volume is turned up.",
         "difficulty": "Beginner",
         "estimated_time": "3-7 mins",
-        "tags": ["audio", "sound", "speakers", "headphones", "volume", "realtek", "mute"],
+        "tags": ["audio", "sound", "speakers", "headphones", "volume", "realtek", "mute", "16", "no sound", "no audio"],
         "common_causes": [
             "Default playback device switched to a silent external monitor or virtual cable.",
             "Hardware mute key or Fn audio mute shortcut pressed.",
@@ -481,12 +482,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "second-monitor-not-detected",
-        "title": "Second Monitor or External Screen Not Detected",
+        "title": "33. Computer Won't Connect to an External Monitor (Second Screen Not Detected)",
         "category": "Display & Monitors",
         "summary": "Your external monitor shows 'No Signal' or Windows displays 'Didn't detect another display' when connected via HDMI, DisplayPort, or USB-C.",
         "difficulty": "Beginner",
         "estimated_time": "3-5 mins",
-        "tags": ["monitor", "display", "screen", "hdmi", "usb-c", "projector", "second screen"],
+        "tags": ["monitor", "display", "screen", "hdmi", "usb-c", "projector", "second screen", "33", "external monitor"],
         "common_causes": [
             "Display projection mode set to 'PC screen only'.",
             "Monitor is on the wrong input channel (HDMI 1 vs HDMI 2 vs DisplayPort).",
@@ -523,12 +524,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "usb-drive-not-recognized",
-        "title": "USB Flash Drive or External Hard Drive Not Showing Up",
+        "title": "18. USB Ports Not Working / Flash Drive Not Showing Up",
         "category": "Storage & Files",
         "summary": "You insert a USB thumb drive or external hard drive, hear the connection chime, but nothing opens in File Explorer.",
         "difficulty": "Beginner",
         "estimated_time": "5 mins",
-        "tags": ["usb", "drive", "flash drive", "storage", "hard drive", "explorer", "not showing"],
+        "tags": ["usb", "drive", "flash drive", "storage", "hard drive", "explorer", "not showing", "18", "usb ports"],
         "common_causes": [
             "Drive partition lacks an assigned drive letter (e.g. E: or F:).",
             "Drive formatted in Mac-only APFS or Linux ext4 filesystem.",
@@ -605,12 +606,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "drive-c-storage-full",
-        "title": "Drive C: Completely Full — Safe Ways to Free 20+ GB in Windows",
+        "title": "26. Storage Space Full (Drive C: Completely Full — Safe Ways to Free 20+ GB in Windows)",
         "category": "Storage & Files",
         "summary": "Your main Windows drive (C:) is red with critically low disk space, causing sluggish performance, update failures, and crashing apps.",
         "difficulty": "Beginner",
         "estimated_time": "8-12 mins",
-        "tags": ["storage", "disk full", "clean", "free space", "c drive", "clean up", "temp files"],
+        "tags": ["storage", "disk full", "clean", "free space", "c drive", "clean up", "temp files", "26", "storage space full"],
         "common_causes": [
             "Previous Windows update installation backups (Windows.old folder).",
             "Gigabytes of hidden temporary browser and app download caches.",
@@ -647,12 +648,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "windows-update-stuck",
-        "title": "Windows Update Stuck at 100% or Failing with Error Code",
+        "title": "23. Windows Update Failure (Stuck at 100% or Update Error Codes)",
         "category": "System Performance",
         "summary": "Windows Update gets frozen during download/install, or rolls back changes with error codes like 0x80070002, 0x800f0922, or 0x80240034.",
         "difficulty": "Intermediate",
         "estimated_time": "10-15 mins",
-        "tags": ["update", "windows update", "stuck", "error", "0x80070002", "freeze"],
+        "tags": ["update", "windows update", "stuck", "error", "0x80070002", "freeze", "23", "windows update failure"],
         "common_causes": [
             "Corrupted temporary update package database.",
             "Damaged Windows Component Store system files.",
@@ -689,12 +690,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "browser-popups-malware",
-        "title": "Suspicious Browser Popups, Scam Warnings & Fake Virus Alerts",
+        "title": "35. Computer Infected with Pop-up Ads & Scam Virus Alerts",
         "category": "Security & Accounts",
         "summary": "Loud browser alerts, robotic voices, or full-screen warnings claim 'Your computer is infected with Trojan Spyware! Call 1-800 Microsoft Helpline'.",
         "difficulty": "Beginner",
         "estimated_time": "5-8 mins",
-        "tags": ["virus", "malware", "popups", "scam", "browser", "fake alert", "security"],
+        "tags": ["virus", "malware", "popups", "scam", "browser", "fake alert", "security", "35", "pop-up ads"],
         "common_causes": [
             "Deceptive website notification permission clicked accidentally ('Allow notifications').",
             "Malicious browser extension redirecting search queries.",
@@ -778,12 +779,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "keyboard-typing-wrong-keys",
-        "title": "Laptop Keyboard Typing Wrong Letters, Numbers, or Swapped Symbols",
+        "title": "14. Keyboard Not Working (Typing Wrong Letters, Swapped Keys or Unresponsive Keys)",
         "category": "Printers & Devices",
-        "summary": "Pressing keys types numbers instead of letters (e.g. typing U, I, O results in 4, 5, 6), or typing @ produces \" and vice-versa.",
+        "summary": "Pressing keys types numbers instead of letters (e.g. typing U, I, O results in 4, 5, 6), or typing @ produces \" and vice-versa, or keys fail to register.",
         "difficulty": "Beginner",
         "estimated_time": "2-4 mins",
-        "tags": ["keyboard", "typing", "wrong keys", "numlock", "language", "symbols", "layout"],
+        "tags": ["keyboard", "typing", "wrong keys", "numlock", "language", "symbols", "layout", "14", "keyboard not working"],
         "common_causes": [
             "NumLock enabled on compact laptops without a dedicated number pad.",
             "Keyboard input language accidentally toggled from US to UK/International.",
@@ -820,12 +821,12 @@ INITIAL_ARTICLES = [
     },
     {
         "id": "webcam-black-screen",
-        "title": "Webcam Shows Black Screen or 'No Camera Found' in Video Calls",
+        "title": "17. Webcam Not Working (Black Screen or 'No Camera Found' in Video Calls)",
         "category": "Printers & Devices",
         "summary": "Your laptop webcam displays a solid black rectangle, loading spinner, or error code 0xA00F4244 in Zoom, Teams, Meet, or Windows Camera app.",
         "difficulty": "Beginner",
         "estimated_time": "3-5 mins",
-        "tags": ["webcam", "camera", "black screen", "zoom", "teams", "video", "privacy"],
+        "tags": ["webcam", "camera", "black screen", "zoom", "teams", "video", "privacy", "17", "webcam not working"],
         "common_causes": [
             "Physical camera privacy shutter is closed over the lens.",
             "Hardware camera toggle function key (F8 / F10 / Fn) disabled.",
@@ -901,6 +902,8 @@ INITIAL_ARTICLES = [
         "technician_trigger": "If using a local offline account with no reset disk, boot into Windows Recovery to access System Restore or recovery prompt."
     }
 ]
+
+INITIAL_ARTICLES = BASE_ARTICLES + ADDITIONAL_ARTICLES
 
 def seed_knowledge_base(db: Session):
     for item in INITIAL_ARTICLES:

@@ -17,26 +17,351 @@ import {
   Volume2,
   Monitor,
   HardDrive,
-  ShieldAlert
+  ShieldAlert,
+  Flame,
+  Search,
+  BookOpen
 } from 'lucide-react';
 import type { TroubleshootingMode, User } from '../types';
 
 interface HomeViewProps {
   onStartProblem: (problem: string, category: string) => void;
   onOpenCmdHelper?: () => void;
+  onOpenKnowledge?: () => void;
   mode: TroubleshootingMode;
   user?: User | null;
   onOpenAuth?: () => void;
 }
 
+export const COMMON_35_PROBLEMS = [
+  {
+    num: 1,
+    title: "Computer won't turn on",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "🔌",
+    summary: "No power lights, no fan spin, completely dead silence when pressing power button.",
+    highlight: false,
+  },
+  {
+    num: 2,
+    title: "Laptop suddenly shuts down",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "⚡",
+    summary: "Laptop turns off instantly without warning or error screen while working or gaming.",
+    highlight: false,
+  },
+  {
+    num: 3,
+    title: "Laptop battery not charging",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "🔋",
+    summary: "Charger is plugged in, but battery icon says 'Plugged in, not charging' or stays at 0%.",
+    highlight: false,
+  },
+  {
+    num: 4,
+    title: "Laptop works only when plugged in",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "🔌",
+    summary: "Laptop operates normally on charger, but dies the exact split-second the cable is removed.",
+    highlight: false,
+  },
+  {
+    num: 5,
+    title: "Black screen or no display",
+    category: "Display & Monitors",
+    filterGroup: "Display & Screens",
+    icon: "🖥️",
+    summary: "Computer power lights turn on and fans spin, but the display remains pitch black.",
+    highlight: false,
+  },
+  {
+    num: 6,
+    title: "Computer running slowly",
+    category: "System Performance",
+    filterGroup: "Performance & Freezes",
+    icon: "🐌",
+    summary: "Takes minutes to open apps, mouse stutters, and system lags under simple tasks.",
+    highlight: false,
+  },
+  {
+    num: 7,
+    title: "Computer overheating",
+    category: "Cooling & Thermal",
+    filterGroup: "Overheating & Cooling",
+    icon: "🔥",
+    summary: "Chassis burning hot to touch, thermal throttling lag, and fans spinning at max speed.",
+    highlight: true,
+  },
+  {
+    num: 8,
+    title: "Blue Screen of Death (BSOD)",
+    category: "Windows Repair & BSOD",
+    filterGroup: "Windows & System",
+    icon: "💻",
+    summary: "Sudden crash to blue error screen with sad smiley :( and stop codes like MEMORY_MANAGEMENT.",
+    highlight: false,
+  },
+  {
+    num: 9,
+    title: "Windows won't boot",
+    category: "Windows Repair & BSOD",
+    filterGroup: "Windows & System",
+    icon: "🔄",
+    summary: "Stuck on loading circle, 'Preparing Automatic Repair' loop, or black screen before login.",
+    highlight: false,
+  },
+  {
+    num: 10,
+    title: "Computer freezes or hangs",
+    category: "System Performance",
+    filterGroup: "Performance & Freezes",
+    icon: "❄️",
+    summary: "Screen freezes completely, mouse pointer won't move, and Ctrl+Alt+Del does not respond.",
+    highlight: false,
+  },
+  {
+    num: 11,
+    title: "No internet connection",
+    category: "Internet & Network",
+    filterGroup: "Internet & Wi-Fi",
+    icon: "🌐",
+    summary: "Wi-Fi icon has yellow warning or globe icon showing 'Connected, no internet'.",
+    highlight: false,
+  },
+  {
+    num: 12,
+    title: "Slow internet connection",
+    category: "Internet & Network",
+    filterGroup: "Internet & Wi-Fi",
+    icon: "📶",
+    summary: "Videos buffer endlessly, web pages take 10+ seconds to load, or ping is over 200ms.",
+    highlight: false,
+  },
+  {
+    num: 13,
+    title: "Virus or malware infection",
+    category: "Security & Accounts",
+    filterGroup: "Security & Virus",
+    icon: "🦠",
+    summary: "Unknown programs installed, files locked, browser hijacked, or high background CPU usage.",
+    highlight: false,
+  },
+  {
+    num: 14,
+    title: "Keyboard not working",
+    category: "Printers & Devices",
+    filterGroup: "Audio & Peripherals",
+    icon: "⌨️",
+    summary: "Keys won't respond, numbers typed instead of letters, or swapped symbol layouts.",
+    highlight: false,
+  },
+  {
+    num: 15,
+    title: "Mouse or touchpad not working",
+    category: "Printers & Devices",
+    filterGroup: "Audio & Peripherals",
+    icon: "🖱️",
+    summary: "Touchpad gestures unresponsive, mouse pointer frozen, drifting, or clicking on its own.",
+    highlight: false,
+  },
+  {
+    num: 16,
+    title: "No sound or audio",
+    category: "Audio & Sound",
+    filterGroup: "Audio & Peripherals",
+    icon: "🔇",
+    summary: "Zero audio from laptop speakers or headphone jack even when volume slider is at 100%.",
+    highlight: false,
+  },
+  {
+    num: 17,
+    title: "Webcam not working",
+    category: "Printers & Devices",
+    filterGroup: "Audio & Peripherals",
+    icon: "📷",
+    summary: "Black screen in Zoom/Meet, privacy shutter closed, or 'No Camera Attached' error.",
+    highlight: false,
+  },
+  {
+    num: 18,
+    title: "USB ports not working",
+    category: "Storage & Files",
+    filterGroup: "Storage & Drive",
+    icon: "🔌",
+    summary: "Flash drives or external accessories not detected or receiving electrical power in USB ports.",
+    highlight: false,
+  },
+  {
+    num: 19,
+    title: "Hard drive or SSD failure",
+    category: "Storage & Files",
+    filterGroup: "Storage & Drive",
+    icon: "💽",
+    summary: "Repetitive clicking sounds, S.M.A.R.T. disk errors, or drive disappearing from File Explorer.",
+    highlight: false,
+  },
+  {
+    num: 20,
+    title: "RAM problems",
+    category: "System Performance",
+    filterGroup: "Performance & Freezes",
+    icon: "🧠",
+    summary: "Frequent crashes under load, 95%+ memory usage with few apps open, or memory beep codes.",
+    highlight: false,
+  },
+  {
+    num: 21,
+    title: "Applications crashing",
+    category: "Software & Apps",
+    filterGroup: "Windows & System",
+    icon: "💥",
+    summary: "App closes immediately after opening, crashes to desktop, or shows 0xc000007b error.",
+    highlight: false,
+  },
+  {
+    num: 22,
+    title: "Software installation failure",
+    category: "Software & Apps",
+    filterGroup: "Windows & System",
+    icon: "📦",
+    summary: "Installers fail with 'Error 1603', access denied permissions, or corrupt download packages.",
+    highlight: false,
+  },
+  {
+    num: 23,
+    title: "Windows update failure",
+    category: "System Performance",
+    filterGroup: "Windows & System",
+    icon: "🔄",
+    summary: "Updates stuck at 100%, undoing changes loop, or error codes 0x80070002 / 0x80240034.",
+    highlight: false,
+  },
+  {
+    num: 24,
+    title: "Screen flickering",
+    category: "Display & Monitors",
+    filterGroup: "Display & Screens",
+    icon: "✨",
+    summary: "Display stutters, flashes black intermittently, or displays horizontal shaking lines.",
+    highlight: false,
+  },
+  {
+    num: 25,
+    title: "Computer restarting automatically",
+    category: "Windows Repair & BSOD",
+    filterGroup: "Windows & System",
+    icon: "🔁",
+    summary: "PC reboots without warning during games or rendering, or enters continuous reboot loops.",
+    highlight: false,
+  },
+  {
+    num: 26,
+    title: "Storage space full",
+    category: "Storage & Files",
+    filterGroup: "Storage & Drive",
+    icon: "💾",
+    summary: "C: drive bar is glowing red with less than 2 GB remaining; safe ways to free 20+ GB.",
+    highlight: false,
+  },
+  {
+    num: 27,
+    title: "High CPU or RAM usage",
+    category: "System Performance",
+    filterGroup: "Performance & Freezes",
+    icon: "📈",
+    summary: "Task Manager pinned at 100% CPU or Memory even when completely idle on desktop.",
+    highlight: false,
+  },
+  {
+    num: 28,
+    title: "Wi-Fi not connecting",
+    category: "Internet & Network",
+    filterGroup: "Internet & Wi-Fi",
+    icon: "📶",
+    summary: "Windows says 'Can't connect to this network' or keeps disconnecting every few minutes.",
+    highlight: false,
+  },
+  {
+    num: 29,
+    title: "Printer not detected",
+    category: "Printers & Devices",
+    filterGroup: "Audio & Peripherals",
+    icon: "🖨️",
+    summary: "Printer shows offline in Settings, print spooler is jammed, or wireless printer not detected.",
+    highlight: false,
+  },
+  {
+    num: 30,
+    title: "Laptop battery drains quickly",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "🔋",
+    summary: "Battery percentage drops from 100% to 20% in under an hour; identifying energy vampires.",
+    highlight: false,
+  },
+  {
+    num: 31,
+    title: "Laptop fan making unusual noises",
+    category: "Cooling & Thermal",
+    filterGroup: "Overheating & Cooling",
+    icon: "🌀",
+    summary: "Buzzing, grinding, clicking, or high-pitched whining sound from internal cooling fan bearings.",
+    highlight: false,
+  },
+  {
+    num: 32,
+    title: "Files accidentally deleted",
+    category: "Storage & Files",
+    filterGroup: "Storage & Drive",
+    icon: "🗑️",
+    summary: "Recovering permanently Shift+Deleted photos or office documents before they are overwritten.",
+    highlight: false,
+  },
+  {
+    num: 33,
+    title: "Computer won't connect to external monitor",
+    category: "Display & Monitors",
+    filterGroup: "Display & Screens",
+    icon: "🖥️",
+    summary: "External HDMI/USB-C screen or TV displays 'No Signal' or Windows doesn't detect second monitor.",
+    highlight: false,
+  },
+  {
+    num: 34,
+    title: "Date and time keep resetting",
+    category: "Battery & Power",
+    filterGroup: "Power & Battery",
+    icon: "⏰",
+    summary: "System clock resets back to 2015 or wrong time after shut down; replacing CMOS button battery.",
+    highlight: false,
+  },
+  {
+    num: 35,
+    title: "Computer infected with pop-up ads",
+    category: "Security & Accounts",
+    filterGroup: "Security & Virus",
+    icon: "🚨",
+    summary: "Loud voice alerts and fake Microsoft 'Call 1-800 virus' warnings spamming the desktop.",
+    highlight: false,
+  },
+];
+
 export const HomeView: React.FC<HomeViewProps> = ({ 
   onStartProblem, 
   onOpenCmdHelper, 
+  onOpenKnowledge,
   mode,
   user,
   onOpenAuth
 }) => {
   const [customInput, setCustomInput] = useState('');
+  const [selected35Filter, setSelected35Filter] = useState('All');
+  const [search35Query, setSearch35Query] = useState('');
 
   // Dynamic greeting based on current time
   const getGreeting = () => {
@@ -306,8 +631,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <CheckCircle2 className="w-5 h-5 text-blue-600" />
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-900">21 Master Guides</div>
-              <div className="text-[11px] text-slate-500">Comprehensive IT library</div>
+              <div className="text-xs font-bold text-slate-900">39 Master Guides</div>
+              <div className="text-[11px] text-slate-500">All 35 problems covered</div>
             </div>
           </div>
 
@@ -330,6 +655,187 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <div className="text-[11px] text-slate-500">One question at a time</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 35 Important Common Laptop & PC Problems Explorer */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
+        <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-blue-200/80 shadow-lg shadow-blue-500/5">
+          
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-xs font-extrabold uppercase tracking-wider mb-2 border border-blue-200 shadow-2xs">
+                <Laptop className="w-3.5 h-3.5 text-blue-600" />
+                <span>35 Common PC & Laptop Problems</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                All 35 Laptop & PC Problems Covered
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
+                Instant 1-click patient troubleshooting for every common computer breakdown. From computer overheating and black screens to slow performance and malware.
+              </p>
+            </div>
+
+            {onOpenKnowledge && (
+              <button
+                type="button"
+                onClick={onOpenKnowledge}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 text-xs font-bold transition shadow-2xs cursor-pointer shrink-0 self-start md:self-auto"
+              >
+                <BookOpen className="w-4 h-4 text-blue-600" />
+                <span>Read Full Knowledge Base</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          {/* Quick Search & Filter Tabs */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={search35Query}
+                onChange={(e) => setSearch35Query(e.target.value)}
+                placeholder="Filter 35 problems (e.g. 'overheating', 'battery', '7', 'black screen')..."
+                className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white/80 border border-slate-200 text-slate-800 placeholder-slate-400 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition"
+              />
+              {search35Query && (
+                <button
+                  onClick={() => setSearch35Query('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-bold transition"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar shrink-0">
+              {[
+                { id: 'All', label: 'All 35' },
+                { id: 'Overheating & Cooling', label: '🔥 Overheating' },
+                { id: 'Power & Battery', label: '🔋 Power' },
+                { id: 'Display & Screens', label: '🖥️ Display' },
+                { id: 'Performance & Freezes', label: '⚡ Performance' },
+                { id: 'Internet & Wi-Fi', label: '🌐 Wi-Fi' },
+                { id: 'Audio & Peripherals', label: '🎧 Peripherals' },
+                { id: 'Storage & Drive', label: '💾 Storage' },
+                { id: 'Windows & System', label: '💻 Windows/BSOD' },
+                { id: 'Security & Virus', label: '🛡️ Security' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setSelected35Filter(tab.id)}
+                  className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 ${
+                    selected35Filter === tab.id
+                      ? 'bg-blue-600 text-white shadow-2xs'
+                      : 'bg-white/80 hover:bg-slate-100 border border-slate-200/80 text-slate-600'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 35 Problems Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-h-[620px] overflow-y-auto pr-1">
+            {COMMON_35_PROBLEMS
+              .filter((p) => {
+                if (selected35Filter !== 'All' && p.filterGroup !== selected35Filter) return false;
+                if (search35Query.trim()) {
+                  const q = search35Query.toLowerCase();
+                  return (
+                    p.title.toLowerCase().includes(q) ||
+                    p.summary.toLowerCase().includes(q) ||
+                    p.category.toLowerCase().includes(q) ||
+                    p.num.toString() === q
+                  );
+                }
+                return true;
+              })
+              .map((prob) => {
+                const isOverheating = prob.num === 7;
+                return (
+                  <div
+                    key={prob.num}
+                    className={`rounded-2xl p-4 transition-all flex flex-col justify-between text-left ${
+                      isOverheating
+                        ? 'bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-rose-500/10 border-2 border-orange-400 shadow-md shadow-orange-500/10 ring-2 ring-orange-400/20'
+                        : 'bg-white/80 hover:bg-blue-50/40 border border-slate-200/90 hover:border-blue-400 shadow-2xs hover:shadow-xs'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black shrink-0 ${
+                            isOverheating
+                              ? 'bg-gradient-to-br from-orange-500 to-rose-500 text-white shadow-xs'
+                              : 'bg-slate-100 text-slate-700'
+                          }`}>
+                            #{prob.num}
+                          </span>
+                          <span className="text-base">{prob.icon}</span>
+                        </div>
+                        {isOverheating ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 text-white shadow-2xs animate-pulse">
+                            <Flame className="w-3 h-3" />
+                            Featured
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                            {prob.filterGroup}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className={`text-sm font-extrabold mb-1.5 leading-snug ${
+                        isOverheating ? 'text-orange-950 font-black' : 'text-slate-900'
+                      }`}>
+                        {prob.num}. {prob.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                        {prob.summary}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => onStartProblem(`${prob.num}. ${prob.title}: ${prob.summary}`, prob.category)}
+                      className={`w-full py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 ${
+                        isOverheating
+                          ? 'bg-gradient-to-r from-orange-600 to-rose-600 hover:from-orange-700 hover:to-rose-700 text-white shadow-xs'
+                          : 'bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200/80 hover:border-transparent'
+                      }`}
+                    >
+                      <span>Diagnose with AI</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                );
+              })}
+          </div>
+
+          {COMMON_35_PROBLEMS.filter((p) => {
+            if (selected35Filter !== 'All' && p.filterGroup !== selected35Filter) return false;
+            if (search35Query.trim()) {
+              const q = search35Query.toLowerCase();
+              return (
+                p.title.toLowerCase().includes(q) ||
+                p.summary.toLowerCase().includes(q) ||
+                p.category.toLowerCase().includes(q) ||
+                p.num.toString() === q
+              );
+            }
+            return true;
+          }).length === 0 && (
+            <div className="py-10 text-center text-slate-500 text-xs">
+              No matching problems found for "{search35Query}". Try searching for keywords like "overheating", "display", or "battery".
+            </div>
+          )}
+
         </div>
       </div>
 

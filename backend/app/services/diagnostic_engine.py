@@ -22,21 +22,23 @@ class DiagnosticEngine:
         t = (text or "").lower()
         cat = (category or "").lower()
 
-        if "hackathon" in t or "hackathon" in cat or "eaddrinuse" in t or "port" in t and "use" in t or "cors" in t or "merge conflict" in t or "pitch" in t or "demo crash" in t or "rate limit" in t:
+        if "hackathon" in t or "hackathon" in cat or "eaddrinuse" in t or ("port" in t and "use" in t) or "cors" in t or "merge conflict" in t or "pitch" in t or "demo crash" in t or "rate limit" in t:
             return "⚡ Hackathon & Dev Skills", HACKATHON_SURVIVAL_TREE
-        elif "blue screen" in t or "bsod" in t or "stop code" in t or "crash" in t and "screen" in t:
+        elif "blue screen" in t or "bsod" in t or "stop code" in t or ("crash" in t and "screen" in t) or "boot" in t or "restarting" in t or "reboot" in t:
             return "Windows Repair & BSOD", BSOD_CRASH_TREE
-        elif "overheat" in t or "heat" in t or "hot" in t or "loud fan" in t or "fan noise" in t:
+        elif "overheat" in t or "heat" in t or "hot" in t or "loud fan" in t or "fan noise" in t or "unusual noise" in t or "fan" in t:
             return "Cooling & Thermal", OVERHEATING_FAN_TREE
-        elif "printer" in t or "print" in t or "spooler" in t or "printer" in cat:
+        elif "printer" in t or "print" in t or "spooler" in t or "keyboard" in t or "mouse" in t or "touchpad" in t or "webcam" in t or "camera" in t or "usb" in t or "monitor" in t or "external screen" in t or "sound" in t or "audio" in t or "speaker" in t or "microphone" in t or "bluetooth" in t or "printer" in cat:
             return "Printers & Devices", PRINTER_OFFLINE_TREE
-        elif "battery" in t or "unplug" in t or "charger" in t or "power" in t or "shut down" in t or "turns off" in t or "laptop" in cat:
+        elif "turn on" in t or "no power" in t or "black screen" in t or "battery" in t or "unplug" in t or "charger" in t or "charging" in t or "power" in t or "shut down" in t or "turns off" in t or "drain" in t or "cmos" in t or "date and time" in t or "laptop" in cat:
             return "Battery & Power", BATTERY_SHUTDOWN_TREE
-        elif "wifi" in t or "wi-fi" in t or "internet" in t or "network" in t or "connection" in t or "internet" in cat:
+        elif "wifi" in t or "wi-fi" in t or "internet" in t or "network" in t or "connection" in t or "ping" in t or "bandwidth" in t or "hotspot" in t or "internet" in cat:
             return "Internet & Network", WIFI_NO_INTERNET_TREE
-        elif "slow" in t or "lag" in t or "freeze" in t or "freezing" in t:
+        elif "slow" in t or "lag" in t or "freeze" in t or "freezing" in t or "hang" in t or "ram" in t or "memory" in t or "cpu" in t or "disk" in t or "storage" in t or "hard drive" in t or "ssd" in t or "flicker" in t:
             return "System Performance", SLOW_COMPUTER_TREE
-        elif "app" in t or "application" in t or "program" in t or "software" in t or "open" in t:
+        elif "virus" in t or "malware" in t or "popup" in t or "pop-up" in t or "adware" in t or "ransomware" in t or "password" in t or "locked out" in t or "pin" in t or "security" in cat:
+            return "Security & Accounts", APP_WONT_OPEN_TREE
+        elif "app" in t or "application" in t or "program" in t or "software" in t or "open" in t or "install" in t or "update" in t or "deleted" in t or "recover" in t:
             return "Software & Apps", APP_WONT_OPEN_TREE
         else:
             return "General IT Issue", BATTERY_SHUTDOWN_TREE

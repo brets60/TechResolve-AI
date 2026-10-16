@@ -181,6 +181,7 @@ export function App() {
               <HomeView
                 onStartProblem={handleStartProblem}
                 onOpenCmdHelper={() => setCurrentView('cmd')}
+                onOpenKnowledge={() => setCurrentView('knowledge')}
                 mode={mode}
                 user={user}
                 onOpenAuth={() => setIsAuthOpen(true)}
