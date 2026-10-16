@@ -146,13 +146,12 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-900 relative overflow-x-hidden">
-      {/* Lively Ambient Background Orbs */}
+    <div className="min-h-screen flex flex-col font-sans text-[#F8FAFC] bg-[#0B1120] relative overflow-x-hidden selection:bg-[#2563EB]/30 selection:text-white">
+      {/* Calm Midnight Ambient Glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl animate-pulse-soft" />
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-indigo-400/12 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-2/3 -left-32 w-96 h-96 bg-sky-300/12 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }} />
-        <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '3s' }} />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl animate-pulse-soft" />
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-[#22D3EE]/06 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2.5s' }} />
+        <div className="absolute top-2/3 -left-32 w-96 h-96 bg-[#2563EB]/08 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }} />
       </div>
 
       {/* Top Navigation */}
@@ -172,8 +171,8 @@ export function App() {
       <main className="flex-1 pb-20 md:pb-6 relative z-10">
         {globalLoading ? (
           <div className="py-20 text-center">
-            <div className="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-slate-500 font-medium">Preparing diagnostic steps...</p>
+            <div className="w-8 h-8 border-3 border-[#2563EB] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+            <p className="text-sm text-[#94A3B8] font-medium">Preparing diagnostic steps...</p>
           </div>
         ) : (
           <>
@@ -240,12 +239,12 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400 mb-14 md:mb-0">
+      <footer className="mt-auto border-t border-[#334155] bg-[#151F32] py-6 text-center text-xs text-[#94A3B8] mb-14 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="font-medium text-slate-500">
+          <div className="font-semibold text-[#CBD5E1]">
             TechResolve AI • Patient IT Support For Everyone
           </div>
-          <div>
+          <div className="text-[#94A3B8]">
             Built with React, TypeScript, FastAPI & Google Gemini Intelligence
           </div>
         </div>
