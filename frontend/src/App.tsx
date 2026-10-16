@@ -147,11 +147,10 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-[#F8FAFC] bg-[#0B1120] relative overflow-x-hidden selection:bg-[#2563EB]/30 selection:text-white">
-      {/* Calm Midnight Ambient Glow */}
+      {/* Clean, lightweight midnight background accents */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#2563EB]/10 rounded-full blur-3xl animate-pulse-soft" />
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-[#22D3EE]/06 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '2.5s' }} />
-        <div className="absolute top-2/3 -left-32 w-96 h-96 bg-[#2563EB]/08 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '4s' }} />
+        <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#2563EB]/05 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -right-32 w-80 h-80 bg-[#22D3EE]/04 rounded-full blur-3xl" />
       </div>
 
       {/* Top Navigation */}
