@@ -511,15 +511,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <div className="max-w-4xl mx-auto text-center px-4">
         
         {/* Dark Greeting Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#151F32] border border-[#334155] text-[#22D3EE] text-xs sm:text-sm font-semibold mb-5 shadow-xs">
-          <Sparkles className="w-4 h-4 text-[#22D3EE]" />
+        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#151F32] border border-[#334155] text-[#22D3EE] text-xs sm:text-sm font-semibold mb-5 shadow-xs whitespace-nowrap">
+          <Sparkles className="w-4 h-4 text-[#22D3EE] shrink-0" />
           <span>{greeting.icon} {greeting.text} • Patient IT Co-pilot Ready</span>
         </div>
 
         {/* Clean Headline with Cyan Highlight */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4 text-center">
           <span className="text-[#F8FAFC]">Let's Fix Your </span>
-          <span className="text-[#22D3EE]">Tech Problem</span>
+          <span className="text-[#22D3EE] inline-block">Tech Problem</span>
           <span className="text-[#F8FAFC]"> Together.</span>
         </h1>
 

@@ -39,9 +39,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo & Tagline */}
           <div 
             onClick={() => setCurrentView('home')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group shrink-0"
           >
-            <div className="relative">
+            <div className="relative shrink-0">
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-[#334155] group-hover:scale-105 group-hover:border-[#2563EB] transition-all bg-[#151F32] flex items-center justify-center p-1 relative z-10">
                 <img 
                   src="/logo.png" 
@@ -51,121 +51,121 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
               <div className="absolute -inset-1 bg-[#2563EB]/25 rounded-xl blur-xs opacity-30 group-hover:opacity-60 transition" />
             </div>
-            <div>
+            <div className="shrink-0">
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-lg tracking-tight text-[#F8FAFC]">
+                <span className="font-extrabold text-lg tracking-tight text-[#F8FAFC] whitespace-nowrap">
                   TechResolve <span className="text-[#2563EB]">AI</span>
                 </span>
-                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#151F32] text-[#22D3EE] border border-[#334155]">
-                  <Sparkles className="w-3 h-3 text-[#22D3EE]" />
+                <span className="hidden xl:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#151F32] text-[#22D3EE] border border-[#334155] whitespace-nowrap">
+                  <Sparkles className="w-3 h-3 text-[#22D3EE] shrink-0" />
                   <span>IT Assistant</span>
                 </span>
               </div>
-              <p className="text-[11px] leading-tight text-[#94A3B8] hidden sm:block font-medium mt-0.5">
+              <p className="text-[11px] leading-tight text-[#94A3B8] hidden sm:block font-medium whitespace-nowrap mt-0.5">
                 Friendly solutions, step-by-step
               </p>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1.5">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 shrink-0">
             <button
               onClick={() => setCurrentView('home')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+              className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 ${
                 currentView === 'home'
                   ? 'bg-[#2563EB] text-white shadow-sm'
                   : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
               }`}
             >
-              <Home className="w-4 h-4" />
-              Home
+              <Home className="w-4 h-4 shrink-0" />
+              <span>Home</span>
             </button>
             <button
               onClick={() => setCurrentView('dashboard')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+              className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 ${
                 currentView === 'dashboard'
                   ? 'bg-[#2563EB] text-white shadow-sm'
                   : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" />
-              Dashboard
+              <LayoutDashboard className="w-4 h-4 shrink-0" />
+              <span>Dashboard</span>
             </button>
             <button
               onClick={() => setCurrentView('knowledge')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+              className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 ${
                 currentView === 'knowledge'
                   ? 'bg-[#2563EB] text-white shadow-sm'
                   : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
-              IT Guides
+              <BookOpen className="w-4 h-4 shrink-0" />
+              <span>IT Guides</span>
             </button>
             <button
               onClick={() => setCurrentView('cmd')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+              className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 ${
                 currentView === 'cmd'
                   ? 'bg-[#2563EB] text-white shadow-sm'
                   : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
               }`}
             >
-              <Terminal className="w-4 h-4" />
-              CMD Helper
+              <Terminal className="w-4 h-4 shrink-0" />
+              <span>CMD Helper</span>
             </button>
             <button
               onClick={() => setCurrentView('settings')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition ${
+              className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 ${
                 currentView === 'settings'
                   ? 'bg-[#2563EB] text-white shadow-sm'
                   : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
               }`}
             >
-              <SettingsIcon className="w-4 h-4" />
-              Settings
+              <SettingsIcon className="w-4 h-4 shrink-0" />
+              <span>Settings</span>
             </button>
           </nav>
 
           {/* Mode Switcher, AI Status & User Account */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 lg:gap-3 shrink-0">
             
             {/* Live AI Status Pill on larger screens */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#151F32] border border-[#334155] text-[11px] font-semibold text-[#4ADE80]">
-              <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
-              <span>AI Engine Active</span>
+            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#151F32] border border-[#334155] text-[11px] font-semibold text-[#4ADE80] whitespace-nowrap shrink-0">
+              <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse shrink-0"></span>
+              <span className="whitespace-nowrap">AI Engine Active</span>
             </div>
             
             {/* Beginner vs Pro Mode Pill */}
-            <div className="hidden sm:flex bg-[#0B1120] border border-[#334155] p-1 rounded-xl items-center text-xs font-medium">
+            <div className="hidden sm:flex bg-[#0B1120] border border-[#334155] p-1 rounded-xl items-center text-xs font-medium shrink-0">
               <button
                 onClick={() => onToggleMode('beginner')}
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition whitespace-nowrap shrink-0 cursor-pointer ${
                   mode === 'beginner'
                     ? 'bg-[#1E293B] text-[#22D3EE] shadow-xs font-semibold'
                     : 'text-[#94A3B8] hover:text-[#F8FAFC]'
                 }`}
                 title="Beginner Mode: Everyday English and simple steps"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#22D3EE]" />
-                <span className="hidden sm:inline">Beginner</span>
+                <Sparkles className="w-3.5 h-3.5 text-[#22D3EE] shrink-0" />
+                <span className="whitespace-nowrap">Beginner</span>
               </button>
               <button
                 onClick={() => onToggleMode('pro')}
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition whitespace-nowrap shrink-0 cursor-pointer ${
                   mode === 'pro'
                     ? 'bg-[#1E293B] text-[#F8FAFC] shadow-xs font-semibold'
                     : 'text-[#94A3B8] hover:text-[#F8FAFC]'
                 }`}
                 title="IT Professional Mode: CLI commands, sys logs, deep diagnostics"
               >
-                <Terminal className="w-3.5 h-3.5 text-[#4ADE80]" />
-                <span className="hidden sm:inline">IT Pro</span>
+                <Terminal className="w-3.5 h-3.5 text-[#4ADE80] shrink-0" />
+                <span className="whitespace-nowrap">IT Pro</span>
               </button>
             </div>
 
             {/* Auth / Profile */}
             {user ? (
-              <div className="flex items-center gap-2 pl-2 border-l border-[#334155]">
+              <div className="flex items-center gap-2 pl-2 border-l border-[#334155] shrink-0">
                 {user.avatar_url ? (
                   <img src={user.avatar_url} alt={user.name} className="w-8 h-8 rounded-full object-cover border border-[#334155]" />
                 ) : (
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                 )}
-                <span className="text-xs sm:text-sm font-semibold text-[#F8FAFC] max-w-[100px] truncate hidden sm:inline">
+                <span className="text-xs sm:text-sm font-semibold text-[#F8FAFC] max-w-[100px] truncate hidden sm:inline whitespace-nowrap">
                   {user.name}
                 </span>
                 <button
@@ -187,10 +187,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-95 px-4 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow-md hover:shadow-blue-500/20 shrink-0"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-95 px-3.5 lg:px-4 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow-md hover:shadow-blue-500/20 shrink-0 whitespace-nowrap"
               >
-                <UserIcon className="w-4 h-4 text-white" />
-                <span>Sign In / Register</span>
+                <UserIcon className="w-4 h-4 text-white shrink-0" />
+                <span className="whitespace-nowrap">Sign In / Register</span>
               </button>
             )}
 
