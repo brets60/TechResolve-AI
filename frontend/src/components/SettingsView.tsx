@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   Terminal, 
-  Key, 
   CheckCircle2, 
   AlertCircle, 
   ShieldCheck, 
   Cpu, 
-  Lock,
-  ExternalLink,
-  Smartphone,
+  Smartphone, 
   Download
 } from 'lucide-react';
 import { TroubleshootingMode, SystemSettings, User } from '../types';

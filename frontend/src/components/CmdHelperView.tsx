@@ -18,7 +18,6 @@ import {
   X,
   Filter,
   CheckCircle2,
-  AlertCircle,
   Folder,
   Lock,
   Power

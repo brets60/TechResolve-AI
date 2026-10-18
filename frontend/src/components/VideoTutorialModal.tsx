@@ -2,11 +2,9 @@ import React from 'react';
 import { 
   X, 
   ExternalLink, 
-  Play, 
   Sparkles, 
   Clock, 
   Search, 
-  ShieldCheck, 
   CheckCircle2,
   Tv
 } from 'lucide-react';

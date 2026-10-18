@@ -4,13 +4,11 @@ import {
   Wifi, 
   AppWindow, 
   Printer, 
-  Code2, 
-  HelpCircle, 
   ArrowRight, 
   Sparkles, 
   ShieldCheck, 
   Clock, 
-  CheckCircle2,
+  CheckCircle2, 
   Terminal,
   Zap,
   User as UserIcon,
@@ -21,8 +19,7 @@ import {
   Flame,
   Search,
   BookOpen,
-  Play,
-  Tv
+  Play
 } from 'lucide-react';
 import type { TroubleshootingMode, User } from '../types';
 import { getYoutubeTutorial, VideoTutorial } from '../services/youtubeTutorials';

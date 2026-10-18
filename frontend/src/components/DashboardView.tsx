@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Play, 
   Clock, 
@@ -7,12 +7,9 @@ import {
   FileText, 
   BookOpen, 
   Trash2, 
-  ArrowRight, 
-  Sparkles,
-  ExternalLink
+  ArrowRight
 } from 'lucide-react';
 import { TroubleshootingSession, User } from '../types';
-import { api } from '../api';
 
 interface DashboardViewProps {
   sessions: TroubleshootingSession[];

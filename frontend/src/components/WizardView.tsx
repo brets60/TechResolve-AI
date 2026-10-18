@@ -3,7 +3,6 @@ import confetti from 'canvas-confetti';
 import { 
   CheckCircle2, 
   HelpCircle, 
-  AlertTriangle, 
   Upload, 
   ArrowLeft, 
   Copy, 
@@ -11,9 +10,7 @@ import {
   MessageSquare, 
   Sparkles, 
   Terminal, 
-  Download, 
   Printer, 
-  RefreshCw,
   Send,
   Battery,
   ShieldAlert,
@@ -22,13 +19,11 @@ import {
   Tv,
   ExternalLink,
   Search,
-  ChevronDown,
   ChevronUp,
   Play
 } from 'lucide-react';
 import { 
   TroubleshootingSession, 
-  SessionMessage, 
   TroubleshootingMode, 
   TroubleshootingStage,
   WizardOption,
