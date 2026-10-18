@@ -121,7 +121,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Modal Header */}
         <div className="text-center mb-6">
-          <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-xs border border-[#E2E8F0] bg-[#EFF6FF] flex items-center justify-center mx-auto mb-3 p-1">
+          <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-xs border border-[#99F6E4] bg-[#ECFDF5] flex items-center justify-center mx-auto mb-3 p-1">
             <img src="/logo.png" alt="TechResolve AI" className="w-full h-full object-contain" />
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
@@ -135,13 +135,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         </div>
 
         {/* 2-Tab Switcher: Log In / Register */}
-        <div className="grid grid-cols-2 gap-1 p-1 bg-[#F1F5F9] border border-[#E2E8F0] rounded-2xl mb-5 text-sm font-semibold">
+        <div className="grid grid-cols-2 gap-1 p-1 bg-[#FAFAF7] border border-[#E2E8F0] rounded-2xl mb-5 text-sm font-semibold">
           <button
             type="button"
             onClick={() => switchTab('login')}
             className={`py-2 px-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer ${
               activeTab === 'login'
-                ? 'bg-[#FFFFFF] text-[#2563EB] shadow-xs font-bold'
+                ? 'bg-[#FFFFFF] text-[#0F766E] shadow-xs font-bold border border-[#E2E8F0]'
                 : 'text-[#64748B] hover:text-[#0F172A]'
             }`}
           >
@@ -154,7 +154,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => switchTab('register')}
             className={`py-2 px-3 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer ${
               activeTab === 'register'
-                ? 'bg-[#FFFFFF] text-[#2563EB] shadow-xs font-bold'
+                ? 'bg-[#FFFFFF] text-[#0F766E] shadow-xs font-bold border border-[#E2E8F0]'
                 : 'text-[#64748B] hover:text-[#0F172A]'
             }`}
           >
@@ -188,7 +188,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Alex Smith"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/15"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/15"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/15"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/15"
               />
             </div>
           </div>
@@ -226,7 +226,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 6 characters"
-                className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/15"
+                className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/15"
               />
               <button
                 type="button"
@@ -243,7 +243,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="submit"
             disabled={loading || !email.trim() || !password}
-            className="w-full py-3 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2 mt-2"
+            className="w-full py-3 rounded-xl bg-[#0F766E] hover:bg-[#115E59] disabled:opacity-50 text-white font-bold text-sm shadow-xs transition cursor-pointer flex items-center justify-center gap-2 mt-2"
           >
             <span>{loading ? 'Processing...' : activeTab === 'register' ? 'Create Account' : 'Log In'}</span>
             <ArrowRight className="w-4 h-4 text-white" />
@@ -258,7 +258,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => switchTab('register')}
-                className="text-[#2563EB] hover:underline font-semibold cursor-pointer"
+                className="text-[#0F766E] hover:underline font-semibold cursor-pointer"
               >
                 Register here
               </button>
@@ -269,7 +269,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => switchTab('login')}
-                className="text-[#2563EB] hover:underline font-semibold cursor-pointer"
+                className="text-[#0F766E] hover:underline font-semibold cursor-pointer"
               >
                 Log In here
               </button>

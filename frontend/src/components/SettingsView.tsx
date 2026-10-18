@@ -73,7 +73,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       <div className="mb-10">
         <h1 className="text-2xl sm:text-4xl font-black tracking-tight mb-2">
           <span className="text-[#0F172A]">Application </span>
-          <span className="text-[#2563EB]">Settings</span>
+          <span className="text-[#0F766E]">Settings</span>
         </h1>
         <p className="text-[#64748B] text-sm sm:text-base">
           Customize your troubleshooting experience, AI diagnostics engine, and preferences.
@@ -94,31 +94,31 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               </p>
             </div>
             {user ? (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#ECFDF5] text-[#15803D] border border-[#BBF7D0]">
                 <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse"></span>
                 Signed In
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A]">
                 Guest Mode
               </span>
             )}
           </div>
 
           {user ? (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#FAFAF7] border border-[#E2E8F0]">
               <div className="flex items-center gap-3">
                 {user.avatar_url ? (
                   <img src={user.avatar_url} alt={user.name} className="w-12 h-12 rounded-full object-cover border border-[#E2E8F0]" />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-lg shadow-xs">
+                  <div className="w-12 h-12 rounded-full bg-[#0F766E] text-white flex items-center justify-center font-bold text-lg shadow-xs">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                 )}
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-[#0F172A] text-sm sm:text-base">{user.name}</span>
-                    <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-md bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]">
+                    <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-md bg-[#ECFDF5] text-[#0F766E] border border-[#99F6E4]">
                       Active Account
                     </span>
                   </div>
@@ -137,12 +137,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               )}
             </div>
           ) : (
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE]">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#ECFDF5] border border-[#99F6E4]">
               <div>
                 <h3 className="font-bold text-[#0F172A] text-sm mb-1">
                   You are currently using TechResolve as a Guest
                 </h3>
-                <p className="text-xs text-[#475569]">
+                <p className="text-xs text-[#334155]">
                   Register or log in to sync all 111 command tools, diagnostic trees, and battery history across your phone and computer.
                 </p>
               </div>
@@ -151,7 +151,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <button
                   type="button"
                   onClick={onOpenAuth}
-                  className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-xs transition cursor-pointer whitespace-nowrap self-start sm:self-center flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0F766E] hover:bg-[#115E59] shadow-xs transition cursor-pointer whitespace-nowrap self-start sm:self-center flex items-center gap-2"
                 >
                   <span>Sign In / Register</span>
                   <span>→</span>
@@ -179,17 +179,17 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               onClick={() => onToggleMode('beginner')}
               className={`p-5 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
                 mode === 'beginner'
-                  ? 'border-[#2563EB] bg-[#EFF6FF] shadow-xs ring-2 ring-[#2563EB]/20'
-                  : 'border-[#E2E8F0] hover:border-[#2563EB]/60 bg-[#FFFFFF]'
+                  ? 'border-[#0F766E] bg-[#ECFDF5] shadow-xs ring-2 ring-[#0F766E]/20'
+                  : 'border-[#E2E8F0] hover:border-[#14B8A6] bg-[#FFFFFF]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center border border-[#BFDBFE]">
-                    <Sparkles className="w-5 h-5 text-[#2563EB]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#CCFBF1] text-[#0F766E] flex items-center justify-center border border-[#99F6E4]">
+                    <Sparkles className="w-5 h-5 text-[#0F766E]" />
                   </div>
                   {mode === 'beginner' && (
-                    <span className="text-xs font-bold text-[#2563EB] bg-[#FFFFFF] border border-[#BFDBFE] px-2.5 py-0.5 rounded-full shadow-2xs">
+                    <span className="text-xs font-bold text-[#0F766E] bg-[#FFFFFF] border border-[#99F6E4] px-2.5 py-0.5 rounded-full shadow-2xs">
                       ✓ Active (Default)
                     </span>
                   )}
@@ -197,7 +197,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <h3 className="font-bold text-[#0F172A] text-base mb-1.5">
                   Beginner Mode
                 </h3>
-                <p className="text-xs text-[#475569] leading-relaxed mb-4">
+                <p className="text-xs text-[#334155] leading-relaxed mb-4">
                   Warm, patient IT guidance in plain everyday English. One simple check at a time, clear explanations, and zero confusing acronyms.
                 </p>
               </div>
@@ -215,17 +215,17 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               onClick={() => onToggleMode('pro')}
               className={`p-5 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
                 mode === 'pro'
-                  ? 'border-[#2563EB] bg-[#EFF6FF] shadow-xs ring-2 ring-[#2563EB]/20'
-                  : 'border-[#E2E8F0] hover:border-[#2563EB]/60 bg-[#FFFFFF]'
+                  ? 'border-[#0F766E] bg-[#ECFDF5] shadow-xs ring-2 ring-[#0F766E]/20'
+                  : 'border-[#E2E8F0] hover:border-[#14B8A6] bg-[#FFFFFF]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shadow-xs">
+                  <div className="w-10 h-10 rounded-xl bg-[#0F766E] text-white flex items-center justify-center shadow-xs">
                     <Terminal className="w-5 h-5 text-white" />
                   </div>
                   {mode === 'pro' && (
-                    <span className="text-xs font-bold text-white bg-[#2563EB] px-2.5 py-0.5 rounded-full shadow-2xs">
+                    <span className="text-xs font-bold text-white bg-[#0F766E] px-2.5 py-0.5 rounded-full shadow-2xs">
                       ✓ Active
                     </span>
                   )}
@@ -233,7 +233,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <h3 className="font-bold text-[#0F172A] text-base mb-1.5">
                   IT Professional Mode
                 </h3>
-                <p className="text-xs text-[#475569] leading-relaxed mb-4">
+                <p className="text-xs text-[#334155] leading-relaxed mb-4">
                   For engineers and technical users who want rapid root-cause analysis, shell commands, stack traces, and direct log inspection.
                 </p>
               </div>
@@ -254,7 +254,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <Cpu className="w-5 h-5 text-[#2563EB]" />
+                <Cpu className="w-5 h-5 text-[#0F766E]" />
                 <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
                   AI Diagnostic Engine
                 </h2>
@@ -266,15 +266,15 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
             <span className={`text-xs font-bold px-3 py-1 rounded-full shrink-0 ${
               settings?.gemini_configured
-                ? 'bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]'
-                : 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]'
+                ? 'bg-[#ECFDF5] text-[#15803D] border border-[#BBF7D0]'
+                : 'bg-[#ECFDF5] text-[#0F766E] border border-[#99F6E4]'
             }`}>
               {settings?.engine_status || 'Initializing...'}
             </span>
           </div>
 
           {/* Engine Status Note */}
-          <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] mb-6 text-xs sm:text-sm text-[#475569] space-y-2">
+          <div className="p-4 rounded-2xl bg-[#FAFAF7] border border-[#E2E8F0] mb-6 text-xs sm:text-sm text-[#475569] space-y-2">
             <div className="flex items-center gap-2 font-semibold text-[#0F172A]">
               <CheckCircle2 className="w-4 h-4 text-[#15803D]" />
               <span>Diagnostic System is Fully Functional Out-of-the-Box</span>
@@ -284,7 +284,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               Wi-Fi network repair trees, disk optimization procedures, and safety validators.
             </p>
             {!settings?.gemini_configured && (
-              <p className="text-xs text-[#075985] bg-[#EFF6FF] p-2.5 rounded-xl border border-[#BFDBFE]">
+              <p className="text-xs text-[#334155] bg-[#ECFDF5] p-2.5 rounded-xl border border-[#99F6E4]">
                 💡 Want live conversational AI and screenshot computer vision? You can connect your free Google Gemini API key below anytime.
               </p>
             )}
@@ -302,12 +302,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   value={apiKeyInput}
                   onChange={(e) => setApiKeyInput(e.target.value)}
                   placeholder={settings?.gemini_configured ? "•••••••••••••••••••••••••••• (Connected)" : "AIzaSy..."}
-                  className="flex-1 px-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#2563EB] font-mono"
+                  className="flex-1 px-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] text-[#0F172A] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/15 font-mono"
                 />
                 <button
                   type="submit"
                   disabled={savingKey || !apiKeyInput.trim()}
-                  className="px-5 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-semibold text-xs sm:text-sm shadow-xs transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] disabled:opacity-50 text-white font-semibold text-xs sm:text-sm shadow-xs transition cursor-pointer"
                 >
                   {savingKey ? 'Verifying...' : 'Connect Key'}
                 </button>
@@ -317,7 +317,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             {keyStatus && (
               <div className={`p-3 rounded-xl text-xs font-medium flex items-center gap-2 ${
                 keyStatus.success 
-                  ? 'bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]'
+                  ? 'bg-[#ECFDF5] text-[#15803D] border border-[#BBF7D0]'
                   : 'bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA]'
               }`}>
                 {keyStatus.success ? <CheckCircle2 className="w-4 h-4 text-[#15803D]" /> : <AlertCircle className="w-4 h-4 text-[#B91C1C]" />}
@@ -332,7 +332,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           <div className="flex items-start justify-between gap-4 mb-5">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <Smartphone className="w-5 h-5 text-[#2563EB]" />
+                <Smartphone className="w-5 h-5 text-[#0F766E]" />
                 <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
                   Phone & Mobile App
                 </h2>
@@ -342,7 +342,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               </p>
             </div>
 
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0] shrink-0">
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#ECFDF5] text-[#15803D] border border-[#BBF7D0] shrink-0">
               APK Ready
             </span>
           </div>
@@ -350,13 +350,13 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             
             {/* Native Android APK Card */}
-            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex flex-col justify-between">
+            <div className="p-4 rounded-2xl bg-[#ECFDF5] border border-[#99F6E4] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-sm font-bold text-[#0F172A] mb-1">
                   <span>🤖</span>
                   <span>Android App (.APK)</span>
                 </div>
-                <p className="text-xs text-[#475569] mb-4 leading-relaxed">
+                <p className="text-xs text-[#334155] mb-4 leading-relaxed">
                   Download the standalone Android APK installer directly to your phone and install it for a fullscreen native app experience.
                 </p>
               </div>
@@ -364,7 +364,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               <a
                 href="/api/download/apk"
                 download="TechResolve-AI.apk"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-xs sm:text-sm shadow-xs transition cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-semibold text-xs sm:text-sm shadow-xs transition cursor-pointer"
               >
                 <Download className="w-4 h-4 text-white" />
                 <span>Download Android APK (4.2 MB)</span>
@@ -372,7 +372,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             </div>
 
             {/* Instant PWA Install Card */}
-            <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col justify-between">
+            <div className="p-4 rounded-2xl bg-[#FAFAF7] border border-[#E2E8F0] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-sm font-bold text-[#0F172A] mb-1">
                   <span>📲</span>
@@ -387,14 +387,14 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 </ul>
               </div>
 
-              <div className="text-[11px] font-semibold text-[#15803D] bg-[#F0FDF4] px-3 py-1.5 rounded-lg border border-[#BBF7D0] text-center">
+              <div className="text-[11px] font-semibold text-[#15803D] bg-[#ECFDF5] px-3 py-1.5 rounded-lg border border-[#BBF7D0] text-center">
                 ✓ Auto-syncs live updates with zero storage
               </div>
             </div>
 
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] text-xs text-[#64748B] leading-relaxed">
+          <div className="p-3.5 rounded-xl bg-[#FAFAF7] border border-[#E2E8F0] text-xs text-[#64748B] leading-relaxed">
             💡 <strong>Tip for installing APKs on Android:</strong> When opening the downloaded APK file for the first time, your phone may ask: <em>"Allow installation from this source"</em>. Tap <strong>Allow / Settings</strong>, then tap <strong>Install</strong>.
           </div>
         </div>

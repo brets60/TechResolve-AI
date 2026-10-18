@@ -146,7 +146,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-[#0F172A] bg-[#F1F5F9] relative overflow-x-hidden selection:bg-[#2563EB]/20 selection:text-[#0F172A]">
+    <div className="min-h-screen flex flex-col font-sans text-[#334155] bg-[#FAFAF7] relative overflow-x-hidden selection:bg-[#14B8A6]/20 selection:text-[#0F766E]">
       {/* Top Navigation */}
       <div className="relative z-40">
         <Navbar
@@ -164,7 +164,7 @@ export function App() {
       <main className="flex-1 pb-20 md:pb-6 relative z-10">
         {globalLoading ? (
           <div className="py-20 text-center">
-            <div className="w-8 h-8 border-3 border-[#2563EB] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+            <div className="w-8 h-8 border-3 border-[#0F766E] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
             <p className="text-sm text-[#64748B] font-medium">Preparing diagnostic steps...</p>
           </div>
         ) : (

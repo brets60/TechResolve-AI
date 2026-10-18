@@ -39,28 +39,28 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     switch (status) {
       case 'solved':
         return (
-          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]">
+          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#15803D] border border-[#BBF7D0]">
             <CheckCircle2 className="w-3 h-3 text-[#15803D]" />
             Solved
           </span>
         );
       case 'in_progress':
         return (
-          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]">
-            <Clock className="w-3 h-3 animate-spin text-[#2563EB]" />
+          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#0F766E] border border-[#99F6E4]">
+            <Clock className="w-3 h-3 animate-spin text-[#0F766E]" />
             In Progress
           </span>
         );
       case 'needs_help':
         return (
-          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]">
-            <AlertCircle className="w-3 h-3 text-[#92400E]" />
+          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A]">
+            <AlertCircle className="w-3 h-3 text-[#B45309]" />
             Needs Further Help
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]">
+          <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-[#FAFAF7] text-[#64748B] border border-[#E2E8F0]">
             Not Started
           </span>
         );
@@ -88,14 +88,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 shadow-xs mb-8 border border-[#E2E8F0] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0F766E] bg-[#ECFDF5] px-3 py-1 rounded-full border border-[#99F6E4]">
               Personal IT Hub
             </span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#0F172A] tracking-tight mb-2">
             Welcome back{user ? `, ${user.name}` : ''}!
           </h1>
-          <p className="text-[#475569] text-sm sm:text-base max-w-xl leading-relaxed">
+          <p className="text-[#334155] text-sm sm:text-base max-w-xl leading-relaxed">
             Track your ongoing IT diagnoses, view saved repair reports, and start resolving new issues anytime.
           </p>
         </div>
@@ -103,7 +103,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={onStartNewProblem}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm shadow-xs hover:shadow transition cursor-pointer active:scale-95"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-sm shadow-xs hover:shadow transition cursor-pointer active:scale-95"
           >
             <Play className="w-4 h-4 fill-current text-white" />
             <span>Start New Diagnosis</span>
@@ -113,13 +113,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
       {/* Continue Previous Diagnosis Banner (If Active Session Exists) */}
       {activeSession && (
-        <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+        <div className="bg-[#ECFDF5] border border-[#99F6E4] rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-[#0F766E] text-white flex items-center justify-center shrink-0 shadow-xs">
               <Clock className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#075985]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F766E]">
                 Active Diagnosis in Progress
               </span>
               <h3 className="font-bold text-[#0F172A] text-base sm:text-lg">
@@ -133,7 +133,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <button
             onClick={() => onOpenSession(activeSession)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-sm transition shadow-2xs cursor-pointer shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-semibold text-sm transition shadow-2xs cursor-pointer shrink-0"
           >
             <span>Continue Diagnosis</span>
             <ArrowRight className="w-4 h-4 text-white" />
@@ -157,8 +157,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           {sessions.length === 0 ? (
             <div className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-8 text-center shadow-xs">
-              <div className="w-12 h-12 rounded-full bg-[#EFF6FF] flex items-center justify-center text-[#2563EB] mx-auto mb-3 border border-[#BFDBFE]">
-                <FileText className="w-6 h-6 text-[#2563EB]" />
+              <div className="w-12 h-12 rounded-full bg-[#ECFDF5] flex items-center justify-center text-[#0F766E] mx-auto mb-3 border border-[#99F6E4]">
+                <FileText className="w-6 h-6 text-[#0F766E]" />
               </div>
               <h3 className="font-bold text-[#0F172A] text-base mb-1">
                 No Troubleshooting Sessions Yet
@@ -168,7 +168,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </p>
               <button
                 onClick={onStartNewProblem}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-xs transition cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-semibold text-xs transition cursor-pointer"
               >
                 <span>Start Your First Diagnosis</span>
               </button>
@@ -178,7 +178,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               {sessions.map((sess) => (
                 <div
                   key={sess.id}
-                  className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 shadow-xs hover:border-[#2563EB] transition flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                  className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 shadow-xs hover:border-[#14B8A6] transition flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                 >
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
@@ -186,7 +186,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                       <span className="text-xs text-[#64748B]">
                         {formatDate(sess.created_at)}
                       </span>
-                      <span className="text-xs px-2 py-0.5 rounded-md bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0]">
+                      <span className="text-xs px-2 py-0.5 rounded-md bg-[#FAFAF7] text-[#475569] border border-[#E2E8F0]">
                         {sess.category}
                       </span>
                     </div>
@@ -201,7 +201,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => onOpenSession(sess)}
-                      className="px-4 py-2 rounded-xl bg-[#F1F5F9] hover:bg-[#2563EB] hover:text-white text-[#475569] border border-[#E2E8F0] font-semibold text-xs sm:text-sm transition cursor-pointer"
+                      className="px-4 py-2 rounded-xl bg-[#FAFAF7] hover:bg-[#0F766E] hover:text-white text-[#334155] border border-[#E2E8F0] font-semibold text-xs sm:text-sm transition cursor-pointer"
                     >
                       {sess.status === 'solved' ? 'View Report' : 'Continue'}
                     </button>
@@ -225,7 +225,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           {/* My Saved Reports */}
           <div className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-5 shadow-xs">
             <h3 className="font-bold text-[#0F172A] text-base mb-3 flex items-center gap-2">
-              <FileText className="w-4 h-4 text-[#2563EB]" />
+              <FileText className="w-4 h-4 text-[#0F766E]" />
               <span>My Saved Reports</span>
             </h3>
 
@@ -239,7 +239,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <div
                     key={s.id}
                     onClick={() => onOpenSession(s)}
-                    className="p-3 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] hover:bg-[#EFF6FF] hover:border-[#BFDBFE] transition cursor-pointer"
+                    className="p-3 rounded-xl border border-[#E2E8F0] bg-[#FAFAF7] hover:bg-[#ECFDF5] hover:border-[#99F6E4] transition cursor-pointer"
                   >
                     <div className="text-xs font-bold text-[#0F172A] truncate mb-0.5">
                       {s.problem_description}
@@ -256,54 +256,54 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           {/* Helpful IT Guides */}
           <div className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-5 shadow-xs">
             <h3 className="font-bold text-[#0F172A] text-base mb-3 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-[#2563EB]" />
+              <BookOpen className="w-4 h-4 text-[#0F766E]" />
               <span>Helpful IT Guides</span>
             </h3>
 
             <div className="space-y-2">
               <button
                 onClick={onOpenKnowledge}
-                className="w-full text-left p-2.5 rounded-xl hover:bg-[#EFF6FF] transition group flex items-center justify-between cursor-pointer"
+                className="w-full text-left p-2.5 rounded-xl hover:bg-[#ECFDF5] transition group flex items-center justify-between cursor-pointer"
               >
                 <div>
-                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#2563EB]">
+                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#0F766E]">
                     Fix Laptop Turning Off Unplugged
                   </div>
                   <div className="text-[11px] text-[#64748B]">Battery & Power</div>
                 </div>
-                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#2563EB] group-hover:translate-x-1 transition" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#0F766E] group-hover:translate-x-1 transition" />
               </button>
 
               <button
                 onClick={onOpenKnowledge}
-                className="w-full text-left p-2.5 rounded-xl hover:bg-[#EFF6FF] transition group flex items-center justify-between cursor-pointer"
+                className="w-full text-left p-2.5 rounded-xl hover:bg-[#ECFDF5] transition group flex items-center justify-between cursor-pointer"
               >
                 <div>
-                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#2563EB]">
+                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#0F766E]">
                     Wi-Fi Connected But No Internet
                   </div>
                   <div className="text-[11px] text-[#64748B]">Network & DNS</div>
                 </div>
-                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#2563EB] group-hover:translate-x-1 transition" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#0F766E] group-hover:translate-x-1 transition" />
               </button>
 
               <button
                 onClick={onOpenKnowledge}
-                className="w-full text-left p-2.5 rounded-xl hover:bg-[#EFF6FF] transition group flex items-center justify-between cursor-pointer"
+                className="w-full text-left p-2.5 rounded-xl hover:bg-[#ECFDF5] transition group flex items-center justify-between cursor-pointer"
               >
                 <div>
-                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#2563EB]">
+                  <div className="text-xs font-semibold text-[#475569] group-hover:text-[#0F766E]">
                     Speed Up a Very Slow PC
                   </div>
                   <div className="text-[11px] text-[#64748B]">Performance</div>
                 </div>
-                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#2563EB] group-hover:translate-x-1 transition" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#0F766E] group-hover:translate-x-1 transition" />
               </button>
             </div>
 
             <button
               onClick={onOpenKnowledge}
-              className="mt-4 w-full text-center text-xs font-bold text-[#2563EB] hover:text-[#1D4ED8] py-1 cursor-pointer transition"
+              className="mt-4 w-full text-center text-xs font-bold text-[#0F766E] hover:text-[#115E59] py-1 cursor-pointer transition"
             >
               Browse All Knowledge Articles →
             </button>

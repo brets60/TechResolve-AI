@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 cursor-pointer group shrink-0"
           >
             <div className="relative shrink-0">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-xs border border-[#E2E8F0] group-hover:scale-105 group-hover:border-[#2563EB] transition-all bg-[#EFF6FF] flex items-center justify-center p-1 relative z-10">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-xs border border-[#E2E8F0] group-hover:scale-105 group-hover:border-[#0F766E] transition-all bg-[#ECFDF5] flex items-center justify-center p-1 relative z-10">
                 <img 
                   src="/logo.png" 
                   alt="TechResolve AI" 
@@ -52,10 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="shrink-0">
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-lg tracking-tight text-[#0F172A] whitespace-nowrap">
-                  TechResolve <span className="text-[#2563EB]">AI</span>
+                  TechResolve <span className="text-[#0F766E]">AI</span>
                 </span>
-                <span className="hidden xl:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] whitespace-nowrap">
-                  <Sparkles className="w-3 h-3 text-[#2563EB] shrink-0" />
+                <span className="hidden xl:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#CCFBF1] text-[#0F766E] border border-[#99F6E4] whitespace-nowrap">
+                  <Sparkles className="w-3 h-3 text-[#0F766E] shrink-0" />
                   <span>IT Assistant</span>
                 </span>
               </div>
@@ -71,8 +71,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setCurrentView('home')}
               className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 cursor-pointer ${
                 currentView === 'home'
-                  ? 'bg-[#2563EB] text-white shadow-xs'
-                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                  ? 'bg-[#0F766E] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#ECFDF5]'
               }`}
             >
               <Home className="w-4 h-4 shrink-0" />
@@ -82,8 +82,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setCurrentView('dashboard')}
               className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 cursor-pointer ${
                 currentView === 'dashboard'
-                  ? 'bg-[#2563EB] text-white shadow-xs'
-                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                  ? 'bg-[#0F766E] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#ECFDF5]'
               }`}
             >
               <LayoutDashboard className="w-4 h-4 shrink-0" />
@@ -93,8 +93,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setCurrentView('knowledge')}
               className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 cursor-pointer ${
                 currentView === 'knowledge'
-                  ? 'bg-[#2563EB] text-white shadow-xs'
-                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                  ? 'bg-[#0F766E] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#ECFDF5]'
               }`}
             >
               <BookOpen className="w-4 h-4 shrink-0" />
@@ -104,8 +104,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setCurrentView('cmd')}
               className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 cursor-pointer ${
                 currentView === 'cmd'
-                  ? 'bg-[#2563EB] text-white shadow-xs'
-                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                  ? 'bg-[#0F766E] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#ECFDF5]'
               }`}
             >
               <Terminal className="w-4 h-4 shrink-0" />
@@ -115,8 +115,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setCurrentView('settings')}
               className={`flex items-center gap-1.5 lg:gap-2 px-2.5 lg:px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition whitespace-nowrap shrink-0 cursor-pointer ${
                 currentView === 'settings'
-                  ? 'bg-[#2563EB] text-white shadow-xs'
-                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                  ? 'bg-[#0F766E] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#ECFDF5]'
               }`}
             >
               <SettingsIcon className="w-4 h-4 shrink-0" />
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 lg:gap-3 shrink-0">
             
             {/* Live AI Status Pill on larger screens */}
-            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[11px] font-semibold text-[#15803D] whitespace-nowrap shrink-0">
+            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[11px] font-semibold text-[#15803D] whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse shrink-0"></span>
               <span className="whitespace-nowrap">AI Engine Active</span>
             </div>
@@ -139,12 +139,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => onToggleMode('beginner')}
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition whitespace-nowrap shrink-0 cursor-pointer ${
                   mode === 'beginner'
-                    ? 'bg-[#FFFFFF] text-[#2563EB] shadow-xs font-semibold'
+                    ? 'bg-[#FFFFFF] text-[#0F766E] shadow-xs font-semibold'
                     : 'text-[#64748B] hover:text-[#0F172A]'
                 }`}
                 title="Beginner Mode: Everyday English and simple steps"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                <Sparkles className="w-3.5 h-3.5 text-[#0F766E] shrink-0" />
                 <span className="whitespace-nowrap">Beginner</span>
               </button>
               <button
@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {user.avatar_url ? (
                   <img src={user.avatar_url} alt={user.name} className="w-8 h-8 rounded-full object-cover border border-[#E2E8F0]" />
                 ) : (
-                  <div className="w-8 h-8 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[#0F766E] text-white flex items-center justify-center text-xs font-bold shrink-0">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                 )}
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <button
                 onClick={onOpenAuth}
-                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-95 px-3.5 lg:px-4 py-2 rounded-xl transition cursor-pointer shadow-xs hover:shadow-sm shrink-0 whitespace-nowrap"
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#0F766E] hover:bg-[#115E59] active:scale-95 px-3.5 lg:px-4 py-2 rounded-xl transition cursor-pointer shadow-xs hover:shadow-sm shrink-0 whitespace-nowrap"
               >
                 <UserIcon className="w-4 h-4 text-white shrink-0" />
                 <span className="whitespace-nowrap">Log In / Register</span>
@@ -204,11 +204,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => setCurrentView('home')}
           className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'home'
-              ? 'text-[#2563EB] font-bold bg-[#EFF6FF] shadow-2xs'
+              ? 'text-[#0F766E] font-bold bg-[#ECFDF5] shadow-2xs'
               : 'text-[#64748B] hover:text-[#0F172A]'
           }`}
         >
-          <Home className={`w-5 h-5 mb-0.5 ${currentView === 'home' ? 'text-[#2563EB] stroke-[2.5]' : 'text-[#64748B]'}`} />
+          <Home className={`w-5 h-5 mb-0.5 ${currentView === 'home' ? 'text-[#0F766E] stroke-[2.5]' : 'text-[#64748B]'}`} />
           <span>Home</span>
         </button>
 
@@ -217,11 +217,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => setCurrentView('cmd')}
           className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'cmd'
-              ? 'text-[#2563EB] font-bold bg-[#EFF6FF] shadow-2xs'
+              ? 'text-[#0F766E] font-bold bg-[#ECFDF5] shadow-2xs'
               : 'text-[#64748B] hover:text-[#0F172A]'
           }`}
         >
-          <Terminal className={`w-5 h-5 mb-0.5 ${currentView === 'cmd' ? 'text-[#2563EB] stroke-[2.5]' : 'text-[#64748B]'}`} />
+          <Terminal className={`w-5 h-5 mb-0.5 ${currentView === 'cmd' ? 'text-[#0F766E] stroke-[2.5]' : 'text-[#64748B]'}`} />
           <span>CMD</span>
         </button>
 
@@ -230,11 +230,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => setCurrentView('knowledge')}
           className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'knowledge'
-              ? 'text-[#2563EB] font-bold bg-[#EFF6FF] shadow-2xs'
+              ? 'text-[#0F766E] font-bold bg-[#ECFDF5] shadow-2xs'
               : 'text-[#64748B] hover:text-[#0F172A]'
           }`}
         >
-          <BookOpen className={`w-5 h-5 mb-0.5 ${currentView === 'knowledge' ? 'text-[#2563EB] stroke-[2.5]' : 'text-[#64748B]'}`} />
+          <BookOpen className={`w-5 h-5 mb-0.5 ${currentView === 'knowledge' ? 'text-[#0F766E] stroke-[2.5]' : 'text-[#64748B]'}`} />
           <span>Guides</span>
         </button>
 
@@ -243,11 +243,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => setCurrentView('dashboard')}
           className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
             currentView === 'dashboard'
-              ? 'text-[#2563EB] font-bold bg-[#EFF6FF] shadow-2xs'
+              ? 'text-[#0F766E] font-bold bg-[#ECFDF5] shadow-2xs'
               : 'text-[#64748B] hover:text-[#0F172A]'
           }`}
         >
-          <LayoutDashboard className={`w-5 h-5 mb-0.5 ${currentView === 'dashboard' ? 'text-[#2563EB] stroke-[2.5]' : 'text-[#64748B]'}`} />
+          <LayoutDashboard className={`w-5 h-5 mb-0.5 ${currentView === 'dashboard' ? 'text-[#0F766E] stroke-[2.5]' : 'text-[#64748B]'}`} />
           <span>History</span>
         </button>
 
@@ -257,13 +257,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             type="button"
             onClick={() => setCurrentView('settings')}
             className={`flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-medium transition cursor-pointer ${
-              currentView === 'settings' ? 'text-[#2563EB] font-bold bg-[#EFF6FF] shadow-2xs' : 'text-[#64748B] hover:text-[#0F172A]'
+              currentView === 'settings' ? 'text-[#0F766E] font-bold bg-[#ECFDF5] shadow-2xs' : 'text-[#64748B] hover:text-[#0F172A]'
             }`}
           >
             {user.avatar_url ? (
               <img src={user.avatar_url} alt={user.name} className="w-5 h-5 rounded-full object-cover mb-0.5 border border-[#E2E8F0]" />
             ) : (
-              <div className="w-5 h-5 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-[10px] font-bold mb-0.5">
+              <div className="w-5 h-5 rounded-full bg-[#0F766E] text-white flex items-center justify-center text-[10px] font-bold mb-0.5">
                 {user.name.charAt(0).toUpperCase()}
               </div>
             )}
@@ -273,13 +273,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={onOpenAuth}
-            className="flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-bold text-[#2563EB] transition cursor-pointer hover:bg-[#EFF6FF]"
+            className="flex flex-col items-center justify-center flex-1 py-1 rounded-xl text-[11px] font-bold text-[#0F766E] transition cursor-pointer hover:bg-[#ECFDF5]"
           >
             <div className="relative mb-0.5">
-              <UserIcon className="w-5 h-5 text-[#2563EB] stroke-[2.5]" />
+              <UserIcon className="w-5 h-5 text-[#0F766E] stroke-[2.5]" />
               <span className="w-2 h-2 rounded-full bg-[#15803D] absolute -top-0.5 -right-0.5 animate-pulse"></span>
             </div>
-            <span className="font-bold text-[#2563EB]">Log In</span>
+            <span className="font-bold text-[#0F766E]">Log In</span>
           </button>
         )}
       </nav>

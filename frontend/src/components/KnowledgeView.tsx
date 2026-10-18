@@ -97,13 +97,13 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
       
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3 border border-[#BFDBFE] shadow-2xs">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#ECFDF5] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3 border border-[#99F6E4] shadow-2xs">
           <BookOpen className="w-3.5 h-3.5" />
           <span>Interactive IT Knowledge Library</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3">
           <span className="text-[#0F172A]">Easy-To-Understand </span>
-          <span className="text-[#2563EB]">IT Guides</span>
+          <span className="text-[#0F766E]">IT Guides</span>
         </h1>
         <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
           Search 39 master solutions covering all 35 common PC & laptop problems, computer overheating, networking, audio, and code. Read simple fixes, or let TechResolve AI guide you step-by-step.
@@ -112,8 +112,8 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
 
       {/* Search Box */}
       <div className="max-w-2xl mx-auto mb-8">
-        <div className="relative bg-[#FFFFFF] rounded-2xl p-1.5 shadow-xs border border-[#E2E8F0] focus-within:ring-2 focus-within:ring-[#2563EB] focus-within:border-[#2563EB] transition-all">
-          <Search className="w-5 h-5 text-[#2563EB] absolute left-4 top-1/2 -translate-y-1/2" />
+        <div className="relative bg-[#FFFFFF] rounded-2xl p-1.5 shadow-xs border border-[#E2E8F0] focus-within:ring-2 focus-within:ring-[#0F766E] focus-within:border-[#0F766E] transition-all">
+          <Search className="w-5 h-5 text-[#0F766E] absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchQuery}
@@ -124,7 +124,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs bg-[#F1F5F9] hover:bg-[#E2E8F0] text-[#0F172A] px-2 py-1 rounded-lg font-bold transition cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs bg-[#FAFAF7] hover:bg-[#F1F5F9] text-[#0F172A] px-2 py-1 rounded-lg font-bold transition cursor-pointer"
             >
               Clear
             </button>
@@ -140,8 +140,8 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shrink-0 transition cursor-pointer active:scale-95 ${
               selectedCategory === cat
-                ? 'bg-[#2563EB] text-white shadow-xs'
-                : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
+                ? 'bg-[#0F766E] text-white shadow-xs'
+                : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#64748B] hover:text-[#0F172A] hover:bg-[#FAFAF7]'
             }`}
           >
             {cat}
@@ -156,7 +156,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
         </div>
       ) : filteredArticles.length === 0 ? (
         <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] p-8 sm:p-10 text-center max-w-xl mx-auto shadow-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#2563EB] text-white flex items-center justify-center mx-auto mb-4 shadow-xs">
+          <div className="w-14 h-14 rounded-2xl bg-[#0F766E] text-white flex items-center justify-center mx-auto mb-4 shadow-xs">
             <Sparkles className="w-7 h-7 text-white" />
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2">
@@ -174,7 +174,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                 );
               }
             }}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm shadow-sm transition cursor-pointer active:scale-98"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-sm shadow-sm transition cursor-pointer active:scale-98"
           >
             <Sparkles className="w-4 h-4 text-white" />
             <span>Launch AI Troubleshooter for This Problem</span>
@@ -188,10 +188,10 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
               <div
                 key={art.id}
                 onClick={() => handleOpenArticle(art.id)}
-                className="bg-[#FFFFFF] rounded-2xl p-6 card-hover-lift border border-[#E2E8F0] hover:border-[#2563EB] transition cursor-pointer flex flex-col group text-left shadow-xs"
+                className="bg-[#FFFFFF] rounded-2xl p-6 card-hover-lift border border-[#E2E8F0] hover:border-[#14B8A6] transition cursor-pointer flex flex-col group text-left shadow-xs"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2563EB] bg-[#EFF6FF] px-2.5 py-0.5 rounded-md border border-[#BFDBFE]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#0F766E] bg-[#ECFDF5] px-2.5 py-0.5 rounded-md border border-[#99F6E4]">
                     {art.category}
                   </span>
                   <span className="text-xs text-[#64748B] flex items-center gap-1 font-medium">
@@ -200,7 +200,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                   </span>
                 </div>
 
-                <h3 className="font-extrabold text-[#0F172A] text-base sm:text-lg mb-2 group-hover:text-[#2563EB] transition leading-snug">
+                <h3 className="font-extrabold text-[#0F172A] text-base sm:text-lg mb-2 group-hover:text-[#0F766E] transition leading-snug">
                   {art.title}
                 </h3>
 
@@ -208,7 +208,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                   {art.summary}
                 </p>
 
-                <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-bold text-[#2563EB]">
+                <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-bold text-[#0F766E]">
                   <span>Read guide & fix</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>
@@ -218,22 +218,22 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
 
           {/* Any Other Concern AI Banner */}
           {onStartCustomProblem && (
-            <div className="mt-12 bg-[#EFF6FF] rounded-2xl border border-[#BFDBFE] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left shadow-xs">
+            <div className="mt-12 bg-[#ECFDF5] rounded-2xl border border-[#99F6E4] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left shadow-xs">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFFFF] text-[#2563EB] border border-[#BFDBFE] text-xs font-semibold mb-2 shadow-2xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFFFF] text-[#0F766E] border border-[#99F6E4] text-xs font-semibold mb-2 shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#0F766E]" />
                   <span>Universal AI Diagnostic</span>
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-[#0F172A]">
                   Have a specific concern not listed above?
                 </h4>
-                <p className="text-xs sm:text-sm text-[#075985] max-w-xl">
+                <p className="text-xs sm:text-sm text-[#334155] max-w-xl">
                   TechResolve AI can analyze any unique computer, mobile, gaming, or coding problem and guide you step-by-step.
                 </p>
               </div>
               <button
                 onClick={() => onStartCustomProblem('Help me diagnose a technical problem', selectedCategory !== 'All' ? selectedCategory : 'General')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm shadow-xs transition shrink-0 cursor-pointer active:scale-98"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-xs sm:text-sm shadow-xs transition shrink-0 cursor-pointer active:scale-98"
               >
                 <Sparkles className="w-4 h-4 text-white" />
                 <span>Ask TechResolve AI</span>
@@ -259,7 +259,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
 
             {/* Category & Time */}
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F766E] bg-[#ECFDF5] px-3 py-1 rounded-full border border-[#99F6E4]">
                 {selectedArticle.category}
               </span>
               <span className="text-xs text-[#64748B] flex items-center gap-1 font-medium">
@@ -274,13 +274,13 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
             </h2>
 
             {/* Interactive Troubleshooting CTA Button */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#2563EB] text-white mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#0F766E] text-white mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
               <div>
                 <h4 className="font-bold text-base flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-white" />
                   <span>Prefer step-by-step guidance?</span>
                 </h4>
-                <p className="text-xs sm:text-sm text-blue-100">
+                <p className="text-xs sm:text-sm text-[#CCFBF1]">
                   TechResolve AI can walk you through this exact fix one step at a time.
                 </p>
               </div>
@@ -291,20 +291,20 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                   setSelectedArticle(null);
                   onLaunchInteractive(id);
                 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFFFFF] hover:bg-[#EFF6FF] text-[#2563EB] font-bold text-xs sm:text-sm shadow-xs transition shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFFFFF] hover:bg-[#ECFDF5] text-[#0F766E] font-bold text-xs sm:text-sm shadow-xs transition shrink-0 cursor-pointer"
               >
                 <span>Guide Me Interactively</span>
-                <ArrowRight className="w-4 h-4 text-[#2563EB]" />
+                <ArrowRight className="w-4 h-4 text-[#0F766E]" />
               </button>
             </div>
 
             {/* Safety Warning */}
             {selectedArticle.safety_warning && (
-              <div className="mb-6 p-4 rounded-xl bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] text-xs sm:text-sm flex items-start gap-3">
-                <ShieldAlert className="w-5 h-5 text-[#92400E] shrink-0 mt-0.5" />
+              <div className="mb-6 p-4 rounded-xl bg-[#FEF3C7] border border-[#FDE68A] text-[#B45309] text-xs sm:text-sm flex items-start gap-3">
+                <ShieldAlert className="w-5 h-5 text-[#B45309] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold">Safety Warning: </span>
-                  <span className="text-[#92400E]">{selectedArticle.safety_warning}</span>
+                  <span className="text-[#B45309]">{selectedArticle.safety_warning}</span>
                 </div>
               </div>
             )}
@@ -345,9 +345,9 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                 </h4>
                 <div className="space-y-4">
                   {selectedArticle.steps.map((st) => (
-                    <div key={st.step} className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC]">
+                    <div key={st.step} className="p-4 rounded-xl border border-[#E2E8F0] bg-[#FAFAF7]">
                       <div className="flex items-center gap-2 font-bold text-[#0F172A] text-sm mb-1">
-                        <span className="w-5 h-5 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xs font-bold">
+                        <span className="w-5 h-5 rounded-full bg-[#0F766E] text-white flex items-center justify-center text-xs font-bold">
                           {st.step}
                         </span>
                         <span>{st.title}</span>
@@ -378,8 +378,8 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
 
             {/* When to Contact a Technician */}
             {selectedArticle.technician_trigger && (
-              <div className="p-4 rounded-xl bg-[#FEF3C7]/40 border border-[#FDE68A] text-xs sm:text-sm text-[#92400E]">
-                <span className="font-bold text-[#92400E] block mb-1">When To Contact a Technician:</span>
+              <div className="p-4 rounded-xl bg-[#FEF3C7]/40 border border-[#FDE68A] text-xs sm:text-sm text-[#B45309]">
+                <span className="font-bold text-[#B45309] block mb-1">When To Contact a Technician:</span>
                 {selectedArticle.technician_trigger}
               </div>
             )}
