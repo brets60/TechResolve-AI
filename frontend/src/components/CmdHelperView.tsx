@@ -45,109 +45,109 @@ const CATEGORIES_CONFIG: Record<string, CategoryMeta> = {
   'Files & Navigation': {
     name: 'Files & Navigation',
     icon: Folder,
-    color: 'text-[#FBBF24]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#92400E]',
+    badgeBg: 'bg-[#FEF3C7] border border-[#FDE68A]',
+    badgeText: 'text-[#92400E]',
+    border: 'border-[#E2E8F0]',
     description: 'Essential CMD navigation: list directory files (dir), open folders (cd), copy, move, rename, and delete.'
   },
   'Battery & Power': {
     name: 'Battery & Power',
     icon: Battery,
-    color: 'text-[#FBBF24]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#92400E]',
+    badgeBg: 'bg-[#FEF3C7] border border-[#FDE68A]',
+    badgeText: 'text-[#92400E]',
+    border: 'border-[#E2E8F0]',
     description: 'Diagnose battery wear, generate battery reports, find sleep-blocking apps, and manage hibernation.'
   },
   'Internet & Network': {
     name: 'Internet & Network',
     icon: Wifi,
-    color: 'text-[#22D3EE]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#2563EB]',
+    badgeBg: 'bg-[#EFF6FF] border border-[#BFDBFE]',
+    badgeText: 'text-[#2563EB]',
+    border: 'border-[#E2E8F0]',
     description: 'Clear DNS cache, renew IP addresses, reveal saved Wi-Fi passwords, ping latency, and reset Winsock.'
   },
   'Windows Repair': {
     name: 'Windows Repair',
     icon: ShieldCheck,
-    color: 'text-[#60A5FA]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#2563EB]',
+    badgeBg: 'bg-[#EFF6FF] border border-[#BFDBFE]',
+    badgeText: 'text-[#2563EB]',
+    border: 'border-[#E2E8F0]',
     description: 'Scan & repair corrupt system files with SFC, restore images with DISM, check disk sectors, and Group Policy.'
   },
   'Storage & Disks': {
     name: 'Storage & Disks',
     icon: HardDrive,
-    color: 'text-[#4ADE80]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#15803D]',
+    badgeBg: 'bg-[#F0FDF4] border border-[#BBF7D0]',
+    badgeText: 'text-[#15803D]',
+    border: 'border-[#E2E8F0]',
     description: 'Inspect hard drive SMART health sensors, repair bad sectors, run SSD TRIM, and launch Disk Cleanup.'
   },
   'Performance & Apps': {
     name: 'Performance & Apps',
     icon: Zap,
-    color: 'text-[#22D3EE]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#2563EB]',
+    badgeBg: 'bg-[#EFF6FF] border border-[#BFDBFE]',
+    badgeText: 'text-[#2563EB]',
+    border: 'border-[#E2E8F0]',
     description: 'List active tasks (tasklist), filter memory hogs, force-close frozen programs, and Resource Monitor.'
   },
   'Hardware & Specs': {
     name: 'Hardware & Specs',
     icon: Cpu,
-    color: 'text-[#60A5FA]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#075985]',
+    badgeBg: 'bg-[#F0F9FF] border border-[#BAE6FD]',
+    badgeText: 'text-[#075985]',
+    border: 'border-[#E2E8F0]',
     description: 'Retrieve PC serial number from BIOS, check CPU & RAM specs, list device drivers, and launch dxdiag.'
   },
   'Services & Background': {
     name: 'Services & Background',
     icon: Printer,
-    color: 'text-[#22D3EE]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#2563EB]',
+    badgeBg: 'bg-[#EFF6FF] border border-[#BFDBFE]',
+    badgeText: 'text-[#2563EB]',
+    border: 'border-[#E2E8F0]',
     description: 'Restart jammed Print Spooler queues, list running Windows services, and open Services Manager.'
   },
   'Security & Users': {
     name: 'Security & Users',
     icon: Lock,
-    color: 'text-[#F87171]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#B91C1C]',
+    badgeBg: 'bg-[#FEF2F2] border border-[#FECACA]',
+    badgeText: 'text-[#B91C1C]',
+    border: 'border-[#E2E8F0]',
     description: 'Audit user accounts, check administrator privileges (whoami), verify firewall shields, and wipe free space.'
   },
   'Developer & Ports': {
     name: 'Developer & Ports',
     icon: Code2,
-    color: 'text-[#22D3EE]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#2563EB]',
+    badgeBg: 'bg-[#EFF6FF] border border-[#BFDBFE]',
+    badgeText: 'text-[#2563EB]',
+    border: 'border-[#E2E8F0]',
     description: 'Find processes holding port 3000, inspect curl HTTP headers, locate executables (where), and clipboard pipe.'
   },
   'System & Power Control': {
     name: 'System & Power Control',
     icon: Power,
-    color: 'text-[#F87171]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#B91C1C]',
+    badgeBg: 'bg-[#FEF2F2] border border-[#FECACA]',
+    badgeText: 'text-[#B91C1C]',
+    border: 'border-[#E2E8F0]',
     description: 'Graceful PC shutdown, restart straight into BIOS/UEFI firmware, abort shutdown timers, and winver.'
   },
   '⚡ Hackathon & Rapid Dev': {
     name: '⚡ Hackathon & Rapid Dev',
     icon: Zap,
-    color: 'text-[#FBBF24]',
-    badgeBg: 'bg-[#0B1120] border border-[#334155]',
-    badgeText: 'text-[#CBD5E1]',
-    border: 'border-[#334155]',
+    color: 'text-[#92400E]',
+    badgeBg: 'bg-[#FEF3C7] border border-[#FDE68A]',
+    badgeText: 'text-[#92400E]',
+    border: 'border-[#E2E8F0]',
     description: 'Emergency hackathon toolkit: kill zombie Node/Python servers, abort broken git merges, stash code, and unblock ports.'
   }
 };
@@ -388,28 +388,28 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0B1120] text-[#22D3EE] text-xs font-bold uppercase tracking-wider mb-3 border border-[#334155] shadow-2xs">
-          <Terminal className="w-3.5 h-3.5 text-[#22D3EE]" />
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-3 border border-[#BFDBFE] shadow-2xs">
+          <Terminal className="w-3.5 h-3.5 text-[#2563EB]" />
           <span>Windows Command Prompt Center</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3">
-          <span className="text-[#F8FAFC]">Organized </span>
-          <span className="text-[#22D3EE]">CMD Helper</span>
-          <span className="text-[#F8FAFC]"> & Sandbox</span>
+          <span className="text-[#0F172A]">Organized </span>
+          <span className="text-[#2563EB]">CMD Helper</span>
+          <span className="text-[#0F172A]"> & Sandbox</span>
         </h1>
-        <p className="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
+        <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
           Cleanly categorized safe Windows commands with everyday English explanations, safety ratings, and output translations.
         </p>
       </div>
 
       {/* Main Top Navigation Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-[#334155] pb-4">
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-[#E2E8F0] pb-4">
         <button
           onClick={() => setActiveTab('library')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'library'
-              ? 'bg-[#2563EB] text-white shadow-sm'
-              : 'bg-[#151F32] border border-[#334155] text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
+              ? 'bg-[#2563EB] text-white shadow-xs'
+              : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-[#EFF6FF] hover:border-[#BFDBFE]'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -420,8 +420,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           onClick={() => setActiveTab('simulator')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'simulator'
-              ? 'bg-[#2563EB] text-white shadow-sm'
-              : 'bg-[#151F32] border border-[#334155] text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
+              ? 'bg-[#2563EB] text-white shadow-xs'
+              : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-[#EFF6FF] hover:border-[#BFDBFE]'
           }`}
         >
           <Terminal className="w-4 h-4" />
@@ -432,8 +432,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           onClick={() => setActiveTab('custom')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'custom'
-              ? 'bg-[#2563EB] text-white shadow-sm'
-              : 'bg-[#151F32] border border-[#334155] text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
+              ? 'bg-[#2563EB] text-white shadow-xs'
+              : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-[#EFF6FF] hover:border-[#BFDBFE]'
           }`}
         >
           <Search className="w-4 h-4" />
@@ -444,8 +444,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           onClick={() => setActiveTab('translator')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'translator'
-              ? 'bg-[#2563EB] text-white shadow-sm'
-              : 'bg-[#151F32] border border-[#334155] text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
+              ? 'bg-[#2563EB] text-white shadow-xs'
+              : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-[#EFF6FF] hover:border-[#BFDBFE]'
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -456,8 +456,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           onClick={() => setActiveTab('guide')}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer active:scale-95 ${
             activeTab === 'guide'
-              ? 'bg-[#2563EB] text-white shadow-sm'
-              : 'bg-[#151F32] border border-[#334155] text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#1E293B]'
+              ? 'bg-[#2563EB] text-white shadow-xs'
+              : 'bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-[#EFF6FF] hover:border-[#BFDBFE]'
           }`}
         >
           <Info className="w-4 h-4" />
@@ -475,10 +475,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           <div>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#F8FAFC]">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A]">
                   Command Categories
                 </h2>
-                <p className="text-xs sm:text-sm text-[#94A3B8]">
+                <p className="text-xs sm:text-sm text-[#64748B]">
                   Select a category to view its essential diagnostic tools
                 </p>
               </div>
@@ -486,7 +486,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
               {selectedCategory !== 'All' && (
                 <button
                   onClick={() => setSelectedCategory('All')}
-                  className="text-xs font-bold text-[#22D3EE] hover:underline cursor-pointer"
+                  className="text-xs font-bold text-[#2563EB] hover:underline cursor-pointer"
                 >
                   Show All Categories ({library.length})
                 </button>
@@ -504,8 +504,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                     onClick={() => setSelectedCategory(isSelected ? 'All' : catKey)}
                     className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
-                        ? 'border-[#2563EB] bg-[#1E293B] shadow-xs ring-2 ring-[#2563EB]/20'
-                        : 'border-[#334155] bg-[#151F32] hover:border-[#2563EB]/60 hover:bg-[#1E293B]'
+                        ? 'border-[#2563EB] bg-[#EFF6FF] shadow-xs ring-2 ring-[#2563EB]/20'
+                        : 'border-[#E2E8F0] bg-[#FFFFFF] hover:border-[#2563EB]/60 hover:bg-[#EFF6FF]/40 shadow-xs'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -513,16 +513,16 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                         <Icon className="w-5 h-5" />
                       </div>
                       {isSelected && (
-                        <span className="text-[11px] font-bold text-[#22D3EE] bg-[#2563EB]/20 border border-[#2563EB]/30 px-2 py-0.5 rounded-full">
+                        <span className="text-[11px] font-bold text-[#2563EB] bg-[#FFFFFF] border border-[#BFDBFE] px-2 py-0.5 rounded-full shadow-2xs">
                           Active
                         </span>
                       )}
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#F8FAFC] text-sm mb-1 line-clamp-1">
+                      <h3 className="font-bold text-[#0F172A] text-sm mb-1 line-clamp-1">
                         {conf.name}
                       </h3>
-                      <p className="text-[11px] text-[#94A3B8] line-clamp-2 leading-relaxed">
+                      <p className="text-[11px] text-[#64748B] line-clamp-2 leading-relaxed">
                         {conf.description}
                       </p>
                     </div>
@@ -533,7 +533,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
           </div>
 
           {/* Filter & Search Bar */}
-          <div className="bg-[#151F32] rounded-2xl border border-[#334155] p-4 sm:p-5 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Search Input */}
             <div className="relative w-full md:max-w-md">
@@ -543,12 +543,12 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 value={searchLibrary}
                 onChange={(e) => setSearchLibrary(e.target.value)}
                 placeholder="Search commands, flags, or problems (e.g. battery, wifi, sfc)..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#334155] text-xs sm:text-sm focus:outline-none focus:border-[#2563EB] bg-[#0B1120] text-[#F8FAFC] placeholder-[#94A3B8]"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] text-xs sm:text-sm focus:outline-none focus:border-[#2563EB] bg-[#F8FAFC] text-[#0F172A] placeholder-[#94A3B8]"
               />
               {searchLibrary && (
                 <button
                   onClick={() => setSearchLibrary('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#94A3B8] hover:text-[#F8FAFC] cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#64748B] hover:text-[#0F172A] cursor-pointer"
                 >
                   Clear
                 </button>
@@ -562,7 +562,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 className={`px-3 py-1.5 rounded-xl font-bold transition cursor-pointer shrink-0 ${
                   adminFilter === 'all'
                     ? 'bg-[#2563EB] text-white shadow-2xs'
-                    : 'bg-[#0B1120] text-[#94A3B8] hover:text-[#CBD5E1] border border-[#334155]'
+                    : 'bg-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] border border-[#E2E8F0]'
                 }`}
               >
                 All Permissions
@@ -571,8 +571,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 onClick={() => setAdminFilter('safe')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition cursor-pointer shrink-0 ${
                   adminFilter === 'safe'
-                    ? 'bg-[#4ADE80] text-[#0B1120]'
-                    : 'bg-[#4ADE80]/15 text-[#4ADE80] hover:bg-[#4ADE80]/25 border border-[#4ADE80]/30'
+                    ? 'bg-[#15803D] text-white'
+                    : 'bg-[#F0FDF4] text-[#15803D] hover:bg-[#DCFCE7] border border-[#BBF7D0]'
                 }`}
               >
                 🟢 Safe (No Admin)
@@ -582,7 +582,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 className={`px-3 py-1.5 rounded-xl font-bold transition cursor-pointer shrink-0 ${
                   adminFilter === 'admin'
                     ? 'bg-[#2563EB] text-white'
-                    : 'bg-[#2563EB]/15 text-[#60A5FA] hover:bg-[#2563EB]/25 border border-[#2563EB]/30'
+                    : 'bg-[#EFF6FF] text-[#2563EB] hover:bg-[#DBEAFE] border border-[#BFDBFE]'
                 }`}
               >
                 🛡️ Needs Administrator
@@ -593,16 +593,16 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
           {/* Grouped Commands Presentation */}
           {libraryLoading ? (
-            <div className="text-center py-16 text-[#94A3B8] text-sm">
+            <div className="text-center py-16 text-[#64748B] text-sm">
               Loading categorized commands...
             </div>
           ) : Object.keys(groupedCategories).length === 0 ? (
-            <div className="text-center py-16 bg-[#151F32] rounded-2xl border border-[#334155] p-8">
-              <p className="text-base font-bold text-[#F8FAFC] mb-1">No commands matched your filters.</p>
-              <p className="text-xs text-[#94A3B8] mb-4">Try clearing your search query or selecting "All Permissions".</p>
+            <div className="text-center py-16 bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-8 shadow-xs">
+              <p className="text-base font-bold text-[#0F172A] mb-1">No commands matched your filters.</p>
+              <p className="text-xs text-[#64748B] mb-4">Try clearing your search query or selecting "All Permissions".</p>
               <button
                 onClick={() => { setSearchLibrary(''); setSelectedCategory('All'); setAdminFilter('all'); }}
-                className="px-4 py-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold rounded-xl cursor-pointer"
+                className="px-4 py-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold rounded-xl cursor-pointer transition shadow-xs"
               >
                 Reset Filters
               </button>
@@ -617,22 +617,22 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   <div key={categoryName} className="space-y-4">
                     
                     {/* Category Section Header */}
-                    <div className="flex items-center justify-between pb-2 border-b border-[#334155]">
+                    <div className="flex items-center justify-between pb-2 border-b border-[#E2E8F0]">
                       <div className="flex items-center gap-2.5">
-                        <div className={`w-8 h-8 rounded-xl ${conf?.badgeBg || 'bg-[#0B1120] border border-[#334155]'} ${conf?.color || 'text-[#22D3EE]'} flex items-center justify-center`}>
+                        <div className={`w-8 h-8 rounded-xl ${conf?.badgeBg || 'bg-[#EFF6FF] border border-[#BFDBFE]'} ${conf?.color || 'text-[#2563EB]'} flex items-center justify-center`}>
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <h3 className="font-extrabold text-[#F8FAFC] text-lg tracking-tight">
+                          <h3 className="font-extrabold text-[#0F172A] text-lg tracking-tight">
                             {categoryName}
                           </h3>
-                          <p className="text-xs text-[#94A3B8] hidden sm:block">
+                          <p className="text-xs text-[#64748B] hidden sm:block">
                             {conf?.description}
                           </p>
                         </div>
                       </div>
 
-                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#0B1120] text-[#CBD5E1] border border-[#334155]">
+                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0]">
                         {items.length} {items.length === 1 ? 'command' : 'commands'}
                       </span>
                     </div>
@@ -642,55 +642,55 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                       {items.map((item) => (
                         <div
                           key={item.id}
-                          className="bg-[#151F32] rounded-2xl border border-[#334155] p-5 shadow-2xs hover:border-[#2563EB] transition flex flex-col justify-between text-left group"
+                          className="bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] p-5 shadow-xs hover:border-[#2563EB] transition flex flex-col justify-between text-left group"
                         >
                           <div>
                             {/* Permission Badge */}
                             <div className="flex items-center justify-between gap-2 mb-2">
                               <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
                                 item.requires_admin
-                                  ? 'bg-[#2563EB]/15 text-[#60A5FA] border border-[#2563EB]/30'
-                                  : 'bg-[#4ADE80]/15 text-[#4ADE80] border border-[#4ADE80]/30'
+                                  ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]'
+                                  : 'bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]'
                               }`}>
                                 {item.requires_admin ? '🛡️ Administrator' : '🟢 Standard User'}
                               </span>
 
-                              <span className="text-[11px] font-medium text-[#94A3B8]">
+                              <span className="text-[11px] font-medium text-[#64748B]">
                                 {item.safety_level}
                               </span>
                             </div>
 
                             {/* Command Name */}
-                            <h4 className="font-bold text-[#F8FAFC] text-base mb-1 group-hover:text-[#22D3EE] transition">
+                            <h4 className="font-bold text-[#0F172A] text-base mb-1 group-hover:text-[#2563EB] transition">
                               {item.name}
                             </h4>
 
                             {/* Description */}
-                            <p className="text-xs text-[#94A3B8] mb-4 line-clamp-2 leading-relaxed">
+                            <p className="text-xs text-[#64748B] mb-4 line-clamp-2 leading-relaxed">
                               {item.description}
                             </p>
 
                             {/* Friendly Command Box */}
-                            <div className="p-2.5 rounded-xl bg-[#0B1120] border border-[#334155] font-mono text-xs flex items-center justify-between mb-4 select-all shadow-2xs">
-                              <span className="text-[#22D3EE] font-bold truncate mr-2">{item.command}</span>
+                            <div className="p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] font-mono text-xs flex items-center justify-between mb-4 select-all shadow-2xs">
+                              <span className="text-[#0F172A] font-bold truncate mr-2">{item.command}</span>
                               <button
                                 type="button"
                                 onClick={() => handleCopy(item.command)}
-                                className="text-[#CBD5E1] hover:text-[#F8FAFC] bg-[#1E293B] border border-[#334155] hover:border-[#2563EB] px-2 py-0.5 rounded-lg flex items-center gap-1 text-[11px] shrink-0 cursor-pointer shadow-2xs font-sans font-semibold transition"
+                                className="text-[#475569] hover:text-[#0F172A] bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2563EB] px-2 py-0.5 rounded-lg flex items-center gap-1 text-[11px] shrink-0 cursor-pointer shadow-2xs font-sans font-semibold transition"
                                 title="Copy command"
                               >
-                                {copiedCmd === item.command ? <Check className="w-3.5 h-3.5 text-[#4ADE80]" /> : <Copy className="w-3.5 h-3.5 text-[#22D3EE]" />}
+                                {copiedCmd === item.command ? <Check className="w-3.5 h-3.5 text-[#15803D]" /> : <Copy className="w-3.5 h-3.5 text-[#2563EB]" />}
                                 <span>{copiedCmd === item.command ? 'Copied' : 'Copy'}</span>
                               </button>
                             </div>
                           </div>
 
                           {/* Footer Actions */}
-                          <div className="flex items-center justify-between pt-3 border-t border-[#334155] text-xs">
+                          <div className="flex items-center justify-between pt-3 border-t border-[#E2E8F0] text-xs">
                             <button
                               type="button"
                               onClick={() => setSelectedCmdDetail(item)}
-                              className="font-bold text-[#22D3EE] hover:underline cursor-pointer flex items-center gap-1"
+                              className="font-bold text-[#2563EB] hover:underline cursor-pointer flex items-center gap-1"
                             >
                               <span>Breakdown</span>
                               <ArrowRight className="w-3 h-3" />
@@ -699,7 +699,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                             <button
                               type="button"
                               onClick={() => handleRunInSimulator(item.command)}
-                              className="font-bold text-[#4ADE80] hover:text-[#4ADE80]/80 cursor-pointer flex items-center gap-1"
+                              className="font-bold text-[#15803D] hover:text-[#15803D]/80 cursor-pointer flex items-center gap-1"
                               title="Test this command in the simulated terminal"
                             >
                               <span>▶ Sandbox</span>
@@ -708,7 +708,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                             <button
                               type="button"
                               onClick={() => onStartProblemWithCommand(item.name, item.category)}
-                              className="font-semibold text-[#CBD5E1] hover:text-[#F8FAFC] cursor-pointer"
+                              className="font-semibold text-[#475569] hover:text-[#0F172A] cursor-pointer"
                             >
                               Guide Me →
                             </button>
@@ -731,17 +731,17 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'simulator' && (
         <div className="max-w-5xl mx-auto space-y-6">
-          <div className="bg-[#151F32] rounded-3xl border border-[#334155] p-6 sm:p-8 shadow-xs">
+          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
             <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-[#2563EB] text-white flex items-center justify-center font-mono font-bold text-sm shadow-xs">
                   &gt;_
                 </div>
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#F8FAFC]">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A]">
                     Interactive Windows Terminal Sandbox
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#94A3B8]">
+                  <p className="text-xs sm:text-sm text-[#64748B]">
                     Safely simulate and practice running Windows CMD commands without any risk to your computer.
                   </p>
                 </div>
@@ -756,7 +756,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                       output: 'Microsoft Windows [Version 10.0.22631.3296]\n(c) Microsoft Corporation. All rights reserved.\nTerminal screen cleared.',
                     }
                   ])}
-                  className="px-3 py-1.5 rounded-xl border border-[#334155] bg-[#0B1120] text-[#CBD5E1] text-xs font-semibold hover:bg-[#1E293B] hover:text-[#F8FAFC] cursor-pointer transition"
+                  className="px-3 py-1.5 rounded-xl border border-[#E2E8F0] bg-[#F1F5F9] text-[#475569] text-xs font-semibold hover:bg-[#E2E8F0] hover:text-[#0F172A] cursor-pointer transition"
                 >
                   Clear Terminal
                 </button>
@@ -765,7 +765,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
             {/* Quick Practice Buttons */}
             <div className="mb-6">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#64748B] mb-2">
                 Quick One-Click Simulations:
               </div>
               <div className="flex flex-wrap gap-2">
@@ -783,10 +783,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                     key={item.cmd}
                     type="button"
                     onClick={() => handleRunInSimulator(item.cmd)}
-                    className="px-3 py-1.5 rounded-xl bg-[#0B1120] hover:bg-[#1E293B] border border-[#334155] hover:border-[#2563EB] text-xs font-medium text-[#CBD5E1] hover:text-[#22D3EE] transition cursor-pointer flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-xl bg-[#F8FAFC] hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#BFDBFE] text-xs font-medium text-[#475569] hover:text-[#2563EB] transition cursor-pointer flex items-center gap-1.5"
                   >
                     <span>{item.label}</span>
-                    <span className="font-mono text-[10px] text-[#22D3EE] bg-[#151F32] px-1.5 py-0.5 rounded border border-[#334155]">
+                    <span className="font-mono text-[10px] text-[#2563EB] bg-[#EFF6FF] px-1.5 py-0.5 rounded border border-[#BFDBFE]">
                       {item.cmd.split(' ')[0]}
                     </span>
                   </button>
@@ -795,44 +795,44 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
             </div>
 
             {/* Simulated Terminal Window - Dark Terminal Style */}
-            <div className="rounded-3xl overflow-hidden border border-[#334155] bg-[#0B1120] shadow-xl text-[#F8FAFC] font-mono text-xs sm:text-sm">
+            <div className="rounded-3xl overflow-hidden border border-[#CBD5E1] bg-[#0F172A] shadow-xl text-[#F8FAFC] font-mono text-xs sm:text-sm">
               {/* Window Header */}
-              <div className="bg-[#151F32] border-b border-[#334155] px-5 py-3 flex items-center justify-between text-[#F8FAFC]">
+              <div className="bg-[#1E293B] border-b border-[#334155] px-5 py-3 flex items-center justify-between text-[#F8FAFC]">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-[#F87171]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#FBBF24]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#4ADE80]"></div>
                   <span className="text-[#F8FAFC] text-xs font-sans font-bold ml-2">Command Prompt Practice Sandbox</span>
                 </div>
-                <span className="text-[11px] font-sans font-bold text-[#4ADE80] bg-[#4ADE80]/15 border border-[#4ADE80]/30 px-2.5 py-0.5 rounded-full">
+                <span className="text-[11px] font-sans font-bold text-[#15803D] bg-[#F0FDF4] border border-[#BBF7D0] px-2.5 py-0.5 rounded-full">
                   🟢 100% Safe Simulation
                 </span>
               </div>
 
               {/* Terminal Body */}
-              <div className="p-4 sm:p-6 space-y-4 max-h-[380px] overflow-y-auto leading-relaxed bg-[#0B1120] border-b border-[#334155]">
+              <div className="p-4 sm:p-6 space-y-4 max-h-[380px] overflow-y-auto leading-relaxed bg-[#0F172A] border-b border-[#334155]">
                 {terminalHistory.map((item, idx) => (
                   <div key={idx} className="space-y-1.5">
                     {item.command && (
-                      <div className="text-[#22D3EE] font-bold flex items-center gap-2">
+                      <div className="text-[#38BDF8] font-bold flex items-center gap-2">
                         <span className="text-[#60A5FA] font-mono">C:\Users\TechResolve&gt;</span>
                         <span className="text-[#F8FAFC]">{item.command}</span>
                       </div>
                     )}
-                    <pre className="text-[#CBD5E1] whitespace-pre-wrap font-mono text-xs pl-3 py-2 bg-[#151F32] rounded-xl border border-[#334155] shadow-2xs">
+                    <pre className="text-[#CBD5E1] whitespace-pre-wrap font-mono text-xs pl-3 py-2 bg-[#1E293B] rounded-xl border border-[#334155] shadow-2xs">
                       {item.output}
                     </pre>
 
                     {item.explanation && (
-                      <div className="mt-3 p-4 rounded-2xl bg-[#1E293B] border border-[#334155] font-sans text-xs sm:text-sm text-left shadow-2xs">
-                        <div className="flex items-center gap-2 mb-1.5 font-bold text-[#F8FAFC]">
-                          <CheckCircle2 className="w-4 h-4 text-[#4ADE80]" />
+                      <div className="mt-3 p-4 rounded-2xl bg-[#FFFFFF] border border-[#BFDBFE] font-sans text-xs sm:text-sm text-left shadow-xs">
+                        <div className="flex items-center gap-2 mb-1.5 font-bold text-[#0F172A]">
+                          <CheckCircle2 className="w-4 h-4 text-[#15803D]" />
                           <span>{item.explanation.summary}</span>
                         </div>
-                        <p className="text-[#CBD5E1] text-xs mb-2 leading-relaxed">
+                        <p className="text-[#475569] text-xs mb-2 leading-relaxed">
                           {item.explanation.meaning}
                         </p>
-                        <div className="text-[11px] text-[#22D3EE] font-semibold bg-[#0B1120] p-2.5 rounded-xl border border-[#334155]">
+                        <div className="text-[11px] text-[#075985] font-semibold bg-[#EFF6FF] p-2.5 rounded-xl border border-[#BFDBFE]">
                           <strong>💡 What this tells us: </strong> {item.explanation.action}
                         </div>
                       </div>
@@ -841,7 +841,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 ))}
 
                 {simulatorRunning && (
-                  <div className="flex items-center gap-2 text-[#22D3EE] animate-pulse text-xs font-semibold">
+                  <div className="flex items-center gap-2 text-[#38BDF8] animate-pulse text-xs font-semibold">
                     <span className="text-[#60A5FA]">C:\Users\TechResolve&gt;</span>
                     <span>Running {simulatorCmd}...</span>
                   </div>
@@ -849,8 +849,8 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
               </div>
 
               {/* Terminal Interactive Input */}
-              <div className="bg-[#151F32] p-3.5 sm:p-4 flex items-center gap-2 border-t border-[#334155]">
-                <span className="text-[#22D3EE] font-bold font-mono text-xs shrink-0">C:\Users\TechResolve&gt;</span>
+              <div className="bg-[#1E293B] p-3.5 sm:p-4 flex items-center gap-2 border-t border-[#334155]">
+                <span className="text-[#38BDF8] font-bold font-mono text-xs shrink-0">C:\Users\TechResolve&gt;</span>
                 <input
                   type="text"
                   value={simulatorCmd}
@@ -861,7 +861,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                     }
                   }}
                   placeholder="Type a command (e.g. sfc /scannow, ping 8.8.8.8) and press Enter..."
-                  className="flex-1 bg-[#0B1120] border border-[#334155] rounded-xl px-3 py-2 text-[#F8FAFC] font-mono text-xs sm:text-sm outline-none focus:border-[#2563EB] placeholder-[#94A3B8]"
+                  className="flex-1 bg-[#0F172A] border border-[#334155] rounded-xl px-3 py-2 text-[#F8FAFC] font-mono text-xs sm:text-sm outline-none focus:border-[#38BDF8] placeholder-[#94A3B8]"
                 />
                 <button
                   type="button"
@@ -875,10 +875,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
             </div>
 
             {/* Beginner reassurance note */}
-            <div className="mt-4 p-3.5 rounded-2xl bg-[#1E293B] border border-[#334155] text-xs text-[#CBD5E1] flex items-start gap-2.5">
-              <Info className="w-4 h-4 text-[#22D3EE] shrink-0 mt-0.5" />
+            <div className="mt-4 p-3.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-xs text-[#075985] flex items-start gap-2.5">
+              <Info className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#F8FAFC]">Safe Practice Guarantee: </strong> 
+                <strong className="text-[#0F172A]">Safe Practice Guarantee: </strong> 
                 This practice terminal runs in a sandboxed simulator in your browser. None of these commands modify your real system files. When you are ready to run them for real on your PC, you can copy the command and paste it into real Command Prompt.
               </div>
             </div>
@@ -892,16 +892,16 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'custom' && (
         <div className="max-w-3xl mx-auto">
-          <div className="bg-[#151F32] rounded-3xl border border-[#334155] p-6 sm:p-8 shadow-xs">
+          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-[#2563EB]/20 text-[#22D3EE] flex items-center justify-center border border-[#2563EB]/30">
-                <Search className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center border border-[#BFDBFE]">
+                <Search className="w-5 h-5 text-[#2563EB]" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-[#F8FAFC]">
+                <h2 className="text-xl font-bold text-[#0F172A]">
                   Explain Any Windows Command
                 </h2>
-                <p className="text-xs sm:text-sm text-[#94A3B8]">
+                <p className="text-xs sm:text-sm text-[#64748B]">
                   Type or paste any command to inspect safety, administrator needs, and flag meanings.
                 </p>
               </div>
@@ -914,7 +914,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   value={commandInput}
                   onChange={(e) => setCommandInput(e.target.value)}
                   placeholder="e.g. chkdsk C: /f or powercfg /energy or netstat -ano"
-                  className="flex-1 px-4 py-3 rounded-xl border border-[#334155] bg-[#0B1120] text-[#F8FAFC] placeholder-[#94A3B8] text-sm font-mono focus:outline-none focus:border-[#2563EB]"
+                  className="flex-1 px-4 py-3 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] text-[#0F172A] placeholder-[#94A3B8] text-sm font-mono focus:outline-none focus:border-[#2563EB]"
                 />
                 <button
                   type="submit"
@@ -928,7 +928,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
             {/* Quick chips */}
             <div className="flex flex-wrap gap-1.5 mb-6">
-              <span className="text-xs text-[#94A3B8] self-center mr-1">Popular tests:</span>
+              <span className="text-xs text-[#64748B] self-center mr-1">Popular tests:</span>
               {[
                 'powercfg /batteryreport',
                 'sfc /scannow',
@@ -944,7 +944,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                     setCommandInput(sample);
                     handleExplainCommand(undefined, sample);
                   }}
-                  className="text-xs font-mono px-2.5 py-1 rounded-lg bg-[#0B1120] hover:bg-[#1E293B] hover:text-[#22D3EE] text-[#CBD5E1] border border-[#334155] transition cursor-pointer"
+                  className="text-xs font-mono px-2.5 py-1 rounded-lg bg-[#F1F5F9] hover:bg-[#EFF6FF] hover:text-[#2563EB] text-[#475569] border border-[#E2E8F0] transition cursor-pointer"
                 >
                   {sample}
                 </button>
@@ -953,55 +953,55 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
             {/* Results Card */}
             {explainedCommand && (
-              <div className="pt-6 border-t border-[#334155]">
+              <div className="pt-6 border-t border-[#E2E8F0]">
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className={`text-xs font-bold px-3 py-1 rounded-full ${
                     explainedCommand.safety_badge === 'danger'
-                      ? 'bg-[#F87171]/15 text-[#F87171] border border-[#F87171]/30'
+                      ? 'bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA]'
                       : explainedCommand.safety_badge === 'moderate'
-                      ? 'bg-[#FBBF24]/15 text-[#FBBF24] border border-[#FBBF24]/30'
-                      : 'bg-[#4ADE80]/15 text-[#4ADE80] border border-[#4ADE80]/30'
+                      ? 'bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]'
+                      : 'bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]'
                   }`}>
                     {explainedCommand.safety_level}
                   </span>
 
                   <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
                     explainedCommand.requires_admin
-                      ? 'bg-[#2563EB]/15 text-[#60A5FA] border border-[#2563EB]/30'
-                      : 'bg-[#0B1120] text-[#CBD5E1] border border-[#334155]'
+                      ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]'
+                      : 'bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0]'
                   }`}>
                     {explainedCommand.requires_admin ? '🛡️ Administrator Required' : '🟢 Standard User (No Admin)'}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-2">
+                <h3 className="text-xl font-bold text-[#0F172A] mb-2">
                   {explainedCommand.name}
                 </h3>
-                <p className="text-sm text-[#CBD5E1] mb-4 leading-relaxed">
+                <p className="text-sm text-[#475569] mb-4 leading-relaxed">
                   {explainedCommand.description}
                 </p>
 
                 {/* Command copy box */}
-                <div className="p-3.5 rounded-xl bg-[#0B1120] border border-[#334155] text-[#22D3EE] font-mono text-sm flex items-center justify-between mb-4 shadow-xs">
-                  <span className="text-[#22D3EE] select-all font-bold tracking-tight mr-2">{explainedCommand.command}</span>
+                <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] font-mono text-sm flex items-center justify-between mb-4 shadow-xs">
+                  <span className="text-[#0F172A] select-all font-bold tracking-tight mr-2">{explainedCommand.command}</span>
                   <button
                     type="button"
                     onClick={() => handleCopy(explainedCommand.command)}
-                    className="text-[#CBD5E1] hover:text-[#F8FAFC] bg-[#1E293B] hover:bg-[#151F32] px-2.5 py-1 rounded-lg border border-[#334155] hover:border-[#2563EB] transition-colors flex items-center gap-1.5 text-xs font-semibold shrink-0 shadow-2xs cursor-pointer"
+                    className="text-[#475569] hover:text-[#0F172A] bg-[#FFFFFF] hover:bg-[#F1F5F9] px-2.5 py-1 rounded-lg border border-[#E2E8F0] hover:border-[#2563EB] transition-colors flex items-center gap-1.5 text-xs font-semibold shrink-0 shadow-2xs cursor-pointer"
                   >
-                    {copiedCmd === explainedCommand.command ? <Check className="w-4 h-4 text-[#4ADE80]" /> : <Copy className="w-4 h-4 text-[#22D3EE]" />}
+                    {copiedCmd === explainedCommand.command ? <Check className="w-4 h-4 text-[#15803D]" /> : <Copy className="w-4 h-4 text-[#2563EB]" />}
                     <span>{copiedCmd === explainedCommand.command ? 'Copied' : 'Copy'}</span>
                   </button>
                 </div>
 
                 {/* Flags Breakdown */}
                 {explainedCommand.flags_explanation && explainedCommand.flags_explanation.length > 0 && (
-                  <div className="mb-4 bg-[#0B1120] p-4 rounded-xl border border-[#334155] text-xs sm:text-sm">
-                    <span className="font-bold text-[#F8FAFC] block mb-2">What Each Word / Flag Means:</span>
+                  <div className="mb-4 bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0] text-xs sm:text-sm">
+                    <span className="font-bold text-[#0F172A] block mb-2">What Each Word / Flag Means:</span>
                     <div className="space-y-1.5">
                       {explainedCommand.flags_explanation.map((f, i) => (
-                        <div key={i} className="flex items-start gap-2 text-[#CBD5E1]">
-                          <span className="font-mono font-bold text-[#22D3EE] shrink-0">{f.flag}:</span>
+                        <div key={i} className="flex items-start gap-2 text-[#475569]">
+                          <span className="font-mono font-bold text-[#2563EB] shrink-0">{f.flag}:</span>
                           <span>{f.meaning}</span>
                         </div>
                       ))}
@@ -1010,9 +1010,9 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                 )}
 
                 {/* Expected output */}
-                <div className="mb-4 p-3.5 rounded-xl bg-[#0B1120] border border-[#334155] text-xs sm:text-sm text-[#CBD5E1]">
-                  <span className="font-bold text-[#F8FAFC] block mb-1">Expected Output:</span>
-                  <p className="italic text-[#94A3B8]">{explainedCommand.expected_output}</p>
+                <div className="mb-4 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs sm:text-sm text-[#475569]">
+                  <span className="font-bold text-[#0F172A] block mb-1">Expected Output:</span>
+                  <p className="italic text-[#64748B]">{explainedCommand.expected_output}</p>
                 </div>
 
                 <button
@@ -1034,16 +1034,16 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'translator' && (
         <div className="max-w-3xl mx-auto">
-          <div className="bg-[#151F32] rounded-3xl border border-[#334155] p-6 sm:p-8 shadow-xl">
+          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-[#22D3EE]/15 text-[#22D3EE] flex items-center justify-center">
-                <FileText className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center border border-[#BFDBFE]">
+                <FileText className="w-5 h-5 text-[#2563EB]" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-[#F8FAFC]">
+                <h2 className="text-xl font-bold text-[#0F172A]">
                   Translate Command Prompt Output
                 </h2>
-                <p className="text-xs sm:text-sm text-[#94A3B8]">
+                <p className="text-xs sm:text-sm text-[#64748B]">
                   Paste the text or error messages you got from CMD to understand what happened.
                 </p>
               </div>
@@ -1051,7 +1051,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
             <form onSubmit={handleTranslateOutput} className="my-6 space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#CBD5E1] mb-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-1">
                   Which command did you run?
                 </label>
                 <input
@@ -1059,12 +1059,12 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   value={outputCommand}
                   onChange={(e) => setOutputCommand(e.target.value)}
                   placeholder="e.g. sfc /scannow or ping 8.8.8.8"
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#0B1120] border border-[#334155] text-sm font-mono text-[#F8FAFC] placeholder-[#94A3B8]/60 focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-sm font-mono text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#CBD5E1] mb-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#0F172A] mb-1">
                   Paste the CMD output text:
                 </label>
                 <textarea
@@ -1072,14 +1072,14 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   value={outputText}
                   onChange={(e) => setOutputText(e.target.value)}
                   placeholder="Paste the output text from the Command Prompt window here..."
-                  className="w-full px-4 py-3 rounded-xl bg-[#0B1120] border border-[#334155] text-xs sm:text-sm font-mono text-[#F8FAFC] placeholder-[#94A3B8]/60 focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] leading-relaxed"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs sm:text-sm font-mono text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] leading-relaxed"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={translatingOutput || !outputText.trim()}
-                className="w-full py-3 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-bold text-sm transition cursor-pointer shadow-md"
+                className="w-full py-3 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 text-white font-bold text-sm transition cursor-pointer shadow-xs"
               >
                 {translatingOutput ? 'Analyzing Output...' : 'Translate Output Into Plain English'}
               </button>
@@ -1089,21 +1089,21 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
             {outputTranslation && (
               <div className={`p-5 rounded-2xl border text-left ${
                 outputTranslation.status === 'success'
-                  ? 'bg-[#4ADE80]/10 border-[#4ADE80]/30 text-[#4ADE80]'
+                  ? 'bg-[#F0FDF4] border-[#BBF7D0] text-[#15803D]'
                   : outputTranslation.status === 'warning'
-                  ? 'bg-[#FBBF24]/10 border-[#FBBF24]/30 text-[#FBBF24]'
+                  ? 'bg-[#FEF3C7] border-[#FDE68A] text-[#92400E]'
                   : outputTranslation.status === 'danger' || outputTranslation.status === 'error'
-                  ? 'bg-[#F87171]/10 border-[#F87171]/30 text-[#F87171]'
-                  : 'bg-[#60A5FA]/10 border-[#60A5FA]/30 text-[#60A5FA]'
+                  ? 'bg-[#FEF2F2] border-[#FECACA] text-[#B91C1C]'
+                  : 'bg-[#EFF6FF] border-[#BFDBFE] text-[#075985]'
               }`}>
                 <h4 className="font-bold text-base mb-1.5 flex items-center gap-2">
-                  <span className="text-[#F8FAFC]">{outputTranslation.summary}</span>
+                  <span className="text-[#0F172A]">{outputTranslation.summary}</span>
                 </h4>
-                <p className="text-xs sm:text-sm leading-relaxed mb-4 text-[#CBD5E1]">
+                <p className="text-xs sm:text-sm leading-relaxed mb-4 text-[#475569]">
                   {outputTranslation.plain_english_meaning}
                 </p>
-                <div className="pt-3 border-t border-[#334155] text-xs font-semibold text-[#CBD5E1]">
-                  <span className="font-bold text-[#F8FAFC]">Next Action: </span>
+                <div className="pt-3 border-t border-[#E2E8F0] text-xs font-semibold text-[#475569]">
+                  <span className="font-bold text-[#0F172A]">Next Action: </span>
                   <span>{outputTranslation.recommended_next_step}</span>
                 </div>
               </div>
@@ -1117,47 +1117,47 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'guide' && (
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="bg-[#151F32] rounded-3xl border border-[#334155] p-6 sm:p-8 shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#F8FAFC] mb-2 flex items-center gap-2">
-              <Info className="w-6 h-6 text-[#22D3EE]" />
+          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] mb-2 flex items-center gap-2">
+              <Info className="w-6 h-6 text-[#2563EB]" />
               <span>Beginner's Guide: Opening & Using Command Prompt</span>
             </h2>
-            <p className="text-xs sm:text-sm text-[#94A3B8] mb-6">
+            <p className="text-xs sm:text-sm text-[#64748B] mb-6">
               Command Prompt is a built-in Windows tool that lets you talk to your computer with text. Here is how to use it safely.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm mb-8">
-              <div className="p-5 rounded-2xl bg-[#0B1120] border border-[#334155]">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#22D3EE] bg-[#22D3EE]/15 border border-[#22D3EE]/30 px-2.5 py-0.5 rounded-md mb-2 inline-block">
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-2.5 py-0.5 rounded-md mb-2 inline-block">
                   Standard User Mode
                 </span>
-                <h3 className="font-bold text-[#F8FAFC] text-base mb-2">For Safe Read-Only Checks</h3>
-                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-[#CBD5E1]">
+                <h3 className="font-bold text-[#0F172A] text-base mb-2">For Safe Read-Only Checks</h3>
+                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-[#475569]">
                   <li>Press the <strong>Windows Key</strong> on your keyboard.</li>
-                  <li>Type the letters <code className="bg-[#1E293B] border border-[#334155] px-1.5 py-0.5 rounded font-mono font-bold text-[#22D3EE]">cmd</code></li>
+                  <li>Type the letters <code className="bg-[#FFFFFF] border border-[#E2E8F0] px-1.5 py-0.5 rounded font-mono font-bold text-[#2563EB]">cmd</code></li>
                   <li>Press <strong>Enter</strong>. A black window will open.</li>
                   <li>You can now type or paste any standard command!</li>
                 </ol>
               </div>
 
-              <div className="p-5 rounded-2xl bg-[#1E293B] border border-[#334155]">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#60A5FA] bg-[#2563EB]/20 border border-[#2563EB]/40 px-2.5 py-0.5 rounded-md mb-2 inline-block">
+              <div className="p-5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE]">
+                <span className="text-xs font-bold uppercase tracking-wider text-white bg-[#2563EB] px-2.5 py-0.5 rounded-md mb-2 inline-block shadow-2xs">
                   Administrator Mode
                 </span>
-                <h3 className="font-bold text-[#F8FAFC] text-base mb-2">For System Repairs (SFC, DISM, Chkdsk)</h3>
-                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-[#CBD5E1]">
+                <h3 className="font-bold text-[#0F172A] text-base mb-2">For System Repairs (SFC, DISM, Chkdsk)</h3>
+                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-[#475569]">
                   <li>Press the <strong>Windows Key</strong> on your keyboard.</li>
-                  <li>Type <code className="bg-[#0B1120] border border-[#334155] px-1.5 py-0.5 rounded font-mono font-bold text-[#60A5FA]">cmd</code></li>
+                  <li>Type <code className="bg-[#FFFFFF] border border-[#BFDBFE] px-1.5 py-0.5 rounded font-mono font-bold text-[#2563EB]">cmd</code></li>
                   <li><strong>Right-click</strong> 'Command Prompt' and select <strong>'Run as administrator'</strong>.</li>
                   <li>Click <strong>'Yes'</strong> when Windows asks for permission.</li>
                 </ol>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#0B1120] border border-[#334155] text-xs sm:text-sm text-[#CBD5E1] space-y-1.5">
-              <span className="font-bold text-[#F8FAFC] block">💡 Tips For Pasting Commands:</span>
-              <p>• You don't have to re-type long commands. Just click the <strong className="text-[#F8FAFC]">Copy</strong> button on any card above.</p>
-              <p>• Inside the Command Prompt window, simply press <kbd className="bg-[#151F32] border border-[#334155] px-1.5 py-0.5 rounded text-xs font-semibold text-[#F8FAFC]">Ctrl</kbd> + <kbd className="bg-[#151F32] border border-[#334155] px-1.5 py-0.5 rounded text-xs font-semibold text-[#F8FAFC]">V</kbd> or right-click your mouse to paste instantly.</p>
+            <div className="p-4 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] text-xs sm:text-sm text-[#475569] space-y-1.5">
+              <span className="font-bold text-[#0F172A] block">💡 Tips For Pasting Commands:</span>
+              <p>• You don't have to re-type long commands. Just click the <strong className="text-[#0F172A]">Copy</strong> button on any card above.</p>
+              <p>• Inside the Command Prompt window, simply press <kbd className="bg-[#FFFFFF] border border-[#E2E8F0] px-1.5 py-0.5 rounded text-xs font-semibold text-[#0F172A]">Ctrl</kbd> + <kbd className="bg-[#FFFFFF] border border-[#E2E8F0] px-1.5 py-0.5 rounded text-xs font-semibold text-[#0F172A]">V</kbd> or right-click your mouse to paste instantly.</p>
             </div>
           </div>
         </div>
@@ -1167,67 +1167,67 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
       {/* COMMAND DETAIL MODAL */}
       {/* ========================================================================= */}
       {selectedCmdDetail && (
-        <div className="fixed inset-0 z-50 bg-[#0B1120]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#1E293B] rounded-3xl border border-[#334155] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative text-left max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-[#0F172A]/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E2E8F0] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative text-left max-h-[90vh] overflow-y-auto">
             
             {/* Close Button */}
             <button
               onClick={() => setSelectedCmdDetail(null)}
-              className="absolute top-5 right-5 p-2 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#334155]/50 transition cursor-pointer"
+              className="absolute top-5 right-5 p-2 rounded-xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#22D3EE] bg-[#22D3EE]/15 px-2.5 py-0.5 rounded-md border border-[#22D3EE]/30">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-[#EFF6FF] px-2.5 py-0.5 rounded-md border border-[#BFDBFE]">
                 {selectedCmdDetail.category}
               </span>
 
               <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
                 selectedCmdDetail.requires_admin
-                  ? 'bg-[#2563EB]/20 text-[#60A5FA] border border-[#2563EB]/40'
-                  : 'bg-[#4ADE80]/15 text-[#4ADE80] border border-[#4ADE80]/30'
+                  ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]'
+                  : 'bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]'
               }`}>
                 {selectedCmdDetail.requires_admin ? '🛡️ Administrator Required' : '🟢 Standard User'}
               </span>
 
-              <span className="text-xs text-[#94A3B8] font-medium">
+              <span className="text-xs text-[#64748B] font-medium">
                 {selectedCmdDetail.safety_level}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#F8FAFC] mb-2">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] mb-2">
               {selectedCmdDetail.name}
             </h3>
 
             {/* Description */}
-            <p className="text-xs sm:text-sm text-[#CBD5E1] mb-6 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#475569] mb-6 leading-relaxed">
               {selectedCmdDetail.description}
             </p>
 
             {/* Command Box */}
-            <div className="p-3.5 rounded-xl bg-[#0B1120] border border-[#334155] text-[#22D3EE] font-mono text-sm flex items-center justify-between mb-6 shadow-inner">
-              <span className="text-[#22D3EE] font-bold truncate mr-2">{selectedCmdDetail.command}</span>
+            <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] font-mono text-sm flex items-center justify-between mb-6 shadow-inner">
+              <span className="text-[#0F172A] font-bold truncate mr-2">{selectedCmdDetail.command}</span>
               <button
                 type="button"
                 onClick={() => handleCopy(selectedCmdDetail.command)}
-                className="text-[#CBD5E1] hover:text-[#F8FAFC] bg-[#151F32] hover:bg-[#334155] px-2.5 py-1 rounded-lg border border-[#334155] transition-colors flex items-center gap-1.5 text-xs font-semibold shrink-0 cursor-pointer"
+                className="text-[#475569] hover:text-[#0F172A] bg-[#FFFFFF] hover:bg-[#F1F5F9] px-2.5 py-1 rounded-lg border border-[#E2E8F0] hover:border-[#2563EB] transition-colors flex items-center gap-1.5 text-xs font-semibold shrink-0 cursor-pointer"
               >
-                {copiedCmd === selectedCmdDetail.command ? <Check className="w-4 h-4 text-[#4ADE80]" /> : <Copy className="w-4 h-4 text-[#22D3EE]" />}
+                {copiedCmd === selectedCmdDetail.command ? <Check className="w-4 h-4 text-[#15803D]" /> : <Copy className="w-4 h-4 text-[#2563EB]" />}
                 <span>{copiedCmd === selectedCmdDetail.command ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
 
             {/* Flag breakdown */}
             {selectedCmdDetail.flags_explanation && selectedCmdDetail.flags_explanation.length > 0 && (
-              <div className="mb-6 bg-[#0B1120] p-4 rounded-xl border border-[#334155] text-xs sm:text-sm">
-                <span className="font-bold text-[#F8FAFC] block mb-2">Parameter / Flag Breakdown:</span>
+              <div className="mb-6 bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0] text-xs sm:text-sm">
+                <span className="font-bold text-[#0F172A] block mb-2">Parameter / Flag Breakdown:</span>
                 <div className="space-y-1.5">
                   {selectedCmdDetail.flags_explanation.map((f, i) => (
-                    <div key={i} className="flex items-start gap-2 text-[#CBD5E1]">
-                      <span className="font-mono font-bold text-[#22D3EE] shrink-0">{f.flag}:</span>
+                    <div key={i} className="flex items-start gap-2 text-[#475569]">
+                      <span className="font-mono font-bold text-[#2563EB] shrink-0">{f.flag}:</span>
                       <span>{f.meaning}</span>
                     </div>
                   ))}
@@ -1237,18 +1237,18 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
 
             {/* Expected Output */}
             <div className="mb-6">
-              <span className="font-bold text-[#F8FAFC] text-xs sm:text-sm block mb-1">
+              <span className="font-bold text-[#0F172A] text-xs sm:text-sm block mb-1">
                 Expected Output in Command Prompt:
               </span>
-              <div className="p-3 rounded-xl bg-[#0B1120] border border-[#334155] text-xs sm:text-sm font-mono text-[#CBD5E1] whitespace-pre-line">
+              <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs sm:text-sm font-mono text-[#475569] whitespace-pre-line">
                 {selectedCmdDetail.expected_output}
               </div>
             </div>
 
             {/* What to look for */}
             {selectedCmdDetail.what_to_look_for && (
-              <div className="mb-6 p-3.5 rounded-xl bg-[#151F32] border border-[#334155] text-xs sm:text-sm text-[#CBD5E1]">
-                <span className="font-bold text-[#22D3EE] block mb-0.5">What to Look For:</span>
+              <div className="mb-6 p-3.5 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] text-xs sm:text-sm text-[#075985]">
+                <span className="font-bold text-[#2563EB] block mb-0.5">What to Look For:</span>
                 {selectedCmdDetail.what_to_look_for}
               </div>
             )}
@@ -1256,10 +1256,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
             {/* How to run steps */}
             {selectedCmdDetail.how_to_run_steps && selectedCmdDetail.how_to_run_steps.length > 0 && (
               <div className="mb-6">
-                <span className="font-bold text-[#F8FAFC] text-xs sm:text-sm block mb-2">
+                <span className="font-bold text-[#0F172A] text-xs sm:text-sm block mb-2">
                   How To Run This Safely:
                 </span>
-                <div className="space-y-1 text-xs sm:text-sm text-[#CBD5E1]">
+                <div className="space-y-1 text-xs sm:text-sm text-[#475569]">
                   {selectedCmdDetail.how_to_run_steps.map((step, idx) => (
                     <div key={idx}>{step}</div>
                   ))}
@@ -1268,11 +1268,11 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
             )}
 
             {/* Modal Actions */}
-            <div className="pt-4 border-t border-[#334155] flex flex-wrap items-center justify-end gap-3">
+            <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-end gap-3">
               <button
                 type="button"
                 onClick={() => setSelectedCmdDetail(null)}
-                className="px-4 py-2 rounded-xl border border-[#334155] text-[#CBD5E1] font-semibold text-xs sm:text-sm hover:bg-[#334155]/50 hover:text-[#F8FAFC] cursor-pointer"
+                className="px-4 py-2 rounded-xl border border-[#E2E8F0] text-[#475569] font-semibold text-xs sm:text-sm hover:bg-[#F1F5F9] hover:text-[#0F172A] cursor-pointer"
               >
                 Close
               </button>
@@ -1284,7 +1284,7 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   setSelectedCmdDetail(null);
                   handleRunInSimulator(cmd.command);
                 }}
-                className="px-4 py-2 rounded-xl bg-[#4ADE80]/15 text-[#4ADE80] border border-[#4ADE80]/30 font-bold text-xs sm:text-sm hover:bg-[#4ADE80]/25 transition cursor-pointer flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0] font-bold text-xs sm:text-sm hover:bg-[#DCFCE7] transition cursor-pointer flex items-center gap-1.5"
               >
                 <span>▶ Test in Sandbox</span>
               </button>
@@ -1296,10 +1296,10 @@ export const CmdHelperView: React.FC<CmdHelperViewProps> = ({
                   setSelectedCmdDetail(null);
                   onStartProblemWithCommand(cmd.name, cmd.category);
                 }}
-                className="px-5 py-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition cursor-pointer shadow-md"
+                className="px-5 py-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition cursor-pointer shadow-xs"
               >
                 <span>Launch in Troubleshooting Wizard</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </button>
             </div>
 

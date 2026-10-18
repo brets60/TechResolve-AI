@@ -146,13 +146,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-[#F8FAFC] bg-[#0B1120] relative overflow-x-hidden selection:bg-[#2563EB]/30 selection:text-white">
-      {/* Clean, lightweight midnight background accents */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-        <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#2563EB]/05 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-32 w-80 h-80 bg-[#22D3EE]/04 rounded-full blur-3xl" />
-      </div>
-
+    <div className="min-h-screen flex flex-col font-sans text-[#0F172A] bg-[#F1F5F9] relative overflow-x-hidden selection:bg-[#2563EB]/20 selection:text-[#0F172A]">
       {/* Top Navigation */}
       <div className="relative z-40">
         <Navbar
@@ -171,7 +165,7 @@ export function App() {
         {globalLoading ? (
           <div className="py-20 text-center">
             <div className="w-8 h-8 border-3 border-[#2563EB] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-[#94A3B8] font-medium">Preparing diagnostic steps...</p>
+            <p className="text-sm text-[#64748B] font-medium">Preparing diagnostic steps...</p>
           </div>
         ) : (
           <>
@@ -238,12 +232,12 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-[#334155] bg-[#151F32] py-6 text-center text-xs text-[#94A3B8] mb-14 md:mb-0">
+      <footer className="mt-auto border-t border-[#E2E8F0] bg-[#FFFFFF] py-6 text-center text-xs text-[#64748B] mb-14 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="font-semibold text-[#CBD5E1]">
+          <div className="font-semibold text-[#0F172A]">
             TechResolve AI • Patient IT Support For Everyone
           </div>
-          <div className="text-[#94A3B8]">
+          <div className="text-[#64748B]">
             Built with React, TypeScript, FastAPI & Google Gemini Intelligence
           </div>
         </div>

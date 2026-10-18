@@ -378,8 +378,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Emergency demo crash, port 3000/8000 in use, CORS errors, git merge conflicts',
       icon: Zap,
       badge: 'Hackathon ⚡',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#FBBF24] border border-[#334155]',
+      color: 'bg-[#FEF3C7] text-[#92400E] border-[#FDE68A]',
+      badgeBg: 'bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]',
       defaultProblem: 'Hackathon emergency: port already in use or demo crashed before pitch.',
     },
     {
@@ -387,8 +387,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Battery dies unplugged, loud fans, overheating, sudden shutdowns, blue screens',
       icon: Laptop,
       badge: 'Hardware & Power',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'My laptop turns off when I unplug the charger.',
     },
     {
@@ -396,8 +396,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Connected but no internet, Wi-Fi drops, DNS errors, slow browsing, phone hotspot',
       icon: Wifi,
       badge: 'Network',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'My Wi-Fi is connected but there is no internet.',
     },
     {
@@ -405,8 +405,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'No sound from speakers, mic muted in Zoom/Teams/Discord, headphone crackling',
       icon: Volume2,
       badge: 'Audio & Mic',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'No sound coming out of speakers or microphone is muted in video calls.',
     },
     {
@@ -414,8 +414,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Second screen not detected, black monitor screen, wrong resolution, flickering',
       icon: Monitor,
       badge: 'Displays',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'Second monitor or external screen is not detected by Windows.',
     },
     {
@@ -423,8 +423,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Apps freezing, won’t open, Windows Update stuck at 100%, background app crashes',
       icon: AppWindow,
       badge: 'Applications',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'My application will not open or freezes on launch.',
     },
     {
@@ -432,8 +432,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Drive C: completely full, USB flash drive not recognized, freeing 20+ GB safely',
       icon: HardDrive,
       badge: 'Storage & USB',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'My C: drive is completely full and I need to free up disk space safely.',
     },
     {
@@ -441,8 +441,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Printer offline, Bluetooth device won’t pair, keyboard typing wrong characters',
       icon: Printer,
       badge: 'Peripherals',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'My printer shows offline and will not print.',
     },
     {
@@ -450,8 +450,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
       description: 'Scam virus popups, browser adware, forgot Windows PIN/password, account recovery',
       icon: ShieldAlert,
       badge: 'Security & PIN',
-      color: 'bg-[#1E293B] text-[#22D3EE] border-[#334155]',
-      badgeBg: 'bg-[#1E293B] text-[#22D3EE] border border-[#334155]',
+      color: 'bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]',
+      badgeBg: 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]',
       defaultProblem: 'Suspicious browser popups or forgot Windows PIN/password.',
     },
   ];
@@ -510,36 +510,36 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Hero Section */}
       <div className="max-w-4xl mx-auto text-center px-4">
         
-        {/* Dark Greeting Badge */}
-        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#151F32] border border-[#334155] text-[#22D3EE] text-xs sm:text-sm font-semibold mb-5 shadow-xs whitespace-nowrap">
-          <Sparkles className="w-4 h-4 text-[#22D3EE] shrink-0" />
+        {/* Light Greeting Badge */}
+        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-xs sm:text-sm font-semibold mb-5 shadow-2xs whitespace-nowrap">
+          <Sparkles className="w-4 h-4 text-[#2563EB] shrink-0" />
           <span>{greeting.icon} {greeting.text} • Patient IT Co-pilot Ready</span>
         </div>
 
-        {/* Clean Headline with Cyan Highlight */}
+        {/* Clean Headline with Primary Blue Highlight */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4 text-center">
-          <span className="text-[#F8FAFC]">Let's Fix Your </span>
-          <span className="text-[#22D3EE] inline-block">Tech Problem</span>
-          <span className="text-[#F8FAFC]"> Together.</span>
+          <span className="text-[#0F172A]">Let's Fix Your </span>
+          <span className="text-[#2563EB] inline-block">Tech Problem</span>
+          <span className="text-[#0F172A]"> Together.</span>
         </h1>
 
         {/* Reassuring Subtitle */}
-        <p className="text-base sm:text-lg text-[#CBD5E1] max-w-2xl mx-auto mb-6 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto mb-6 leading-relaxed">
           Tell us what's happening with your device or code. We explain everything in simple terms and guide you step-by-step to a working fix.
         </p>
 
         {/* Prominent Sign In Banner for Guests */}
         {!user && onOpenAuth && (
-          <div className="max-w-2xl mx-auto mb-7 p-3.5 sm:p-4 rounded-2xl bg-[#151F32] border border-[#334155] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+          <div className="max-w-2xl mx-auto mb-7 p-3.5 sm:p-4 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#1E293B] border border-[#334155] text-[#2563EB] flex items-center justify-center shrink-0 shadow-xs">
-                <UserIcon className="w-5 h-5 text-[#22D3EE]" />
+              <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center shrink-0 shadow-2xs">
+                <UserIcon className="w-5 h-5 text-[#2563EB]" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-[#F8FAFC]">
+                <h3 className="text-sm font-bold text-[#0F172A]">
                   Save Your Troubleshooting Progress
                 </h3>
-                <p className="text-xs text-[#94A3B8]">
+                <p className="text-xs text-[#64748B]">
                   Log in or register to sync your diagnostic history
                 </p>
               </div>
@@ -558,12 +558,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Synced User Pill */}
         {user && (
-          <div className="max-w-2xl mx-auto mb-6 p-2.5 px-4 rounded-xl bg-[#151F32] border border-[#334155] text-xs text-[#4ADE80] flex items-center justify-between gap-2 text-left shadow-2xs">
+          <div className="max-w-2xl mx-auto mb-6 p-2.5 px-4 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] text-xs text-[#15803D] flex items-center justify-between gap-2 text-left shadow-2xs">
             <div className="flex items-center gap-2 truncate">
-              <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse shrink-0"></span>
-              <span className="truncate text-[#CBD5E1]">Signed in as <strong className="text-[#F8FAFC]">{user.name}</strong> ({user.email})</span>
+              <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse shrink-0"></span>
+              <span className="truncate text-[#0F172A]">Signed in as <strong className="text-[#0F172A]">{user.name}</strong> ({user.email})</span>
             </div>
-            <span className="font-bold text-[11px] bg-[#1E293B] border border-[#334155] text-[#4ADE80] px-2 py-0.5 rounded-md shrink-0">
+            <span className="font-bold text-[11px] bg-[#FFFFFF] border border-[#BBF7D0] text-[#15803D] px-2 py-0.5 rounded-md shrink-0">
               Synced ✓
             </span>
           </div>
@@ -571,21 +571,21 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Search & Diagnostic Input */}
         <form onSubmit={handleCustomSubmit} className="max-w-2xl mx-auto mb-4">
-          <div className="bg-[#151F32] p-2 rounded-2xl shadow-lg border border-[#334155] focus-within:ring-2 focus-within:ring-[#2563EB] focus-within:border-[#2563EB] transition-all flex flex-col sm:flex-row gap-2">
+          <div className="bg-[#FFFFFF] p-2 rounded-2xl shadow-xs border border-[#E2E8F0] focus-within:ring-2 focus-within:ring-[#2563EB] focus-within:border-[#2563EB] transition-all flex flex-col sm:flex-row gap-2">
             <div className="flex-1 flex items-center pl-3">
-              <Sparkles className="w-5 h-5 text-[#22D3EE] shrink-0 mr-2.5" />
+              <Sparkles className="w-5 h-5 text-[#2563EB] shrink-0 mr-2.5" />
               <input
                 type="text"
                 value={customInput}
                 onChange={(e) => setCustomInput(e.target.value)}
                 placeholder="Describe your issue: e.g. 'Laptop shuts down unplugged'..."
-                className="w-full py-3 text-[#F8FAFC] placeholder-[#94A3B8] text-sm sm:text-base outline-none bg-transparent font-medium"
+                className="w-full py-3 text-[#0F172A] placeholder-[#94A3B8] text-sm sm:text-base outline-none bg-transparent font-medium"
               />
             </div>
             <button
               type="submit"
               disabled={!customInput.trim()}
-              className="px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shrink-0"
+              className="px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shrink-0"
             >
               <span>Start AI Fix</span>
               <ArrowRight className="w-4 h-4" />
@@ -595,13 +595,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Quick-Pick Problem Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-semibold text-[#94A3B8] mr-1">Quick Picks:</span>
+          <span className="text-xs font-semibold text-[#64748B] mr-1">Quick Picks:</span>
           {quickPicks.map((chip, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => onStartProblem(chip.prob, chip.cat)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#151F32] hover:bg-[#1E293B] text-[#CBD5E1] hover:text-[#22D3EE] border border-[#334155] hover:border-[#2563EB] transition-all shadow-2xs cursor-pointer active:scale-95"
+              className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#EFF6FF] text-[#475569] hover:text-[#2563EB] border border-[#E2E8F0] hover:border-[#BFDBFE] transition-all shadow-2xs cursor-pointer active:scale-95"
             >
               {chip.text}
             </button>
@@ -613,46 +613,46 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Live AI Health & Confidence Ticker */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left">
-          <div className="bg-[#151F32] border border-[#334155] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#1E293B] text-[#4ADE80] flex items-center justify-center shrink-0 border border-[#334155]">
-              <Zap className="w-5 h-5 text-[#4ADE80]" />
+          <div className="bg-[#FFFFFF] border border-[#E2E8F0] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-xl bg-[#F0FDF4] text-[#15803D] flex items-center justify-center shrink-0 border border-[#BBF7D0]">
+              <Zap className="w-5 h-5 text-[#15803D]" />
             </div>
             <div>
-              <div className="text-xs font-bold text-[#F8FAFC] flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
+              <div className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#15803D] animate-pulse"></span>
                 Gemini AI Active
               </div>
-              <div className="text-[11px] text-[#94A3B8]">Live smart diagnosis</div>
+              <div className="text-[11px] text-[#64748B]">Live smart diagnosis</div>
             </div>
           </div>
 
-          <div className="bg-[#151F32] border border-[#334155] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#1E293B] text-[#22D3EE] flex items-center justify-center shrink-0 border border-[#334155]">
-              <CheckCircle2 className="w-5 h-5 text-[#22D3EE]" />
+          <div className="bg-[#FFFFFF] border border-[#E2E8F0] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center shrink-0 border border-[#BFDBFE]">
+              <CheckCircle2 className="w-5 h-5 text-[#2563EB]" />
             </div>
             <div>
-              <div className="text-xs font-bold text-[#F8FAFC]">39 Master Guides</div>
-              <div className="text-[11px] text-[#94A3B8]">All 35 problems covered</div>
+              <div className="text-xs font-bold text-[#0F172A]">39 Master Guides</div>
+              <div className="text-[11px] text-[#64748B]">All 35 problems covered</div>
             </div>
           </div>
 
-          <div className="bg-[#151F32] border border-[#334155] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#1E293B] text-[#60A5FA] flex items-center justify-center shrink-0 border border-[#334155]">
-              <ShieldCheck className="w-5 h-5 text-[#60A5FA]" />
+          <div className="bg-[#FFFFFF] border border-[#E2E8F0] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-xl bg-[#F0F9FF] text-[#075985] flex items-center justify-center shrink-0 border border-[#BAE6FD]">
+              <ShieldCheck className="w-5 h-5 text-[#075985]" />
             </div>
             <div>
-              <div className="text-xs font-bold text-[#F8FAFC]">100% Safe Steps</div>
-              <div className="text-[11px] text-[#94A3B8]">Zero data or file risk</div>
+              <div className="text-xs font-bold text-[#0F172A]">100% Safe Steps</div>
+              <div className="text-[11px] text-[#64748B]">Zero data or file risk</div>
             </div>
           </div>
 
-          <div className="bg-[#151F32] border border-[#334155] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#1E293B] text-[#FBBF24] flex items-center justify-center shrink-0 border border-[#334155]">
-              <Clock className="w-5 h-5 text-[#FBBF24]" />
+          <div className="bg-[#FFFFFF] border border-[#E2E8F0] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-xl bg-[#FEF3C7] text-[#92400E] flex items-center justify-center shrink-0 border border-[#FDE68A]">
+              <Clock className="w-5 h-5 text-[#92400E]" />
             </div>
             <div>
-              <div className="text-xs font-bold text-[#F8FAFC]">Patient Pace</div>
-              <div className="text-[11px] text-[#94A3B8]">One question at a time</div>
+              <div className="text-xs font-bold text-[#0F172A]">Patient Pace</div>
+              <div className="text-[11px] text-[#64748B]">One question at a time</div>
             </div>
           </div>
         </div>
@@ -660,19 +660,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* 35 Important Common Laptop & PC Problems Explorer */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
-        <div className="bg-[#151F32] rounded-3xl p-6 sm:p-8 border border-[#334155] shadow-lg">
+        <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[#E2E8F0] shadow-sm">
           
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1E293B] text-[#22D3EE] text-xs font-extrabold uppercase tracking-wider mb-2 border border-[#334155]">
-                <Laptop className="w-3.5 h-3.5 text-[#22D3EE]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-xs font-extrabold uppercase tracking-wider mb-2 border border-[#BFDBFE]">
+                <Laptop className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>35 Common PC & Laptop Problems</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#F8FAFC] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
                 All 35 Laptop & PC Problems Covered
               </h2>
-              <p className="text-xs sm:text-sm text-[#CBD5E1] mt-1 max-w-2xl">
+              <p className="text-xs sm:text-sm text-[#64748B] mt-1 max-w-2xl">
                 Instant 1-click patient troubleshooting for every common computer breakdown. From computer overheating and black screens to slow performance and malware.
               </p>
             </div>
@@ -681,9 +681,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenKnowledge}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E293B] hover:bg-[#334155] border border-[#334155] text-[#F8FAFC] text-xs font-bold transition shadow-xs cursor-pointer shrink-0 self-start md:self-auto"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#E2E8F0] text-[#0F172A] text-xs font-bold transition shadow-2xs cursor-pointer shrink-0 self-start md:self-auto"
               >
-                <BookOpen className="w-4 h-4 text-[#22D3EE]" />
+                <BookOpen className="w-4 h-4 text-[#2563EB]" />
                 <span>Read Full Knowledge Base</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -693,18 +693,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Quick Search & Filter Tabs */}
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <div className="relative flex-1">
-              <Search className="w-4 h-4 text-[#94A3B8] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={search35Query}
                 onChange={(e) => setSearch35Query(e.target.value)}
                 placeholder="Filter 35 problems (e.g. 'overheating', 'battery', '7', 'black screen')..."
-                className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#0B1120] border border-[#334155] text-[#F8FAFC] placeholder-[#94A3B8] text-xs sm:text-sm outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-[#2563EB] transition"
+                className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] text-xs sm:text-sm outline-none focus:bg-[#FFFFFF] focus:ring-2 focus:ring-[#2563EB] focus:border-[#2563EB] transition"
               />
               {search35Query && (
                 <button
                   onClick={() => setSearch35Query('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] bg-[#1E293B] hover:bg-[#334155] text-[#CBD5E1] px-2 py-0.5 rounded font-bold transition"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] bg-[#E2E8F0] hover:bg-[#CBD5E1] text-[#0F172A] px-2 py-0.5 rounded font-bold transition cursor-pointer"
                 >
                   Clear
                 </button>
@@ -731,7 +731,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 ${
                     selected35Filter === tab.id
                       ? 'bg-[#2563EB] text-white shadow-xs'
-                      : 'bg-[#0B1120] hover:bg-[#1E293B] border border-[#334155] text-[#CBD5E1]'
+                      : 'bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#E2E8F0] text-[#475569]'
                   }`}
                 >
                   {tab.label}
@@ -763,8 +763,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     key={prob.num}
                     className={`rounded-2xl p-4 transition-all flex flex-col justify-between text-left ${
                       isOverheating
-                        ? 'bg-[#151F32] border-2 border-[#FBBF24] ring-1 ring-[#FBBF24]/30 shadow-md'
-                        : 'bg-[#0B1120] hover:bg-[#1E293B]/70 border border-[#334155] hover:border-[#2563EB] shadow-xs'
+                        ? 'bg-[#FEF3C7]/40 border-2 border-[#FDE68A] ring-1 ring-[#FDE68A]/60 shadow-xs'
+                        : 'bg-[#F8FAFC] hover:bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2563EB] shadow-2xs hover:shadow-xs'
                     }`}
                   >
                     <div>
@@ -772,31 +772,31 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         <div className="flex items-center gap-2">
                           <span className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black shrink-0 ${
                             isOverheating
-                              ? 'bg-[#FBBF24] text-slate-950 font-black'
-                              : 'bg-[#1E293B] text-[#CBD5E1] border border-[#334155]'
+                              ? 'bg-[#92400E] text-white font-black'
+                              : 'bg-[#FFFFFF] text-[#64748B] border border-[#E2E8F0]'
                           }`}>
                             #{prob.num}
                           </span>
                           <span className="text-base">{prob.icon}</span>
                         </div>
                         {isOverheating ? (
-                          <span className="inline-flex items-center gap-1 text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#FBBF24]/15 border border-[#FBBF24]/40 text-[#FBBF24] shadow-xs">
-                            <Flame className="w-3 h-3 text-[#FBBF24]" />
+                          <span className="inline-flex items-center gap-1 text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] shadow-2xs">
+                            <Flame className="w-3 h-3 text-[#92400E]" />
                             Featured
                           </span>
                         ) : (
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#334155] text-[#94A3B8]">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB]">
                             {prob.filterGroup}
                           </span>
                         )}
                       </div>
 
                       <h3 className={`text-sm font-extrabold mb-1.5 leading-snug ${
-                        isOverheating ? 'text-[#FBBF24]' : 'text-[#F8FAFC]'
+                        isOverheating ? 'text-[#92400E]' : 'text-[#0F172A]'
                       }`}>
                         {prob.num}. {prob.title}
                       </h3>
-                      <p className="text-xs text-[#CBD5E1] leading-relaxed mb-3">
+                      <p className="text-xs text-[#64748B] leading-relaxed mb-3">
                         {prob.summary}
                       </p>
                     </div>
@@ -807,7 +807,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className={`w-full py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 ${
                         isOverheating
                           ? 'bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-xs'
-                          : 'bg-[#1E293B] hover:bg-[#2563EB] text-[#22D3EE] hover:text-white border border-[#334155] hover:border-transparent'
+                          : 'bg-[#FFFFFF] hover:bg-[#2563EB] text-[#2563EB] hover:text-white border border-[#BFDBFE] hover:border-transparent shadow-2xs'
                       }`}
                     >
                       <span>Diagnose with AI</span>
@@ -831,7 +831,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             }
             return true;
           }).length === 0 && (
-            <div className="py-10 text-center text-[#94A3B8] text-xs">
+            <div className="py-10 text-center text-[#64748B] text-xs">
               No matching problems found for "{search35Query}". Try searching for keywords like "overheating", "display", or "battery".
             </div>
           )}
@@ -842,13 +842,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Category Cards Section */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
         <div className="text-center sm:text-left mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E293B] border border-[#334155] text-[#22D3EE] text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-xs font-bold uppercase tracking-wider mb-2">
             <span>Specialized Categories</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#F8FAFC]">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#0F172A]">
             Choose What Needs Help
           </h2>
-          <p className="text-sm text-[#94A3B8]">
+          <p className="text-sm text-[#64748B]">
             Click any category to launch intelligent step-by-step guidance
           </p>
         </div>
@@ -860,25 +860,25 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <button
                 key={idx}
                 onClick={() => onStartProblem(cat.defaultProblem, cat.title)}
-                className="flex flex-col text-left p-6 bg-[#151F32] rounded-2xl card-hover-lift border border-[#334155] hover:border-[#2563EB] group cursor-pointer"
+                className="flex flex-col text-left p-6 bg-[#FFFFFF] rounded-2xl card-hover-lift border border-[#E2E8F0] hover:border-[#2563EB] shadow-xs group cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${cat.color} group-hover:scale-105 transition-transform shadow-xs`}>
-                    <Icon className="w-6 h-6 text-[#22D3EE]" />
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${cat.color} group-hover:scale-105 transition-transform shadow-2xs`}>
+                    <Icon className="w-6 h-6" />
                   </div>
                   <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${cat.badgeBg}`}>
                     {cat.badge}
                   </span>
                 </div>
 
-                <h3 className="font-extrabold text-[#F8FAFC] text-base sm:text-lg mb-1.5 group-hover:text-[#22D3EE] transition leading-snug">
+                <h3 className="font-extrabold text-[#0F172A] text-base sm:text-lg mb-1.5 group-hover:text-[#2563EB] transition leading-snug">
                   {cat.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed flex-1 mb-4">
+                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed flex-1 mb-4">
                   {cat.description}
                 </p>
 
-                <div className="pt-3 border-t border-[#334155] flex items-center justify-between text-xs font-bold text-[#22D3EE]">
+                <div className="pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-bold text-[#2563EB]">
                   <span>Start diagnosis</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>
@@ -890,20 +890,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* Popular Problems Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-        <div className="bg-[#151F32] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#334155]">
+        <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 shadow-sm border border-[#E2E8F0]">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1E293B] border border-[#334155] text-[#22D3EE] text-xs font-bold mb-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-xs font-bold mb-1">
                 <span>Top User Concerns</span>
               </div>
-              <h2 className="text-lg sm:text-xl font-extrabold text-[#F8FAFC]">
+              <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A]">
                 Frequently Asked IT Problems
               </h2>
-              <p className="text-xs sm:text-sm text-[#94A3B8]">
+              <p className="text-xs sm:text-sm text-[#64748B]">
                 Tap any common issue to jump straight into the guided diagnostic wizard
               </p>
             </div>
-            <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-[#1E293B] text-[#22D3EE] text-xs font-bold border border-[#334155]">
+            <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-xs font-bold border border-[#BFDBFE]">
               Instant Launch
             </span>
           </div>
@@ -913,19 +913,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <button
                 key={idx}
                 onClick={() => onStartProblem(prob.title, prob.category)}
-                className="w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border border-[#334155] bg-[#0B1120] hover:border-[#2563EB] hover:bg-[#1E293B]/70 shadow-xs transition text-left group cursor-pointer"
+                className="w-full flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] hover:border-[#2563EB] hover:bg-[#EFF6FF] shadow-2xs transition text-left group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#2563EB] group-hover:scale-125 transition-transform shrink-0" />
-                  <span className="text-sm sm:text-base font-semibold text-[#F8FAFC] group-hover:text-[#22D3EE]">
+                  <span className="text-sm sm:text-base font-semibold text-[#0F172A] group-hover:text-[#2563EB]">
                     {prob.title}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-[#1E293B] text-[#CBD5E1] border border-[#334155] transition">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-[#FFFFFF] text-[#64748B] border border-[#E2E8F0] transition">
                     {prob.badge}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-[#94A3B8] group-hover:text-[#22D3EE] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#64748B] group-hover:text-[#2563EB] group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             ))}
@@ -935,16 +935,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* Command Prompt Assistant Banner */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-[#151F32] border border-[#334155] rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#2563EB] flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#2563EB] flex items-center justify-center shrink-0 shadow-xs">
               <Terminal className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h3 className="font-extrabold text-base sm:text-lg text-[#F8FAFC]">
+              <h3 className="font-extrabold text-base sm:text-lg text-[#0F172A]">
                 Need Help with Windows Command Prompt?
               </h3>
-              <p className="text-xs sm:text-sm text-[#CBD5E1] mt-0.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#075985] mt-0.5 leading-relaxed">
                 Browse 101 safe Windows tools, practice risk-free in the CMD Sandbox, or translate cryptic terminal outputs into plain English.
               </p>
             </div>
