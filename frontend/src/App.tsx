@@ -237,8 +237,14 @@ export function App() {
           <div className="font-semibold text-[#0F172A]">
             TechResolve AI • Patient IT Support For Everyone
           </div>
-          <div className="text-[#64748B]">
-            Built with React, TypeScript, FastAPI & Google Gemini Intelligence
+          <div className="flex items-center gap-3">
+            <a
+              href="/api/download/apk"
+              download="TechResolve-AI.apk"
+              className="text-[#0F766E] hover:text-[#115E59] font-bold inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#ECFDF5] border border-[#99F6E4] transition"
+            >
+              <span>📱 Direct Download: Android App (.APK)</span>
+            </a>
           </div>
         </div>
       </footer>

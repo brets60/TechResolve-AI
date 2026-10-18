@@ -7,7 +7,8 @@ import {
   Settings as SettingsIcon,
   LogOut,
   User as UserIcon,
-  Sparkles
+  Sparkles,
+  Download
 } from 'lucide-react';
 import { User, TroubleshootingMode } from '../types';
 
@@ -160,6 +161,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="whitespace-nowrap">IT Pro</span>
               </button>
             </div>
+
+            {/* Direct Download APK Button */}
+            <a
+              href="/api/download/apk"
+              download="TechResolve-AI.apk"
+              className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-[#0F766E] bg-[#ECFDF5] hover:bg-[#CCFBF1] border border-[#99F6E4] px-3 py-2 rounded-xl transition shadow-2xs shrink-0 cursor-pointer"
+              title="Download Android APK (Direct Link)"
+            >
+              <Download className="w-3.5 h-3.5 text-[#0F766E]" />
+              <span>Download App (.APK)</span>
+            </a>
 
             {/* Auth / Profile */}
             {user ? (
