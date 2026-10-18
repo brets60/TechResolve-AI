@@ -18,7 +18,13 @@ import {
   Battery,
   ShieldAlert,
   ChevronRight,
-  Info
+  Info,
+  Tv,
+  ExternalLink,
+  Search,
+  ChevronDown,
+  ChevronUp,
+  Play
 } from 'lucide-react';
 import { 
   TroubleshootingSession, 
@@ -29,6 +35,8 @@ import {
   BatteryAnalysis 
 } from '../types';
 import { api } from '../api';
+import { getYoutubeTutorial } from '../services/youtubeTutorials';
+import { VideoTutorialModal } from './VideoTutorialModal';
 
 interface WizardViewProps {
   session: TroubleshootingSession;
@@ -53,7 +61,12 @@ export const WizardView: React.FC<WizardViewProps> = ({
   const [clarificationLoading, setClarificationLoading] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [showInlineVideo, setShowInlineVideo] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Intelligent YouTube Video Tutorial (works for 35 problems AND any custom concern)
+  const tutorial = getYoutubeTutorial(session.problem_description, session.category);
 
   // Stages configuration
   const stages: { key: TroubleshootingStage; label: string; number: number }[] = [
@@ -213,10 +226,19 @@ export const WizardView: React.FC<WizardViewProps> = ({
           {/* Ask AI button */}
           <button
             onClick={() => setShowClarification(!showClarification)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#FFFFFF] border border-[#E2E8F0] text-[#334155] hover:text-[#0F766E] hover:bg-[#ECFDF5] hover:border-[#99F6E4] shadow-2xs transition"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#FFFFFF] border border-[#E2E8F0] text-[#334155] hover:text-[#0F766E] hover:bg-[#ECFDF5] hover:border-[#99F6E4] shadow-2xs transition cursor-pointer"
           >
             <MessageSquare className="w-3.5 h-3.5 text-[#0F766E]" />
             <span>Ask for Clarification</span>
+          </button>
+
+          {/* Watch Video Tutorial Button */}
+          <button
+            onClick={() => setShowVideoModal(true)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-[#ECFDF5] border border-[#99F6E4] text-[#0F766E] hover:bg-[#0F766E] hover:text-white shadow-2xs transition cursor-pointer"
+          >
+            <Tv className="w-3.5 h-3.5" />
+            <span>Watch Video Fix</span>
           </button>
         </div>
       </div>
@@ -514,6 +536,88 @@ export const WizardView: React.FC<WizardViewProps> = ({
                     )}
                   </div>
                 )}
+
+                {/* Inline Video Demonstration & Walkthrough */}
+                <div className="mt-5 rounded-2xl border border-[#99F6E4] bg-[#ECFDF5]/60 overflow-hidden shadow-2xs">
+                  <div className="p-3.5 sm:p-4 flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-xl bg-[#0F766E] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
+                        <Play className="w-4 h-4 fill-white" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-[#0F172A]">
+                            Prefer watching a video fix?
+                          </span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#CCFBF1] text-[#0F766E] border border-[#99F6E4]">
+                            YouTube Tutorial
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#64748B] line-clamp-1">
+                          {tutorial.title} • {tutorial.channel} {tutorial.duration ? `(${tutorial.duration})` : ''}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setShowInlineVideo(!showInlineVideo)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-xs shadow-2xs transition cursor-pointer"
+                      >
+                        {showInlineVideo ? (
+                          <>
+                            <ChevronUp className="w-3.5 h-3.5" />
+                            <span>Hide Video</span>
+                          </>
+                        ) : (
+                          <>
+                            <Play className="w-3.5 h-3.5 fill-white" />
+                            <span>Watch Video Here</span>
+                          </>
+                        )}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setShowVideoModal(true)}
+                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-[#FFFFFF] hover:bg-[#FAFAF7] border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] text-xs font-semibold shadow-2xs transition cursor-pointer"
+                        title="Open full video modal"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-[#0F766E]" />
+                        <span className="hidden sm:inline">Pop Out</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Inline Expanded Video Player */}
+                  {showInlineVideo && (
+                    <div className="p-3.5 sm:p-4 pt-0 border-t border-[#99F6E4]/40">
+                      <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0F172A] border border-[#CBD5E1] shadow-inner mb-3">
+                        <iframe
+                          src={`https://www.youtube-nocookie.com/embed/${tutorial.videoId}?autoplay=1&rel=0`}
+                          title={tutorial.title}
+                          className="w-full h-full border-0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      </div>
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#475569]">
+                        <span>💡 {tutorial.summary}</span>
+                        {!tutorial.isDirectMatch && (
+                          <a
+                            href={`https://www.youtube.com/results?search_query=${encodeURIComponent(tutorial.searchQuery)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[#0F766E] font-bold hover:underline"
+                          >
+                            <Search className="w-3 h-3" />
+                            <span>Search exact query on YouTube</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* 4. What Should Happen */}
@@ -728,6 +832,15 @@ export const WizardView: React.FC<WizardViewProps> = ({
         )}
 
       </div>
+
+      {/* Video Tutorial Modal */}
+      {showVideoModal && (
+        <VideoTutorialModal
+          tutorial={tutorial}
+          problemTitle={session.problem_description}
+          onClose={() => setShowVideoModal(false)}
+        />
+      )}
 
     </div>
   );

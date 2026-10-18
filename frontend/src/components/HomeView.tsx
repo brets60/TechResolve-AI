@@ -20,9 +20,13 @@ import {
   ShieldAlert,
   Flame,
   Search,
-  BookOpen
+  BookOpen,
+  Play,
+  Tv
 } from 'lucide-react';
 import type { TroubleshootingMode, User } from '../types';
+import { getYoutubeTutorial, VideoTutorial } from '../services/youtubeTutorials';
+import { VideoTutorialModal } from './VideoTutorialModal';
 
 interface HomeViewProps {
   onStartProblem: (problem: string, category: string) => void;
@@ -362,6 +366,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   const [customInput, setCustomInput] = useState('');
   const [selected35Filter, setSelected35Filter] = useState('All');
   const [search35Query, setSearch35Query] = useState('');
+  const [selectedVideoTutorial, setSelectedVideoTutorial] = useState<VideoTutorial | null>(null);
 
   // Dynamic greeting based on current time
   const getGreeting = () => {
@@ -582,14 +587,30 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 className="w-full py-3 text-[#0F172A] placeholder-[#94A3B8] text-sm sm:text-base outline-none bg-transparent font-medium"
               />
             </div>
-            <button
-              type="submit"
-              disabled={!customInput.trim()}
-              className="px-6 py-3.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shrink-0"
-            >
-              <span>Start AI Fix</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  if (!customInput.trim()) return;
+                  const vid = getYoutubeTutorial(customInput.trim(), 'General');
+                  setSelectedVideoTutorial(vid);
+                }}
+                disabled={!customInput.trim()}
+                className="px-4 py-3.5 rounded-xl bg-[#ECFDF5] hover:bg-[#CCFBF1] disabled:opacity-40 disabled:cursor-not-allowed text-[#0F766E] border border-[#99F6E4] font-bold text-xs sm:text-sm shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+                title="Watch YouTube video tutorial for this problem"
+              >
+                <Play className="w-4 h-4 fill-[#0F766E]" />
+                <span>Video Fix</span>
+              </button>
+              <button
+                type="submit"
+                disabled={!customInput.trim()}
+                className="px-6 py-3.5 rounded-xl bg-[#0F766E] hover:bg-[#115E59] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shrink-0"
+              >
+                <span>Start AI Fix</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </form>
 
@@ -801,18 +822,33 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       </p>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => onStartProblem(`${prob.num}. ${prob.title}: ${prob.summary}`, prob.category)}
-                      className={`w-full py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 ${
-                        isOverheating
-                          ? 'bg-[#0F766E] hover:bg-[#115E59] text-white shadow-xs'
-                          : 'bg-[#FFFFFF] hover:bg-[#0F766E] text-[#0F766E] hover:text-white border border-[#99F6E4] hover:border-transparent shadow-2xs'
-                      }`}
-                    >
-                      <span>Diagnose with AI</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                    <div className="flex items-center gap-2 mt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const vid = getYoutubeTutorial(`${prob.num}. ${prob.title}`, prob.category);
+                          setSelectedVideoTutorial(vid);
+                        }}
+                        className="py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer bg-[#ECFDF5] hover:bg-[#CCFBF1] text-[#0F766E] border border-[#99F6E4] shadow-2xs shrink-0 active:scale-95"
+                        title="Watch YouTube video tutorial for this problem"
+                      >
+                        <Play className="w-3.5 h-3.5 fill-[#0F766E]" />
+                        <span>Video Fix</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => onStartProblem(`${prob.num}. ${prob.title}: ${prob.summary}`, prob.category)}
+                        className={`flex-1 py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 ${
+                          isOverheating
+                            ? 'bg-[#0F766E] hover:bg-[#115E59] text-white shadow-xs'
+                            : 'bg-[#FFFFFF] hover:bg-[#0F766E] text-[#0F766E] hover:text-white border border-[#99F6E4] hover:border-transparent shadow-2xs'
+                        }`}
+                      >
+                        <span>Diagnose</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
                 );
               })}
@@ -960,6 +996,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
           )}
         </div>
       </div>
+
+      {/* Video Fix Tutorial Modal */}
+      {selectedVideoTutorial && (
+        <VideoTutorialModal
+          tutorial={selectedVideoTutorial}
+          problemTitle={selectedVideoTutorial.title}
+          onClose={() => setSelectedVideoTutorial(null)}
+        />
+      )}
 
     </div>
   );

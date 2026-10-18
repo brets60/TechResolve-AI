@@ -10,10 +10,13 @@ import {
   CheckCircle2, 
   ExternalLink,
   ChevronRight,
-  X
+  X,
+  Play,
+  Tv
 } from 'lucide-react';
 import { KnowledgeArticle, TroubleshootingSession } from '../types';
 import { api } from '../api';
+import { getYoutubeTutorial } from '../services/youtubeTutorials';
 
 interface KnowledgeViewProps {
   onLaunchInteractive: (articleId: string) => void;
@@ -336,6 +339,53 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                 </ul>
               </div>
             )}
+
+            {/* YouTube Video Demonstration & Walkthrough */}
+            {(() => {
+              const guideTutorial = getYoutubeTutorial(selectedArticle.title, selectedArticle.category);
+              return (
+                <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-[#FAFAF7] border border-[#E2E8F0]">
+                  <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-lg bg-[#0F766E] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
+                        <Play className="w-3.5 h-3.5 fill-white" />
+                      </div>
+                      <h4 className="font-bold text-[#0F172A] text-sm sm:text-base">
+                        Video Demonstration & Repair Walkthrough
+                      </h4>
+                    </div>
+
+                    <a
+                      href={`https://www.youtube.com/watch?v=${guideTutorial.videoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#FFFFFF] hover:bg-[#ECFDF5] border border-[#E2E8F0] hover:border-[#0F766E] text-[#0F766E] text-xs font-semibold shadow-2xs transition cursor-pointer"
+                    >
+                      <span>Watch on YouTube</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* 16:9 Video Embed */}
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0F172A] border border-[#CBD5E1] shadow-xs mb-3">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${guideTutorial.videoId}?rel=0`}
+                      title={guideTutorial.title}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#64748B]">
+                    <span className="font-medium">
+                      <strong className="text-[#0F172A]">{guideTutorial.channel}</strong> {guideTutorial.duration ? `• ${guideTutorial.duration}` : ''}
+                    </span>
+                    <span className="italic">{guideTutorial.summary}</span>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Step-by-Step Instructions */}
             {selectedArticle.steps && selectedArticle.steps.length > 0 && (
