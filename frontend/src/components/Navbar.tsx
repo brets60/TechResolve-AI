@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-95 px-3.5 lg:px-4 py-2 rounded-xl transition cursor-pointer shadow-sm hover:shadow-md hover:shadow-blue-500/20 shrink-0 whitespace-nowrap"
               >
                 <UserIcon className="w-4 h-4 text-white shrink-0" />
-                <span className="whitespace-nowrap">Sign In / Register</span>
+                <span className="whitespace-nowrap">Log In / Register</span>
               </button>
             )}
 
@@ -281,7 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <UserIcon className="w-5 h-5 text-[#22D3EE] stroke-[2.5]" />
               <span className="w-2 h-2 rounded-full bg-[#4ADE80] absolute -top-0.5 -right-0.5 animate-pulse"></span>
             </div>
-            <span className="font-bold text-[#22D3EE]">Sign In</span>
+            <span className="font-bold text-[#22D3EE]">Log In</span>
           </button>
         )}
       </nav>

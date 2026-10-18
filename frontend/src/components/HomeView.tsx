@@ -540,7 +540,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   Save Your Troubleshooting Progress
                 </h3>
                 <p className="text-xs text-[#94A3B8]">
-                  Sign in or register with Google or a One-Time Code
+                  Log in or register to sync your diagnostic history
                 </p>
               </div>
             </div>

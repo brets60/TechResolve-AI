@@ -90,7 +90,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 Account & Authentication
               </h2>
               <p className="text-xs sm:text-sm text-[#94A3B8]">
-                Sign in with Google, One-Time Code, or Email to save your diagnostic history across devices.
+                Log in or register to save your diagnostic history across devices.
               </p>
             </div>
             {user ? (
@@ -119,7 +119,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-[#F8FAFC] text-sm sm:text-base">{user.name}</span>
                     <span className="text-[11px] font-semibold uppercase px-2 py-0.5 rounded-md bg-[#2563EB]/20 text-[#22D3EE] border border-[#2563EB]/30">
-                      {user.auth_provider === 'google' ? 'Google' : user.auth_provider === 'otp' ? 'One-Time Code' : 'Password'}
+                      Active Account
                     </span>
                   </div>
                   <p className="text-xs text-[#94A3B8]">{user.email}</p>
