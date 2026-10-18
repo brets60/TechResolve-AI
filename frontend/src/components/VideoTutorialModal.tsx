@@ -25,7 +25,7 @@ export const VideoTutorialModal: React.FC<VideoTutorialModalProps> = ({
 }) => {
   const youtubeUrl = `https://www.youtube.com/watch?v=${tutorial.videoId}`;
   const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(tutorial.searchQuery)}`;
-  const embedUrl = `https://www.youtube-nocookie.com/embed/${tutorial.videoId}?autoplay=1&rel=0`;
+  const embedUrl = `https://www.youtube.com/embed/${tutorial.videoId}?rel=0&modestbranding=1`;
 
   return (
     <div 
@@ -84,6 +84,23 @@ export const VideoTutorialModal: React.FC<VideoTutorialModalProps> = ({
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
+        </div>
+
+        {/* Quick Fallback Banner if Embed is Blocked by Browser or Ad-blocker */}
+        <div className="flex items-center justify-between flex-wrap gap-2 px-3.5 py-2.5 bg-[#FAFAF7] rounded-xl border border-[#E2E8F0] mb-4 text-xs text-[#64748B]">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#15803D] inline-block animate-pulse"></span>
+            Having issues playing embedded video?
+          </span>
+          <a
+            href={youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-bold text-[#0F766E] hover:text-[#115E59] hover:underline"
+          >
+            <span>Watch directly on YouTube</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
 
         {/* Video Metadata & Creator Info */}

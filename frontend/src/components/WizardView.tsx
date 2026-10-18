@@ -594,7 +594,7 @@ export const WizardView: React.FC<WizardViewProps> = ({
                     <div className="p-3.5 sm:p-4 pt-0 border-t border-[#99F6E4]/40">
                       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0F172A] border border-[#CBD5E1] shadow-inner mb-3">
                         <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${tutorial.videoId}?autoplay=1&rel=0`}
+                          src={`https://www.youtube.com/embed/${tutorial.videoId}?rel=0&modestbranding=1`}
                           title={tutorial.title}
                           className="w-full h-full border-0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -603,17 +603,28 @@ export const WizardView: React.FC<WizardViewProps> = ({
                       </div>
                       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#475569]">
                         <span>💡 {tutorial.summary}</span>
-                        {!tutorial.isDirectMatch && (
+                        <div className="flex items-center gap-3">
                           <a
-                            href={`https://www.youtube.com/results?search_query=${encodeURIComponent(tutorial.searchQuery)}`}
+                            href={`https://www.youtube.com/watch?v=${tutorial.videoId}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 text-[#0F766E] font-bold hover:underline"
                           >
-                            <Search className="w-3 h-3" />
-                            <span>Search exact query on YouTube</span>
+                            <ExternalLink className="w-3 h-3" />
+                            <span>Watch on YouTube</span>
                           </a>
-                        )}
+                          {!tutorial.isDirectMatch && (
+                            <a
+                              href={`https://www.youtube.com/results?search_query=${encodeURIComponent(tutorial.searchQuery)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[#0F766E] font-bold hover:underline"
+                            >
+                              <Search className="w-3 h-3" />
+                              <span>Search more</span>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   )}

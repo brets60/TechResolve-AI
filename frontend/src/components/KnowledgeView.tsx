@@ -369,7 +369,7 @@ export const KnowledgeView: React.FC<KnowledgeViewProps> = ({
                   {/* 16:9 Video Embed */}
                   <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[#0F172A] border border-[#CBD5E1] shadow-xs mb-3">
                     <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${guideTutorial.videoId}?rel=0`}
+                      src={`https://www.youtube.com/embed/${guideTutorial.videoId}?rel=0&modestbranding=1`}
                       title={guideTutorial.title}
                       className="w-full h-full border-0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
